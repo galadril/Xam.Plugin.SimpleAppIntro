@@ -2,15 +2,16 @@
 Just a nice and simple AppIntro for your Xamarin Forms project 
 
 
-# Screenshots
-![example1](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/1.png) ![example2](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/2.png)
-
-
 # Setup
 * Available on Nuget:
 https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 
 !!Install into your .net standaard project. !!
+
+
+# Screenshots
+![example1](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/1.png) ![example2](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/2.png)
+
 
 
 # Usage
