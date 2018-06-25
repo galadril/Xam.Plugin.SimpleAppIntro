@@ -24,14 +24,25 @@ You can now create new simple sliders and add them to a SimpleAppIntro page
      welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "cup_icon.png");
      welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "cup_icon.png");
 
-     // Properties
-     welcomePage.ShowPositionIndicator = true;
-     welcomePage.ShowSkipButton = true;
-     welcomePage.BarColor = "#607D8B";
-
      MainPage.Navigation.PushModalAsync(welcomePage);
 ```
 
+# Properties
+You can set the next properties
+
+```
+         welcomePage.ShowPositionIndicator = true;
+         welcomePage.ShowSkipButton = true;
+```
+
+# Theming
+You can set the next colors
+
+```
+         welcomePage.BarColor = "#607D8B";
+         welcomePage.SkipButtonBackgroundColor = "#FF9700";
+         welcomePage.DoneButtonBackgroundColor = "#8AC149";
+```
 
 # Callback 
 You can use the two callback methods to get more info on the events 
