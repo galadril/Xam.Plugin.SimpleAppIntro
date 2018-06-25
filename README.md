@@ -7,12 +7,8 @@ Just a nice and simple AppIntro for your Xamarin Forms project
 
 
 # Setup
-* Available on MyGet:
-
-```
-nuget.exe install Xam.Plugin.SimpleAppIntro -Source https://www.myget.org/F/xam-plugin-simpleappintro/api/v3/index.json
-
-```
+* Available on Nuget:
+https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 
 !!Install into your .net standaard project. !!
 
