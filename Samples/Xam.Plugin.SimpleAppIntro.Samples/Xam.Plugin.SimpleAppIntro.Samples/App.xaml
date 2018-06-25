@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+   x:Class="Xam.Plugin.SimpleAppIntro.App"
+   xmlns="http://xamarin.com/schemas/2014/forms"
+   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+   <Application.Resources>
+      <Color x:Key="ButtonText">#FFFFFF</Color>
+      <Style TargetType="Button">
+         <Setter Property="TextColor" Value="{StaticResource ButtonText}" />
+         <Setter Property="BorderRadius" Value="0" />
+         <Setter Property="HorizontalOptions" Value="Fill" />
+      </Style>
+   </Application.Resources>
+</Application>

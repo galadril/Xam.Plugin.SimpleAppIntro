@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+   x:Class="Xam.Plugin.SimpleAppIntro.SimpleAppIntro"
+   xmlns="http://xamarin.com/schemas/2014/forms"
+   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+   xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
+   xmlns:vw="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
+   <ContentPage.Content>
+      <Grid
+         ColumnSpacing="0"
+         HorizontalOptions="FillAndExpand"
+         RowSpacing="0"
+         VerticalOptions="FillAndExpand">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+         </Grid.RowDefinitions>
+         <vw:CarouselView
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,0,0,-60"
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding Slides}"
+            Position="{Binding Position, Mode=TwoWay}"
+            VerticalOptions="FillAndExpand">
+            <vw:CarouselView.ItemTemplate>
+               <DataTemplate>
+                  <StackLayout BackgroundColor="{Binding Color}">
+                     <StackLayout
+                        Margin="0,-60,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Vertical"
+                        VerticalOptions="CenterAndExpand">
+                        <Image x:Name="icon" Source="{Binding Icon}" />
+                        <Label
+                           x:Name="title"
+                           HorizontalOptions="CenterAndExpand"
+                           Style="{DynamicResource TitleStyle}"
+                           Text="{Binding Title}"
+                           TextColor="White"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label
+                           x:Name="description"
+                           HorizontalOptions="CenterAndExpand"
+                           LineBreakMode="WordWrap"
+                           Style="{DynamicResource BodyStyle}"
+                           Text="{Binding Description}"
+                           TextColor="White"
+                           VerticalOptions="CenterAndExpand" />
+                     </StackLayout>
+                  </StackLayout>
+               </DataTemplate>
+            </vw:CarouselView.ItemTemplate>
+         </vw:CarouselView>
+         <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            ColumnSpacing="0"
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="75" />
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="75" />
+            </Grid.ColumnDefinitions>
+            <cntrl:CarouselIndicators
+               x:Name="carouselIndicators"
+               Grid.Row="0"
+               Grid.Column="1"
+               HorizontalOptions="CenterAndExpand"
+               IndicatorHeight="10"
+               IndicatorWidth="10"
+               IsVisible="{Binding ShowPositionIndicator}"
+               Position="{Binding Position}"
+               SelectedIndicator="selected_circle.png"
+               UnselectedIndicator="unselected_circle.png"
+               VerticalOptions="CenterAndExpand" />
+            <Button
+               x:Name="skip"
+               Grid.Row="0"
+               Grid.Column="0"
+               BackgroundColor="{Binding SkipButtonBackgroundColor}"
+               Clicked="Skip_Clicked"
+               HorizontalOptions="EndAndExpand"
+               Text="Skip"
+               TextColor="White" />
+            <Button
+               x:Name="done"
+               Grid.Row="0"
+               Grid.Column="2"
+               BackgroundColor="{Binding DoneButtonBackgroundColor}"
+               Clicked="Done_Clicked"
+               HorizontalOptions="EndAndExpand"
+               Text="Done"
+               TextColor="White" />
+         </Grid>
+      </Grid>
+   </ContentPage.Content>
+</ContentPage>
