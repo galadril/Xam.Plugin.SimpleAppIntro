@@ -12,10 +12,6 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// Constructor
       /// </summary>
-      /// <param name="title"></param>
-      /// <param name="description"></param>
-      /// <param name="icon"></param>
-      /// <param name="color"></param>
       public Slide(string title, string description, string icon, string color)
       {
          Title = title;

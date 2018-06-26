@@ -15,60 +15,63 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 ![example1](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/1.png) ![example2](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/2.png)
 
 
-
 # Usage
 You can now create new simple sliders and add them to a SimpleAppIntro page 
 
 ```
-     var welcomePage = new SimpleAppIntro();
+var welcomePage = new SimpleAppIntro();
 
-     // Add some simple slides
-     welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png");
-     welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "cup_icon.png");
-     welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "cup_icon.png");
+// Add some simple slides
+welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png");
+welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "cup_icon.png");
+welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "cup_icon.png");
 
-     MainPage.Navigation.PushModalAsync(welcomePage);
+MainPage.Navigation.PushModalAsync(welcomePage);
 ```
+
 
 # Properties
 You can set the next properties
 
 ```
-         welcomePage.ShowPositionIndicator = true;
-         welcomePage.ShowSkipButton = true;
+welcomePage.DoneText = "Finish";
+welcomePage.SkipText = "Skip";
+welcomePage.ShowPositionIndicator = true;
+welcomePage.ShowSkipButton = true;
 ```
+
 
 # Theming
 You can set the next colors
 
 ```
-         welcomePage.BarColor = "#607D8B";
-         welcomePage.SkipButtonBackgroundColor = "#FF9700";
-         welcomePage.DoneButtonBackgroundColor = "#8AC149";
+welcomePage.BarColor = "#607D8B";
+welcomePage.SkipButtonBackgroundColor = "#FF9700";
+welcomePage.DoneButtonBackgroundColor = "#8AC149";
 ```
+
 
 # Callback 
 You can use the two callback methods to get more info on the events 
 
 ```
-     welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
-     welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
+welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
+welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
 	  
+/// <summary>
+/// On skip button clicked
+/// </summary>
+private void OnSkipButtonClicked()
+{
+	Console.Write("Skip button clicked");
+}
 
-      /// <summary>
-      /// On skip button clicked
-      /// </summary>
-      private void OnSkipButtonClicked()
-      {
-         Console.Write("Skip button clicked");
-      }
-
-      /// <summary>
-      /// On done button clicked
-      /// </summary>
-      private void OnDoneButtonClicked()
-      {
-         Console.Write("Done button clicked");
-      }
+/// <summary>
+/// On done button clicked
+/// </summary>
+private void OnDoneButtonClicked()
+{
+	Console.Write("Done button clicked");
+}
 ```
 
