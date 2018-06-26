@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Xam.Plugin.SimpleAppIntro
+﻿namespace Xam.Plugin.SimpleAppIntro
 {
    /// <summary>
    /// Data container for a Slide
