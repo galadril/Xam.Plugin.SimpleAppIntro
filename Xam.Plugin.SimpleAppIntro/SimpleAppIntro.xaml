@@ -25,13 +25,17 @@
             VerticalOptions="FillAndExpand">
             <vw:CarouselView.ItemTemplate>
                <DataTemplate>
-                  <StackLayout BackgroundColor="{Binding Color}">
+                  <StackLayout Padding="20" BackgroundColor="{Binding Color}">
                      <StackLayout
                         Margin="0,-60,0,0"
                         HorizontalOptions="CenterAndExpand"
                         Orientation="Vertical"
                         VerticalOptions="CenterAndExpand">
-                        <Image x:Name="icon" Source="{Binding Icon}" />
+                        <Image
+                           x:Name="icon"
+                           Aspect="AspectFit"
+                           Source="{Binding Icon}"
+                           WidthRequest="200" />
                         <Label
                            x:Name="title"
                            HorizontalOptions="CenterAndExpand"
@@ -82,8 +86,9 @@
                Grid.Column="0"
                BackgroundColor="{Binding SkipButtonBackgroundColor}"
                Clicked="Skip_Clicked"
-               HorizontalOptions="EndAndExpand"
-               Text="Skip"
+               HorizontalOptions="FillAndExpand"
+               Opacity="0"
+               Text="{Binding SkipText}"
                TextColor="White" />
             <Button
                x:Name="done"
@@ -91,8 +96,9 @@
                Grid.Column="2"
                BackgroundColor="{Binding DoneButtonBackgroundColor}"
                Clicked="Done_Clicked"
-               HorizontalOptions="EndAndExpand"
-               Text="Done"
+               HorizontalOptions="FillAndExpand"
+               Opacity="0"
+               Text="{Binding DoneText}"
                TextColor="White" />
          </Grid>
       </Grid>

@@ -6,8 +6,14 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Xam.Plugin.SimpleAppIntro
 {
+   /// <summary>
+   /// Sample app for SimpleAppIntro
+   /// </summary>
    public partial class App : Application
    {
+      /// <summary>
+      /// Default constructor
+      /// </summary>
       public App()
       {
          InitializeComponent();
@@ -24,6 +30,8 @@ namespace Xam.Plugin.SimpleAppIntro
          // Properties
          welcomePage.ShowPositionIndicator = true;
          welcomePage.ShowSkipButton = true;
+         welcomePage.DoneText = "Finish";
+         welcomePage.SkipText = "Skip";
 
          // Theming
          welcomePage.BarColor = "#607D8B";
@@ -36,6 +44,8 @@ namespace Xam.Plugin.SimpleAppIntro
 
          MainPage.Navigation.PushModalAsync(welcomePage);
       }
+
+      #region Private
 
       /// <summary>
       /// On skip button clicked
@@ -52,5 +62,7 @@ namespace Xam.Plugin.SimpleAppIntro
       {
          Console.Write("Done button clicked");
       }
+
+      #endregion
    }
 }
