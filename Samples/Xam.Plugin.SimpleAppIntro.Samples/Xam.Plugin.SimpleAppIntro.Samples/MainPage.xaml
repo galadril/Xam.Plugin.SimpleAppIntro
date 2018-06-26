@@ -4,11 +4,16 @@
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
    <ContentPage.Content>
-      <StackLayout>
+      <StackLayout Padding="20">
          <Label
             HorizontalOptions="CenterAndExpand"
+            LineBreakMode="WordWrap"
             Text="Just a nice and simple AppIntro for your Xamarin Forms project"
             VerticalOptions="CenterAndExpand" />
+         <Button
+            Clicked="Open_Clicked"
+            HorizontalOptions="FillAndExpand"
+            Text="Open SimpleAppIntro Sample" />
       </StackLayout>
    </ContentPage.Content>
 </ContentPage>
