@@ -163,5 +163,8 @@
   <ItemGroup>
     <BundleResource Include="Resources\unselected_circle.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cup_icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
