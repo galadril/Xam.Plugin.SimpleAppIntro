@@ -39,6 +39,7 @@
                         <Label
                            x:Name="title"
                            HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
                            Style="{DynamicResource TitleStyle}"
                            Text="{Binding Title}"
                            TextColor="White"
@@ -46,6 +47,7 @@
                         <Label
                            x:Name="description"
                            HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
                            LineBreakMode="WordWrap"
                            Style="{DynamicResource BodyStyle}"
                            Text="{Binding Description}"
