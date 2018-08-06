@@ -121,7 +121,7 @@ namespace Xam.Plugin.SimpleAppIntro
       protected override async void OnAppearing()
       {
          base.OnAppearing();
-         if(ShowSkipButton) await skip.FadeTo(1, 200);
+         if (ShowSkipButton) await skip.FadeTo(1, 200);
       }
 
       #endregion
@@ -188,19 +188,32 @@ namespace Xam.Plugin.SimpleAppIntro
          Navigation.PopModalAsync();
       }
 
+#pragma warning disable S3168
       /// <summary>
       /// Position Changed
       /// </summary>
       private async void PositionChangedAsync()
+#pragma warning restore S3168 
       {
          if (Position == Slides.Count - 1)
-            await Task.WhenAll(done.FadeTo(1, 200),skip.FadeTo(0, 200));
+         {
+            done.IsVisible = true;
+            await Task.WhenAll(done.FadeTo(1, 200), skip.FadeTo(0, 200));
+            skip.IsVisible = false;
+         }
          else
          {
             if (ShowSkipButton)
+            {
+               skip.IsVisible = true;
                await Task.WhenAll(skip.FadeTo(1, 200), done.FadeTo(0, 200));
+               done.IsVisible = false;
+            }
             else
+            {
                await done.FadeTo(0, 200);
+               done.IsVisible = false;
+            }
          }
       }
 
