@@ -48,6 +48,9 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
          welcomePage.SkipButtonBackgroundColor = "#FF9700";
          welcomePage.DoneButtonBackgroundColor = "#8AC149";
 
+         // Use images instead of buttons
+         welcomePage.DoneButtonImage = "baseline_done_white_24.png";
+
          // Callbacks
          welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
          welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
