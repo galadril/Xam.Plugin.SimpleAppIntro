@@ -21,7 +21,7 @@
             Grid.Column="0"
             Margin="0,0,0,-60"
             HorizontalOptions="FillAndExpand"
-            ItemsSource="{Binding Slides}"
+            ItemsSource="{Binding Slides, Mode=TwoWay}"
             Position="{Binding Position, Mode=TwoWay}"
             VerticalOptions="FillAndExpand">
             <vw:CarouselView.ItemTemplate>

@@ -269,6 +269,8 @@ namespace Xam.Plugin.SimpleAppIntro
                else doneImage.IsVisible = false;
             }
          }
+
+         Slides = _slides;
       }
 
       #endregion
