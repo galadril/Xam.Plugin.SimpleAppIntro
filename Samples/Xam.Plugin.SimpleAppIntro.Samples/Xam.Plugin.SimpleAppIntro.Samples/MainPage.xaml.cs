@@ -30,12 +30,12 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void Open_Clicked(object sender, EventArgs e)
       {
-         var welcomePage = new SimpleAppIntro();
+         var welcomePage = new AnimatedSimpleAppIntro();
 
          // Add some simple slides
-         welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png");
-         welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "cup_icon.png");
-         welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "cup_icon.png");
+         welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "world.json");
+         welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "world.json");
+         welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "world.json");
 
          // Properties
          welcomePage.ShowPositionIndicator = true;

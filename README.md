@@ -30,6 +30,17 @@ MainPage.Navigation.PushModalAsync(welcomePage);
 ```
 
 
+# Animated
+You can also specify your own Lottie animated icon for each slide. Just create an AnimatedSimpleAppIntro like:
+
+```
+var welcomePage = new AnimatedSimpleSimpleAppIntro();
+
+// Add some simple slides
+welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "world.json");
+```
+
+
 # Properties
 You can set the next properties
 

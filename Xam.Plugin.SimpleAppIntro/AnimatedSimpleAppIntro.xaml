@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+   x:Class="Xam.Plugin.SimpleAppIntro.AnimatedSimpleAppIntro"
+   xmlns="http://xamarin.com/schemas/2014/forms"
+   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+   xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
+   xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+   xmlns:vw="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
+   <ContentPage.Content>
+      <Grid
+         ColumnSpacing="0"
+         HorizontalOptions="FillAndExpand"
+         RowSpacing="0"
+         VerticalOptions="FillAndExpand">
+         <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+         </Grid.RowDefinitions>
+         <vw:CarouselView
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,0,0,-60"
+            HorizontalOptions="FillAndExpand"
+            ItemsSource="{Binding Slides}"
+            Position="{Binding Position, Mode=TwoWay}"
+            VerticalOptions="FillAndExpand">
+            <vw:CarouselView.ItemTemplate>
+               <DataTemplate>
+                  <StackLayout Padding="20" BackgroundColor="{Binding Color}">
+                     <StackLayout
+                        Margin="0,-60,0,0"
+                        HorizontalOptions="CenterAndExpand"
+                        Orientation="Vertical"
+                        VerticalOptions="CenterAndExpand">
+                        <forms:AnimationView
+                           x:Name="icon"
+                           Animation="{Binding Icon}"
+                           AutoPlay="true"
+                           HeightRequest="200"
+                           HorizontalOptions="CenterAndExpand"
+                           Loop="true"
+                           VerticalOptions="CenterAndExpand"
+                           WidthRequest="200" />
+
+                        <Label
+                           x:Name="title"
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
+                           Style="{DynamicResource TitleStyle}"
+                           Text="{Binding Title}"
+                           TextColor="White"
+                           VerticalOptions="CenterAndExpand" />
+                        <Label
+                           x:Name="description"
+                           HorizontalOptions="CenterAndExpand"
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="WordWrap"
+                           Style="{DynamicResource BodyStyle}"
+                           Text="{Binding Description}"
+                           TextColor="White"
+                           VerticalOptions="CenterAndExpand" />
+                     </StackLayout>
+                  </StackLayout>
+               </DataTemplate>
+            </vw:CarouselView.ItemTemplate>
+         </vw:CarouselView>
+         <Grid
+            Grid.Row="1"
+            Grid.Column="0"
+            ColumnSpacing="0"
+            HorizontalOptions="FillAndExpand"
+            RowSpacing="0"
+            VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition Width="75" />
+               <ColumnDefinition Width="*" />
+               <ColumnDefinition Width="75" />
+            </Grid.ColumnDefinitions>
+            <cntrl:CarouselIndicators
+               x:Name="carouselIndicators"
+               Grid.Row="0"
+               Grid.Column="1"
+               HorizontalOptions="CenterAndExpand"
+               IndicatorHeight="10"
+               IndicatorWidth="10"
+               IsVisible="{Binding ShowPositionIndicator}"
+               Position="{Binding Position}"
+               SelectedIndicator="selected_circle.png"
+               UnselectedIndicator="unselected_circle.png"
+               VerticalOptions="CenterAndExpand" />
+
+            <StackLayout
+               Grid.Row="0"
+               Grid.Column="0"
+               HorizontalOptions="FillAndExpand"
+               Spacing="0">
+               <Button
+                  x:Name="skipButton"
+                  BackgroundColor="{Binding SkipButtonBackgroundColor}"
+                  Clicked="Skip_Clicked"
+                  HorizontalOptions="FillAndExpand"
+                  Opacity="0"
+                  Text="{Binding SkipText}"
+                  TextColor="White" />
+               <Image
+                  x:Name="skipImage"
+                  HorizontalOptions="FillAndExpand"
+                  IsVisible="False"
+                  Opacity="0"
+                  Source="{Binding SkipButtonImage}">
+                  <Image.GestureRecognizers>
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
+                  </Image.GestureRecognizers>
+               </Image>
+            </StackLayout>
+
+            <StackLayout
+               Grid.Row="0"
+               Grid.Column="2"
+               HorizontalOptions="FillAndExpand"
+               Spacing="0">
+               <Button
+                  x:Name="doneButton"
+                  BackgroundColor="{Binding DoneButtonBackgroundColor}"
+                  Clicked="Done_Clicked"
+                  HorizontalOptions="FillAndExpand"
+                  Opacity="0"
+                  Text="{Binding DoneText}"
+                  TextColor="White" />
+               <Image
+                  x:Name="doneImage"
+                  HorizontalOptions="FillAndExpand"
+                  IsVisible="False"
+                  Opacity="0"
+                  Source="{Binding DoneButtonImage}">
+                  <Image.GestureRecognizers>
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
+                  </Image.GestureRecognizers>
+               </Image>
+            </StackLayout>
+         </Grid>
+      </Grid>
+   </ContentPage.Content>
+</ContentPage>

@@ -10,7 +10,7 @@ namespace Xam.Plugin.SimpleAppIntro
    /// App intro
    /// </summary>
    [XamlCompilation(XamlCompilationOptions.Compile)]
-   public partial class SimpleAppIntro : ContentPage
+   public partial class AnimatedSimpleAppIntro : ContentPage
    {
       #region Variables
 
@@ -36,7 +36,7 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// Default Constructor
       /// </summary>
-      public SimpleAppIntro()
+      public AnimatedSimpleAppIntro()
       {
          InitializeComponent();
          if (_slides == null)
