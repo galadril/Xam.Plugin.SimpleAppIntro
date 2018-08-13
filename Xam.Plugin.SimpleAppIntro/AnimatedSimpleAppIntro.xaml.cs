@@ -23,6 +23,8 @@ namespace Xam.Plugin.SimpleAppIntro
       private string _barColor = "#607D8B";
       private string _DoneButtonBackgroundColor = "#8BC34A";
       private string _SkipButtonBackgroundColor = "#8BC34A";
+      private string _DoneButtonTextColor = "#FFFFFF";
+      private string _SkipButtonTextColor = "#FFFFFF";
       private string _DoneButtonImage = "";
       private string _SkipButtonImage = "";
       private string _skipText = "Skip";
@@ -77,6 +79,16 @@ namespace Xam.Plugin.SimpleAppIntro
       /// Bottom bar color
       /// </summary>
       public string BarColor { get { return _barColor; } set { _barColor = value; OnPropertyChanged(); } }
+
+      /// <summary>
+      /// Done Button Text Color
+      /// </summary>
+      public string DoneButtonTextColor { get { return _DoneButtonTextColor; } set { _DoneButtonTextColor = value; OnPropertyChanged(); } }
+
+      /// <summary>
+      /// Skip Button Text Color
+      /// </summary>
+      public string SkipButtonTextColor { get { return _SkipButtonTextColor; } set { _SkipButtonTextColor = value; OnPropertyChanged(); } }
 
       /// <summary>
       /// Done Button Background Color

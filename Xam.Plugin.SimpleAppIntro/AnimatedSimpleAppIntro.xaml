@@ -41,7 +41,6 @@
                            Loop="true"
                            VerticalOptions="CenterAndExpand"
                            WidthRequest="200" />
-
                         <Label
                            x:Name="title"
                            HorizontalOptions="CenterAndExpand"
@@ -88,7 +87,6 @@
                SelectedIndicator="selected_circle.png"
                UnselectedIndicator="unselected_circle.png"
                VerticalOptions="CenterAndExpand" />
-
             <StackLayout
                Grid.Row="0"
                Grid.Column="0"
@@ -101,7 +99,7 @@
                   HorizontalOptions="FillAndExpand"
                   Opacity="0"
                   Text="{Binding SkipText}"
-                  TextColor="White" />
+                  TextColor="{Binding SkipButtonTextColor}" />
                <Image
                   x:Name="skipImage"
                   HorizontalOptions="FillAndExpand"
@@ -113,7 +111,6 @@
                   </Image.GestureRecognizers>
                </Image>
             </StackLayout>
-
             <StackLayout
                Grid.Row="0"
                Grid.Column="2"
@@ -126,7 +123,7 @@
                   HorizontalOptions="FillAndExpand"
                   Opacity="0"
                   Text="{Binding DoneText}"
-                  TextColor="White" />
+                  TextColor="{Binding DoneButtonTextColor}" />
                <Image
                   x:Name="doneImage"
                   HorizontalOptions="FillAndExpand"

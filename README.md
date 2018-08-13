@@ -34,7 +34,7 @@ MainPage.Navigation.PushModalAsync(welcomePage);
 You can also specify your own Lottie animated icon for each slide. Just create an AnimatedSimpleAppIntro like:
 
 ```
-var welcomePage = new AnimatedSimpleSimpleAppIntro();
+var welcomePage = new AnimatedSimpleAppIntro();
 
 // Add some simple slides
 welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "world.json");
@@ -59,6 +59,8 @@ You can set the next colors
 welcomePage.BarColor = "#607D8B";
 welcomePage.SkipButtonBackgroundColor = "#FF9700";
 welcomePage.DoneButtonBackgroundColor = "#8AC149";
+welcomePage.SkipButtonTextColor = "#FF9700";
+welcomePage.DoneButtonTextColor = "#8AC149";
 ```
 
 And you can also specify an image instead of the default skip/done buttons:
