@@ -19,16 +19,26 @@ namespace Xam.Plugin.SimpleAppIntro
       private int _position;
       private bool _carouselViewLoaded = false;
       private bool _showSkip = true;
+      private bool _showNext = true;
       private bool _shipIndicator = true;
       private string _barColor = "#607D8B";
+
       private string _DoneButtonBackgroundColor = "#8BC34A";
+      private string _NextButtonBackgroundColor = "#8BC34A";
       private string _SkipButtonBackgroundColor = "#8BC34A";
+
       private string _DoneButtonTextColor = "#FFFFFF";
+      private string _NextButtonTextColor = "#FFFFFF";
       private string _SkipButtonTextColor = "#FFFFFF";
+
+      private string _NextButtonImage = "";
       private string _DoneButtonImage = "";
       private string _SkipButtonImage = "";
+
       private string _skipText = "Skip";
       private string _doneText = "Done";
+      private string _nextText = "Next";
+
       private List<Slide> _slides;
 
       #endregion
@@ -81,6 +91,26 @@ namespace Xam.Plugin.SimpleAppIntro
       public string BarColor { get { return _barColor; } set { _barColor = value; OnPropertyChanged(); } }
 
       /// <summary>
+      /// Done Button Background Color
+      /// </summary>
+      public string DoneButtonBackgroundColor { get { return _DoneButtonBackgroundColor; } set { _DoneButtonBackgroundColor = value; OnPropertyChanged(); } }
+
+      /// <summary>
+      /// Next Button Background Color
+      /// </summary>
+      public string NextButtonBackgroundColor { get { return _NextButtonBackgroundColor; } set { _NextButtonBackgroundColor = value; OnPropertyChanged(); } }
+
+      /// <summary>
+      /// Skip Button Background Color
+      /// </summary>
+      public string SkipButtonBackgroundColor { get { return _SkipButtonBackgroundColor; } set { _SkipButtonBackgroundColor = value; OnPropertyChanged(); } }
+
+      /// <summary>
+      /// Next Button Text Color
+      /// </summary>
+      public string NextButtonTextColor { get { return _NextButtonTextColor; } set { _NextButtonTextColor = value; OnPropertyChanged(); } }
+
+      /// <summary>
       /// Done Button Text Color
       /// </summary>
       public string DoneButtonTextColor { get { return _DoneButtonTextColor; } set { _DoneButtonTextColor = value; OnPropertyChanged(); } }
@@ -91,14 +121,9 @@ namespace Xam.Plugin.SimpleAppIntro
       public string SkipButtonTextColor { get { return _SkipButtonTextColor; } set { _SkipButtonTextColor = value; OnPropertyChanged(); } }
 
       /// <summary>
-      /// Done Button Background Color
+      /// NExt button image source
       /// </summary>
-      public string DoneButtonBackgroundColor { get { return _DoneButtonBackgroundColor; } set { _DoneButtonBackgroundColor = value; OnPropertyChanged(); } }
-
-      /// <summary>
-      /// Skip Button Background Color
-      /// </summary>
-      public string SkipButtonBackgroundColor { get { return _SkipButtonBackgroundColor; } set { _SkipButtonBackgroundColor = value; OnPropertyChanged(); } }
+      public string NextButtonImage { get { return _NextButtonImage; } set { _NextButtonImage = value; OnPropertyChanged(); } }
 
       /// <summary>
       /// Done button image source
@@ -126,6 +151,11 @@ namespace Xam.Plugin.SimpleAppIntro
       public bool ShowSkipButton { get { return _showSkip; } set { _showSkip = value; OnPropertyChanged(); } }
 
       /// <summary>
+      /// Show next button
+      /// </summary>
+      public bool ShowNextButton { get { return _showNext; } set { _showNext = value; OnPropertyChanged(); } }
+
+      /// <summary>
       /// Show skip text
       /// </summary>
       public string SkipText { get { return _skipText; } set { _skipText = value; OnPropertyChanged(); } }
@@ -134,6 +164,11 @@ namespace Xam.Plugin.SimpleAppIntro
       /// Show done text
       /// </summary>
       public string DoneText { get { return _doneText; } set { _doneText = value; OnPropertyChanged(); } }
+
+      /// <summary>
+      /// Show next text
+      /// </summary>
+      public string NextText { get { return _nextText; } set { _nextText = value; OnPropertyChanged(); } }
 
       #endregion
 
@@ -159,6 +194,21 @@ namespace Xam.Plugin.SimpleAppIntro
                await skipImage.FadeTo(1, 200);
                skipButton.IsVisible = false;
                skipImage.IsVisible = true;
+            }
+            if (ShowNextButton)
+            {
+               if (String.IsNullOrEmpty(NextButtonImage))
+               {
+                  await nextButton.FadeTo(1, 200);
+                  nextImage.IsVisible = false;
+                  nextButton.IsVisible = true;
+               }
+               else
+               {
+                  await nextImage.FadeTo(1, 200);
+                  nextButton.IsVisible = false;
+                  nextImage.IsVisible = true;
+               }
             }
          }
       }
@@ -211,6 +261,15 @@ namespace Xam.Plugin.SimpleAppIntro
       }
 
       /// <summary>
+      /// Next button clicked, pop navigation
+      /// </summary>
+      private void Next_Clicked(object sender, EventArgs e)
+      {
+         if (Position < (Slides.Count - 1))
+            this.Position++;
+      }
+
+      /// <summary>
       /// Skip button clicked, pop navigation
       /// </summary>
       private void Skip_Clicked(object sender, EventArgs e)
@@ -235,19 +294,32 @@ namespace Xam.Plugin.SimpleAppIntro
       private async void PositionChangedAsync()
 #pragma warning restore S3168 
       {
-         if (Position == Slides.Count - 1)
+         if (Position == Slides.Count - 1) ///last slide
          {
             if (String.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = true;
             else doneImage.IsVisible = true;
-
+            Task hideNextButton = Task.Delay(0);
+            if (ShowNextButton)
+            {
+               if (String.IsNullOrEmpty(NextButtonImage))
+               {
+                  nextButton.IsVisible = false;
+                  hideNextButton = nextButton.FadeTo(0, 200);
+               }
+               else
+               {
+                  nextImage.IsVisible = false;
+                  hideNextButton = nextImage.FadeTo(0, 200);
+               }
+            }
             if (String.IsNullOrEmpty(DoneButtonImage) && String.IsNullOrEmpty(SkipButtonImage))
-               await Task.WhenAll(doneButton.FadeTo(1, 200), skipButton.FadeTo(0, 200));
+               await Task.WhenAll(doneButton.FadeTo(1, 200), skipButton.FadeTo(0, 200), hideNextButton);
             else if (String.IsNullOrEmpty(DoneButtonImage))
-               await Task.WhenAll(doneButton.FadeTo(1, 200), skipImage.FadeTo(0, 200));
+               await Task.WhenAll(doneButton.FadeTo(1, 200), skipImage.FadeTo(0, 200), hideNextButton);
             else if (String.IsNullOrEmpty(SkipButtonImage))
-               await Task.WhenAll(doneImage.FadeTo(1, 200), skipButton.FadeTo(0, 200));
+               await Task.WhenAll(doneImage.FadeTo(1, 200), skipButton.FadeTo(0, 200), hideNextButton);
             else
-               await Task.WhenAll(doneImage.FadeTo(1, 200), skipImage.FadeTo(0, 200));
+               await Task.WhenAll(doneImage.FadeTo(1, 200), skipImage.FadeTo(0, 200), hideNextButton);
 
             if (String.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
             else skipImage.IsVisible = true;
@@ -258,32 +330,59 @@ namespace Xam.Plugin.SimpleAppIntro
             {
                if (String.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
                else skipImage.IsVisible = true;
+               Task showNextButton = Task.Delay(0);
+               if (ShowNextButton)
+               {
+                  if (String.IsNullOrEmpty(NextButtonImage))
+                  {
+                     nextButton.IsVisible = true;
+                     showNextButton = nextButton.FadeTo(1, 200);
+                  }
+                  else
+                  {
+                     nextImage.IsVisible = true;
+                     showNextButton = nextImage.FadeTo(1, 200);
+                  }
+               }
 
                if (String.IsNullOrEmpty(DoneButtonImage) && String.IsNullOrEmpty(SkipButtonImage))
-                  await Task.WhenAll(skipButton.FadeTo(1, 200), doneButton.FadeTo(0, 200));
+                  await Task.WhenAll(skipButton.FadeTo(1, 200), doneButton.FadeTo(0, 200), showNextButton);
                else if (String.IsNullOrEmpty(DoneButtonImage))
-                  await Task.WhenAll(skipImage.FadeTo(1, 200), doneButton.FadeTo(0, 200));
+                  await Task.WhenAll(skipImage.FadeTo(1, 200), doneButton.FadeTo(0, 200), showNextButton);
                else if (String.IsNullOrEmpty(SkipButtonImage))
-                  await Task.WhenAll(skipButton.FadeTo(1, 200), doneImage.FadeTo(0, 200));
+                  await Task.WhenAll(skipButton.FadeTo(1, 200), doneImage.FadeTo(0, 200), showNextButton);
                else
-                  await Task.WhenAll(skipImage.FadeTo(1, 200), doneImage.FadeTo(0, 200));
+                  await Task.WhenAll(skipImage.FadeTo(1, 200), doneImage.FadeTo(0, 200), showNextButton);
 
                if (String.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
                else doneImage.IsVisible = false;
             }
             else
             {
+               Task showNextButton = Task.Delay(0);
+               if (ShowNextButton)
+               {
+                  if (String.IsNullOrEmpty(NextButtonImage))
+                  {
+                     nextButton.IsVisible = true;
+                     showNextButton = nextButton.FadeTo(1, 200);
+                  }
+                  else
+                  {
+                     nextImage.IsVisible = true;
+                     showNextButton = nextImage.FadeTo(1, 200);
+                  }
+               }
+
                if (String.IsNullOrEmpty(DoneButtonImage))
-                  await doneButton.FadeTo(0, 200);
+                  await Task.WhenAll(doneButton.FadeTo(0, 200), showNextButton);
                else
-                  await doneImage.FadeTo(0, 200);
+                  await Task.WhenAll(doneImage.FadeTo(0, 200), showNextButton);
 
                if (String.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
                else doneImage.IsVisible = false;
             }
          }
-
-         Slides = _slides;
       }
 
       #endregion

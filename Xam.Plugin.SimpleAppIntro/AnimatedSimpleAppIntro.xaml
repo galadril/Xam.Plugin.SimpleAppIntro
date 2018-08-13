@@ -137,6 +137,25 @@
                      <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
                   </Image.GestureRecognizers>
                </Image>
+               <Button
+                  x:Name="nextButton"
+                  BackgroundColor="{Binding NextButtonBackgroundColor}"
+                  Clicked="Next_Clicked"
+                  HeightRequest="60"
+                  HorizontalOptions="FillAndExpand"
+                  Opacity="0"
+                  Text="{Binding NextText}"
+                  TextColor="{Binding NextButtonTextColor}" />
+               <Image
+                  x:Name="nextImage"
+                  HorizontalOptions="FillAndExpand"
+                  IsVisible="False"
+                  Opacity="0"
+                  Source="{Binding NextButtonImage}">
+                  <Image.GestureRecognizers>
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
+                  </Image.GestureRecognizers>
+               </Image>
             </StackLayout>
          </Grid>
       </Grid>
