@@ -36,10 +36,10 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
          welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic);
-         welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "world.json",
+         welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic);
-         welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "world.json",
+         welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "send_message_done.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic);
 

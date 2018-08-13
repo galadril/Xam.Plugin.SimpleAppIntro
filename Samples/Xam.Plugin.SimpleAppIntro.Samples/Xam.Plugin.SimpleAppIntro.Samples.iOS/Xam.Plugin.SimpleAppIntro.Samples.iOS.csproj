@@ -95,6 +95,8 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <BundleResource Include="world.json" />
+    <BundleResource Include="send_message_done.json" />
+    <BundleResource Include="twitter_heart.json" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

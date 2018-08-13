@@ -73,6 +73,8 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\world.json" />
+    <AndroidAsset Include="Assets\send_message_done.json" />
+    <AndroidAsset Include="Assets\twitter_heart.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

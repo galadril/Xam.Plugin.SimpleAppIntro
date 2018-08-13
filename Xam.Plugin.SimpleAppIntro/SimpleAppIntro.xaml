@@ -101,10 +101,12 @@
                   TextColor="{Binding SkipButtonTextColor}" />
                <Image
                   x:Name="skipImage"
+                  Margin="0,20,0,0"
                   HorizontalOptions="FillAndExpand"
                   IsVisible="False"
                   Opacity="0"
-                  Source="{Binding SkipButtonImage}">
+                  Source="{Binding SkipButtonImage}"
+                  VerticalOptions="End">
                   <Image.GestureRecognizers>
                      <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
                   </Image.GestureRecognizers>
@@ -126,10 +128,12 @@
                   TextColor="{Binding DoneButtonTextColor}" />
                <Image
                   x:Name="doneImage"
+                  Margin="0,20,0,0"
                   HorizontalOptions="FillAndExpand"
                   IsVisible="False"
                   Opacity="0"
-                  Source="{Binding DoneButtonImage}">
+                  Source="{Binding DoneButtonImage}"
+                  VerticalOptions="End">
                   <Image.GestureRecognizers>
                      <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
                   </Image.GestureRecognizers>
@@ -145,10 +149,12 @@
                   TextColor="{Binding NextButtonTextColor}" />
                <Image
                   x:Name="nextImage"
+                  Margin="0,20,0,0"
                   HorizontalOptions="FillAndExpand"
                   IsVisible="False"
                   Opacity="0"
-                  Source="{Binding NextButtonImage}">
+                  Source="{Binding NextButtonImage}"
+                  VerticalOptions="End">
                   <Image.GestureRecognizers>
                      <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
                   </Image.GestureRecognizers>
