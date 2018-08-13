@@ -11,8 +11,8 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 !!Install into your .net standaard project. !!
 
 
-# Screenshots
-![example1](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/1.png) ![example2](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/2.png)
+# Example
+![simpleappintro](https://user-images.githubusercontent.com/14561640/44038252-af731b2c-9f16-11e8-82f5-e547e7ec7cea.gif)
 
 
 # Usage
