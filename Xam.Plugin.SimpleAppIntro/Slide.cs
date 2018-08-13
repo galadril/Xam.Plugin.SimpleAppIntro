@@ -1,5 +1,6 @@
 ﻿using Xamarin.Forms;
 
+
 namespace Xam.Plugin.SimpleAppIntro
 {
    /// <summary>
