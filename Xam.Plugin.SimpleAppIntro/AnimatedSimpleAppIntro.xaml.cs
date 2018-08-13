@@ -167,6 +167,7 @@ namespace Xam.Plugin.SimpleAppIntro
 
       #region Public
 
+
       /// <summary>
       /// Add slide with properties
       /// </summary>
@@ -174,16 +175,16 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <param name="description">Description</param>
       /// <param name="icon">Icon source</param>
       /// <param name="color">Color of the slide</param>
-      public void AddSlide(String title, String description, String icon, String color = null)
+      public void AddSlide(String title, String description, String icon, String color = null, String titleTextColor = "#FFFFFF", String descriptionTextColor = "#FFFFFF")
       {
          color = GetColor(color);
          if (!_carouselViewLoaded)
          {
-            _slides[0] = new Slide(title, description, icon, color);
+            _slides[0] = new Slide(title, description, icon, color, titleTextColor, descriptionTextColor);
             _carouselViewLoaded = true;
          }
          else
-            _slides.Add(new Slide(title, description, icon, color));
+            _slides.Add(new Slide(title, description, icon, color, titleTextColor, descriptionTextColor));
          carouselIndicators.ItemsSource = _slides;
          OnPropertyChanged();
          PositionChangedAsync();

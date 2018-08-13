@@ -8,12 +8,14 @@
       /// <summary>
       /// Constructor
       /// </summary>
-      public Slide(string title, string description, string icon, string color)
+      public Slide(string title, string description, string icon, string backgroundColor, string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF")
       {
          Title = title;
          Description = description;
          Icon = icon;
-         Color = color;
+         Color = backgroundColor;
+         TitleTextColor = titleTextColor;
+         DescriptionTextColor = descriptionTextColor;
       }
 
       /// <summary>
@@ -35,5 +37,15 @@
       /// Background Color
       /// </summary>
       public string Color { get; set; }
+
+      /// <summary>
+      /// Title text color
+      /// </summary>
+      public string TitleTextColor { get; set; }
+
+      /// <summary>
+      /// Description text color
+      /// </summary>
+      public string DescriptionTextColor { get; set; }
    }
 }

@@ -42,7 +42,7 @@
                            HorizontalTextAlignment="Center"
                            Style="{DynamicResource TitleStyle}"
                            Text="{Binding Title}"
-                           TextColor="White"
+                           TextColor="{Binding TitleTextColor}"
                            VerticalOptions="CenterAndExpand" />
                         <Label
                            x:Name="description"
@@ -51,7 +51,7 @@
                            LineBreakMode="WordWrap"
                            Style="{DynamicResource BodyStyle}"
                            Text="{Binding Description}"
-                           TextColor="White"
+                           TextColor="{Binding DescriptionTextColor}"
                            VerticalOptions="CenterAndExpand" />
                      </StackLayout>
                   </StackLayout>

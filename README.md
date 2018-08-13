@@ -59,8 +59,9 @@ You can set the next colors
 welcomePage.BarColor = "#607D8B";
 welcomePage.SkipButtonBackgroundColor = "#FF9700";
 welcomePage.DoneButtonBackgroundColor = "#8AC149";
-welcomePage.SkipButtonTextColor = "#FF9700";
-welcomePage.DoneButtonTextColor = "#8AC149";
+
+welcomePage.SkipButtonTextColor = "#FFFFFF";
+welcomePage.DoneButtonTextColor = "#FFFFFF";
 ```
 
 And you can also specify an image instead of the default skip/done buttons:
@@ -68,6 +69,7 @@ And you can also specify an image instead of the default skip/done buttons:
 ```
 welcomePage.DoneButtonImage = "baseline_done_white_24.png";
 ```
+
 
 
 # Callback 
