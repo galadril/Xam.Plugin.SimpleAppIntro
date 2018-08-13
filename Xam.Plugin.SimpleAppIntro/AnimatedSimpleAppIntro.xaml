@@ -14,7 +14,7 @@
          VerticalOptions="FillAndExpand">
          <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
+            <RowDefinition Height="60" />
          </Grid.RowDefinitions>
          <vw:CarouselView
             Grid.Row="0"
@@ -28,7 +28,7 @@
                <DataTemplate>
                   <StackLayout Padding="20" BackgroundColor="{Binding Color}">
                      <StackLayout
-                        Margin="0,-60,0,0"
+                        Margin="0,-230,0,0"
                         HorizontalOptions="CenterAndExpand"
                         Orientation="Vertical"
                         VerticalOptions="CenterAndExpand">
@@ -43,6 +43,7 @@
                            WidthRequest="200" />
                         <Label
                            x:Name="title"
+                           Margin="0,50,0,20"
                            HorizontalOptions="CenterAndExpand"
                            HorizontalTextAlignment="Center"
                            Style="{DynamicResource TitleStyle}"
@@ -96,6 +97,7 @@
                   x:Name="skipButton"
                   BackgroundColor="{Binding SkipButtonBackgroundColor}"
                   Clicked="Skip_Clicked"
+                  HeightRequest="60"
                   HorizontalOptions="FillAndExpand"
                   Opacity="0"
                   Text="{Binding SkipText}"
@@ -120,6 +122,7 @@
                   x:Name="doneButton"
                   BackgroundColor="{Binding DoneButtonBackgroundColor}"
                   Clicked="Done_Clicked"
+                  HeightRequest="60"
                   HorizontalOptions="FillAndExpand"
                   Opacity="0"
                   Text="{Binding DoneText}"
