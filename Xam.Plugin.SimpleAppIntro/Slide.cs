@@ -1,4 +1,6 @@
-﻿namespace Xam.Plugin.SimpleAppIntro
+﻿using Xamarin.Forms;
+
+namespace Xam.Plugin.SimpleAppIntro
 {
    /// <summary>
    /// Data container for a Slide
@@ -8,7 +10,9 @@
       /// <summary>
       /// Constructor
       /// </summary>
-      public Slide(string title, string description, string icon, string backgroundColor, string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF")
+      public Slide(string title, string description, string icon, string backgroundColor, 
+         string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF", 
+         FontAttributes titleFontAttributes= FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None)
       {
          Title = title;
          Description = description;
@@ -16,6 +20,8 @@
          Color = backgroundColor;
          TitleTextColor = titleTextColor;
          DescriptionTextColor = descriptionTextColor;
+         TitleFontAttributes = titleFontAttributes;
+         DescriptionFontAttributes = descriptionFontAttributes;
       }
 
       /// <summary>
@@ -47,5 +53,15 @@
       /// Description text color
       /// </summary>
       public string DescriptionTextColor { get; set; }
+
+      /// <summary>
+      /// Description text color
+      /// </summary>
+      public FontAttributes TitleFontAttributes { get; set; }
+
+      /// <summary>
+      /// Description text color
+      /// </summary>
+      public FontAttributes DescriptionFontAttributes { get; set; }
    }
 }

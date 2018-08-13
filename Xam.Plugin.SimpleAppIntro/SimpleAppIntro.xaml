@@ -39,6 +39,7 @@
                         <Label
                            x:Name="title"
                            Margin="0,50,0,20"
+                           FontAttributes="{Binding TitleFontAttributes}"
                            HorizontalOptions="CenterAndExpand"
                            HorizontalTextAlignment="Center"
                            Style="{DynamicResource TitleStyle}"
@@ -47,6 +48,7 @@
                            VerticalOptions="CenterAndExpand" />
                         <Label
                            x:Name="description"
+                           FontAttributes="{Binding DescriptionFontAttributes}"
                            HorizontalOptions="CenterAndExpand"
                            HorizontalTextAlignment="Center"
                            LineBreakMode="WordWrap"
