@@ -36,13 +36,13 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
          // Add some simple slides
          welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic);
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
          welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic);
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
          welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic);
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
 
          // Properties
          welcomePage.ShowPositionIndicator = true;
@@ -78,7 +78,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
          // Add some simple slides
          welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 24);
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
          welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16);

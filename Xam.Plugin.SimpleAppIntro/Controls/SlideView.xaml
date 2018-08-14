@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+   x:Class="Xam.Plugin.SimpleAppIntro.Controls.SlideView"
+   xmlns="http://xamarin.com/schemas/2014/forms"
+   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+   <ContentView.Content>
+      <StackLayout Padding="20" BackgroundColor="{Binding Color}">
+         <StackLayout
+            x:Name="mainStack"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="StartAndExpand">
+            <Image
+               x:Name="icon"
+               Aspect="AspectFit"
+               Source="{Binding Icon}"
+               WidthRequest="200" />
+            <StackLayout Spacing="0">
+               <Label
+                  x:Name="title"
+                  Margin="0,35,0,20"
+                  FontAttributes="{Binding TitleFontAttributes}"
+                  FontSize="{Binding TitleFontSize}"
+                  HorizontalOptions="CenterAndExpand"
+                  HorizontalTextAlignment="Center"
+                  Style="{DynamicResource TitleStyle}"
+                  Text="{Binding Title}"
+                  TextColor="{Binding TitleTextColor}"
+                  VerticalOptions="CenterAndExpand">
+                  <VisualStateManager.VisualStateGroups>
+                     <VisualStateGroup Name="OrientationStates">
+                        <VisualState Name="Portrait">
+                           <VisualState.Setters>
+                              <Setter Property="Margin" Value="0,35,0,20" />
+                           </VisualState.Setters>
+                        </VisualState>
+                        <VisualState Name="Landscape">
+                           <VisualState.Setters>
+                              <Setter Property="Margin" Value="0,0,0,20" />
+                           </VisualState.Setters>
+                        </VisualState>
+                     </VisualStateGroup>
+                  </VisualStateManager.VisualStateGroups>
+               </Label>
+               <Label
+                  x:Name="description"
+                  FontAttributes="{Binding DescriptionFontAttributes}"
+                  FontSize="{Binding DescriptionFontSize}"
+                  HorizontalOptions="CenterAndExpand"
+                  HorizontalTextAlignment="Center"
+                  LineBreakMode="WordWrap"
+                  Style="{DynamicResource BodyStyle}"
+                  Text="{Binding Description}"
+                  TextColor="{Binding DescriptionTextColor}"
+                  VerticalOptions="CenterAndExpand" />
+            </StackLayout>
+            <VisualStateManager.VisualStateGroups>
+               <VisualStateGroup Name="OrientationStates">
+                  <VisualState Name="Portrait">
+                     <VisualState.Setters>
+                        <Setter Property="Orientation" Value="Vertical" />
+                        <Setter Property="Margin" Value="0,75,0,0" />
+                     </VisualState.Setters>
+                  </VisualState>
+                  <VisualState Name="Landscape">
+                     <VisualState.Setters>
+                        <Setter Property="Orientation" Value="Horizontal" />
+                        <Setter Property="Margin" Value="0,30,0,0" />
+                     </VisualState.Setters>
+                  </VisualState>
+               </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+         </StackLayout>
+      </StackLayout>
+   </ContentView.Content>
+</ContentView>

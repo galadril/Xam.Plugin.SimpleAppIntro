@@ -4,10 +4,10 @@
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
    xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
-   xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
    xmlns:vw="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
    <ContentPage.Content>
       <Grid
+         x:Name="mainGrid"
          ColumnSpacing="0"
          HorizontalOptions="FillAndExpand"
          RowSpacing="0"
@@ -26,45 +26,8 @@
             VerticalOptions="FillAndExpand">
             <vw:CarouselView.ItemTemplate>
                <DataTemplate>
-                  <StackLayout Padding="20" BackgroundColor="{Binding Color}">
-                     <StackLayout
-                        Margin="0,50,0,0"
-                        HorizontalOptions="CenterAndExpand"
-                        Orientation="Vertical"
-                        VerticalOptions="StartAndExpand">
-                        <forms:AnimationView
-                           x:Name="icon"
-                           Animation="{Binding Icon}"
-                           AutoPlay="true"
-                           HeightRequest="200"
-                           HorizontalOptions="CenterAndExpand"
-                           Loop="true"
-                           VerticalOptions="CenterAndExpand"
-                           WidthRequest="200" />
-                        <Label
-                           x:Name="title"
-                           Margin="0,35,0,20"
-                           FontAttributes="{Binding TitleFontAttributes}"
-                           FontSize="{Binding TitleFontSize}"
-                           HorizontalOptions="CenterAndExpand"
-                           HorizontalTextAlignment="Center"
-                           Style="{DynamicResource TitleStyle}"
-                           Text="{Binding Title}"
-                           TextColor="{Binding TitleTextColor}"
-                           VerticalOptions="CenterAndExpand" />
-                        <Label
-                           x:Name="description"
-                           FontAttributes="{Binding DescriptionFontAttributes}"
-                           FontSize="{Binding DescriptionFontSize}"
-                           HorizontalOptions="CenterAndExpand"
-                           HorizontalTextAlignment="Center"
-                           LineBreakMode="WordWrap"
-                           Style="{DynamicResource BodyStyle}"
-                           Text="{Binding Description}"
-                           TextColor="{Binding DescriptionTextColor}"
-                           VerticalOptions="CenterAndExpand" />
-                     </StackLayout>
-                  </StackLayout>
+                  <cntrl:AnimatedSlideView />
+
                </DataTemplate>
             </vw:CarouselView.ItemTemplate>
          </vw:CarouselView>

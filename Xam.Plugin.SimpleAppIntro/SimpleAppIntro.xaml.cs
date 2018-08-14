@@ -55,6 +55,12 @@ namespace Xam.Plugin.SimpleAppIntro
             _slides = new List<Slide>();
          _slides.Add(new Slide("", "", "", "#009688"));
          BindingContext = this;
+
+         SizeChanged += (sender, args) =>
+         {
+            string visualState = Width > Height ? "Landscape" : "Portrait";
+            VisualStateManager.GoToState(mainGrid, visualState);
+         };
       }
 
       #endregion

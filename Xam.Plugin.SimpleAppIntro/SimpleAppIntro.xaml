@@ -7,6 +7,7 @@
    xmlns:vw="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
    <ContentPage.Content>
       <Grid
+         x:Name="mainGrid"
          ColumnSpacing="0"
          HorizontalOptions="FillAndExpand"
          RowSpacing="0"
@@ -25,41 +26,7 @@
             VerticalOptions="FillAndExpand">
             <vw:CarouselView.ItemTemplate>
                <DataTemplate>
-                  <StackLayout Padding="20" BackgroundColor="{Binding Color}">
-                     <StackLayout
-                        Margin="0,75,0,0"
-                        HorizontalOptions="CenterAndExpand"
-                        Orientation="Vertical"
-                        VerticalOptions="StartAndExpand">
-                        <Image
-                           x:Name="icon"
-                           Aspect="AspectFit"
-                           Source="{Binding Icon}"
-                           WidthRequest="200" />
-                        <Label
-                           x:Name="title"
-                           Margin="0,35,0,20"
-                           FontAttributes="{Binding TitleFontAttributes}"
-                           FontSize="{Binding TitleFontSize}"
-                           HorizontalOptions="CenterAndExpand"
-                           HorizontalTextAlignment="Center"
-                           Style="{DynamicResource TitleStyle}"
-                           Text="{Binding Title}"
-                           TextColor="{Binding TitleTextColor}"
-                           VerticalOptions="CenterAndExpand" />
-                        <Label
-                           x:Name="description"
-                           FontAttributes="{Binding DescriptionFontAttributes}"
-                           FontSize="{Binding DescriptionFontSize}"
-                           HorizontalOptions="CenterAndExpand"
-                           HorizontalTextAlignment="Center"
-                           LineBreakMode="WordWrap"
-                           Style="{DynamicResource BodyStyle}"
-                           Text="{Binding Description}"
-                           TextColor="{Binding DescriptionTextColor}"
-                           VerticalOptions="CenterAndExpand" />
-                     </StackLayout>
-                  </StackLayout>
+                  <cntrl:SlideView />
                </DataTemplate>
             </vw:CarouselView.ItemTemplate>
          </vw:CarouselView>
