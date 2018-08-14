@@ -13,7 +13,11 @@
          <Button
             Clicked="Open_Clicked"
             HorizontalOptions="FillAndExpand"
-            Text="Open SimpleAppIntro Sample" />
+            Text="Open Animated SimpleAppIntro Sample" />
+         <Button
+            Clicked="Open_Static_Clicked"
+            HorizontalOptions="FillAndExpand"
+            Text="Open Static SimpleAppIntro Sample" />
       </StackLayout>
    </ContentPage.Content>
 </ContentPage>
