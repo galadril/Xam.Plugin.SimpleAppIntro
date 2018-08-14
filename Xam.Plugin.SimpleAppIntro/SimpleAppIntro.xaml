@@ -20,17 +20,17 @@
             Grid.Column="0"
             Margin="0,0,0,-60"
             HorizontalOptions="FillAndExpand"
-            ItemsSource="{Binding Slides}"
+            ItemsSource="{Binding Slides, Mode=TwoWay}"
             Position="{Binding Position, Mode=TwoWay}"
             VerticalOptions="FillAndExpand">
             <vw:CarouselView.ItemTemplate>
                <DataTemplate>
                   <StackLayout Padding="20" BackgroundColor="{Binding Color}">
                      <StackLayout
-                        Margin="0,-230,0,0"
+                        Margin="0,75,0,0"
                         HorizontalOptions="CenterAndExpand"
                         Orientation="Vertical"
-                        VerticalOptions="CenterAndExpand">
+                        VerticalOptions="StartAndExpand">
                         <Image
                            x:Name="icon"
                            Aspect="AspectFit"
@@ -38,8 +38,9 @@
                            WidthRequest="200" />
                         <Label
                            x:Name="title"
-                           Margin="0,50,0,20"
+                           Margin="0,35,0,20"
                            FontAttributes="{Binding TitleFontAttributes}"
+                           FontSize="{Binding TitleFontSize}"
                            HorizontalOptions="CenterAndExpand"
                            HorizontalTextAlignment="Center"
                            Style="{DynamicResource TitleStyle}"
@@ -49,6 +50,7 @@
                         <Label
                            x:Name="description"
                            FontAttributes="{Binding DescriptionFontAttributes}"
+                           FontSize="{Binding DescriptionFontSize}"
                            HorizontalOptions="CenterAndExpand"
                            HorizontalTextAlignment="Center"
                            LineBreakMode="WordWrap"

@@ -12,7 +12,8 @@ namespace Xam.Plugin.SimpleAppIntro
       /// </summary>
       public Slide(string title, string description, string icon, string backgroundColor, 
          string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF", 
-         FontAttributes titleFontAttributes= FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None)
+         FontAttributes titleFontAttributes= FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None,
+         int titleFontSize = 24, int descriptionFontSize = 16)
       {
          Title = title;
          Description = description;
@@ -22,6 +23,8 @@ namespace Xam.Plugin.SimpleAppIntro
          DescriptionTextColor = descriptionTextColor;
          TitleFontAttributes = titleFontAttributes;
          DescriptionFontAttributes = descriptionFontAttributes;
+         TitleFontSize = titleFontSize;
+         DescriptionFontSize = descriptionFontSize;
       }
 
       /// <summary>
@@ -63,5 +66,15 @@ namespace Xam.Plugin.SimpleAppIntro
       /// Description text color
       /// </summary>
       public FontAttributes DescriptionFontAttributes { get; set; }
+
+      /// <summary>
+      /// Title font size
+      /// </summary>
+      public int TitleFontSize { get; set; }
+
+      /// <summary>
+      /// Description font size
+      /// </summary>
+      public int DescriptionFontSize { get; set; }
    }
 }
