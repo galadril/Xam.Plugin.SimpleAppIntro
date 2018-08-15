@@ -4,6 +4,7 @@
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
    xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
+   xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views"
    xmlns:vw="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
    <ContentPage.Content>
       <Grid
@@ -26,8 +27,7 @@
             VerticalOptions="FillAndExpand">
             <vw:CarouselView.ItemTemplate>
                <DataTemplate>
-                  <cntrl:AnimatedSlideView />
-
+                  <view:AnimatedSlideView />
                </DataTemplate>
             </vw:CarouselView.ItemTemplate>
          </vw:CarouselView>

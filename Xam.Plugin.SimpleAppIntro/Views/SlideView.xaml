@@ -1,23 +1,18 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
-   x:Class="Xam.Plugin.SimpleAppIntro.Controls.AnimatedSlideView"
+   x:Class="Xam.Plugin.SimpleAppIntro.Views.SlideView"
    xmlns="http://xamarin.com/schemas/2014/forms"
-   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-   xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
    <ContentView.Content>
       <StackLayout Padding="20" BackgroundColor="{Binding Color}">
          <StackLayout
             x:Name="mainStack"
             HorizontalOptions="CenterAndExpand"
             VerticalOptions="StartAndExpand">
-            <lottie:AnimationView
+            <Image
                x:Name="icon"
-               Animation="{Binding Icon}"
-               AutoPlay="true"
-               HeightRequest="200"
-               HorizontalOptions="CenterAndExpand"
-               Loop="true"
-               VerticalOptions="CenterAndExpand"
+               Aspect="AspectFit"
+               Source="{Binding Icon}"
                WidthRequest="200" />
             <StackLayout
                HorizontalOptions="CenterAndExpand"
