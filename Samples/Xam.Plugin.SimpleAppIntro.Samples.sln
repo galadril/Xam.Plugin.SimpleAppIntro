@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xam.Plugin.SimpleAppIntro.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Xam.Plugin.SimpleAppIntro", "..\Xam.Plugin.SimpleAppIntro\Xam.Plugin.SimpleAppIntro.csproj", "{797C54D5-E351-4A46-80D8-64B8834CB251}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SimpleAppIntro", "SimpleAppIntro", "{97A76B93-0FBE-4941-ACCA-CD4A8AC0EA9E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -162,6 +164,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{797C54D5-E351-4A46-80D8-64B8834CB251} = {97A76B93-0FBE-4941-ACCA-CD4A8AC0EA9E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {73B8A861-EF8D-469B-A6CC-E0EC6DD0D504}
