@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,7 +18,6 @@ namespace Xam.Plugin.SimpleAppIntro
       private readonly string[] DefaultColors = new string[20] { "#E91E63", "#F44336", "#9C27B0", "#2196F3", "#3F51B5", "#009688", "#4CAF50", "#FFEB3B", "#FF9800", "#607D8B", "#E91E63", "#F44336", "#9C27B0", "#2196F3", "#3F51B5", "#009688", "#4CAF50", "#FFEB3B", "#FF9800", "#607D8B" };
       private List<string> UsedColors = new List<string>();
       private int _position;
-      private bool _carouselViewLoaded = false;
       private bool _showSkip = true;
       private bool _showNext = true;
       private bool _shipIndicator = true;
@@ -48,18 +48,27 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// Default Constructor
       /// </summary>
-      public AnimatedSimpleAppIntro()
+      public AnimatedSimpleAppIntro(IEnumerable<Slide> slides)
       {
          InitializeComponent();
-         if (_slides == null)
-            _slides = new List<Slide>();
-         _slides.Add(new Slide("", "", "", "#009688"));
+
+         if (slides != null)
+         {
+            Slides = slides.ToList();
+            foreach (Slide s in Slides)
+               s.Color = GetColor(s.Color);
+         }
+
          BindingContext = this;
+         carouselView.ItemsSource = Slides;
+         carouselIndicators.ItemsSource = Slides;
 
          SizeChanged += (sender, args) =>
          {
             string visualState = Width > Height ? "Landscape" : "Portrait";
             VisualStateManager.GoToState(mainGrid, visualState);
+            foreach (View child in mainGrid.Children)
+               VisualStateManager.GoToState(child, visualState);
          };
       }
 
@@ -154,12 +163,12 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// Show skip button
       /// </summary>
-      public bool ShowSkipButton { get { return _showSkip; } set { _showSkip = value; OnPropertyChanged(); } }
+      public bool ShowSkipButton { get { return _showSkip; } set { _showSkip = value; OnPropertyChanged(); PositionChangedAsync(); } }
 
       /// <summary>
       /// Show next button
       /// </summary>
-      public bool ShowNextButton { get { return _showNext; } set { _showNext = value; OnPropertyChanged(); } }
+      public bool ShowNextButton { get { return _showNext; } set { _showNext = value; OnPropertyChanged(); PositionChangedAsync(); } }
 
       /// <summary>
       /// Show skip text
@@ -189,7 +198,7 @@ namespace Xam.Plugin.SimpleAppIntro
 
          if (ShowSkipButton)
          {
-            if (String.IsNullOrEmpty(SkipButtonImage))
+            if (string.IsNullOrEmpty(SkipButtonImage))
             {
                await skipButton.FadeTo(1, 200);
                skipImage.IsVisible = false;
@@ -201,50 +210,33 @@ namespace Xam.Plugin.SimpleAppIntro
                skipButton.IsVisible = false;
                skipImage.IsVisible = true;
             }
-            if (ShowNextButton)
-            {
-               if (String.IsNullOrEmpty(NextButtonImage))
-               {
-                  await nextButton.FadeTo(1, 200);
-                  nextImage.IsVisible = false;
-                  nextButton.IsVisible = true;
-               }
-               else
-               {
-                  await nextImage.FadeTo(1, 200);
-                  nextButton.IsVisible = false;
-                  nextImage.IsVisible = true;
-               }
-            }
-         }
-      }
-
-      #endregion
-
-      #region Public
-
-      /// <summary>
-      /// Add slide with properties
-      /// </summary>
-      /// <param name="title">Title</param>
-      /// <param name="description">Description</param>
-      /// <param name="icon">Icon source</param>
-      /// <param name="color">Color of the slide</param>
-      public void AddSlide(String title, String description, String icon, String color = null,
-         String titleTextColor = "#FFFFFF", String descriptionTextColor = "#FFFFFF",
-         FontAttributes titleFontAttributes = FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None, int titleFontSize = 24, int descriptionFontSize = 16)
-      {
-         color = GetColor(color);
-         if (!_carouselViewLoaded)
-         {
-            _slides[0] = new Slide(title, description, icon, color, titleTextColor, descriptionTextColor, titleFontAttributes, descriptionFontAttributes, titleFontSize, descriptionFontSize);
-            _carouselViewLoaded = true;
          }
          else
-            _slides.Add(new Slide(title, description, icon, color, titleTextColor, descriptionTextColor, titleFontAttributes, descriptionFontAttributes, titleFontSize, descriptionFontSize));
-         carouselIndicators.ItemsSource = _slides;
-         OnPropertyChanged();
-         PositionChangedAsync();
+         {
+            skipButton.IsVisible = false;
+            skipImage.IsVisible = false;
+         }
+
+         if (ShowNextButton)
+         {
+            if (string.IsNullOrEmpty(NextButtonImage))
+            {
+               await nextButton.FadeTo(1, 200);
+               nextImage.IsVisible = false;
+               nextButton.IsVisible = true;
+            }
+            else
+            {
+               await nextImage.FadeTo(1, 200);
+               nextButton.IsVisible = false;
+               nextImage.IsVisible = true;
+            }
+         }
+         else
+         {
+            nextButton.IsVisible = false;
+            nextImage.IsVisible = false;
+         }
       }
 
       #endregion
@@ -256,7 +248,7 @@ namespace Xam.Plugin.SimpleAppIntro
       /// </summary>
       private string GetColor(string color)
       {
-         if (String.IsNullOrEmpty(color))
+         if (string.IsNullOrEmpty(color))
          {
             do
             {
@@ -301,14 +293,14 @@ namespace Xam.Plugin.SimpleAppIntro
       private async void PositionChangedAsync()
 #pragma warning restore S3168 
       {
-         if (Position == Slides.Count - 1) ///last slide
+         if (Position == (Slides.Count - 1)) ///last slide
          {
-            if (String.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = true;
+            if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = true;
             else doneImage.IsVisible = true;
             Task hideNextButton = Task.Delay(0);
             if (ShowNextButton)
             {
-               if (String.IsNullOrEmpty(NextButtonImage))
+               if (string.IsNullOrEmpty(NextButtonImage))
                {
                   nextButton.IsVisible = false;
                   hideNextButton = nextButton.FadeTo(0, 200);
@@ -319,28 +311,28 @@ namespace Xam.Plugin.SimpleAppIntro
                   hideNextButton = nextImage.FadeTo(0, 200);
                }
             }
-            if (String.IsNullOrEmpty(DoneButtonImage) && String.IsNullOrEmpty(SkipButtonImage))
+            if (string.IsNullOrEmpty(DoneButtonImage) && string.IsNullOrEmpty(SkipButtonImage))
                await Task.WhenAll(doneButton.FadeTo(1, 200), skipButton.FadeTo(0, 200), hideNextButton);
-            else if (String.IsNullOrEmpty(DoneButtonImage))
+            else if (string.IsNullOrEmpty(DoneButtonImage))
                await Task.WhenAll(doneButton.FadeTo(1, 200), skipImage.FadeTo(0, 200), hideNextButton);
-            else if (String.IsNullOrEmpty(SkipButtonImage))
+            else if (string.IsNullOrEmpty(SkipButtonImage))
                await Task.WhenAll(doneImage.FadeTo(1, 200), skipButton.FadeTo(0, 200), hideNextButton);
             else
                await Task.WhenAll(doneImage.FadeTo(1, 200), skipImage.FadeTo(0, 200), hideNextButton);
 
-            if (String.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
+            if (string.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
             else skipImage.IsVisible = true;
          }
          else
          {
             if (ShowSkipButton)
             {
-               if (String.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
+               if (string.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
                else skipImage.IsVisible = true;
                Task showNextButton = Task.Delay(0);
                if (ShowNextButton)
                {
-                  if (String.IsNullOrEmpty(NextButtonImage))
+                  if (string.IsNullOrEmpty(NextButtonImage))
                   {
                      nextButton.IsVisible = true;
                      showNextButton = nextButton.FadeTo(1, 200);
@@ -352,16 +344,16 @@ namespace Xam.Plugin.SimpleAppIntro
                   }
                }
 
-               if (String.IsNullOrEmpty(DoneButtonImage) && String.IsNullOrEmpty(SkipButtonImage))
+               if (string.IsNullOrEmpty(DoneButtonImage) && string.IsNullOrEmpty(SkipButtonImage))
                   await Task.WhenAll(skipButton.FadeTo(1, 200), doneButton.FadeTo(0, 200), showNextButton);
-               else if (String.IsNullOrEmpty(DoneButtonImage))
+               else if (string.IsNullOrEmpty(DoneButtonImage))
                   await Task.WhenAll(skipImage.FadeTo(1, 200), doneButton.FadeTo(0, 200), showNextButton);
-               else if (String.IsNullOrEmpty(SkipButtonImage))
+               else if (string.IsNullOrEmpty(SkipButtonImage))
                   await Task.WhenAll(skipButton.FadeTo(1, 200), doneImage.FadeTo(0, 200), showNextButton);
                else
                   await Task.WhenAll(skipImage.FadeTo(1, 200), doneImage.FadeTo(0, 200), showNextButton);
 
-               if (String.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
+               if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
                else doneImage.IsVisible = false;
             }
             else
@@ -369,7 +361,7 @@ namespace Xam.Plugin.SimpleAppIntro
                Task showNextButton = Task.Delay(0);
                if (ShowNextButton)
                {
-                  if (String.IsNullOrEmpty(NextButtonImage))
+                  if (string.IsNullOrEmpty(NextButtonImage))
                   {
                      nextButton.IsVisible = true;
                      showNextButton = nextButton.FadeTo(1, 200);
@@ -381,12 +373,12 @@ namespace Xam.Plugin.SimpleAppIntro
                   }
                }
 
-               if (String.IsNullOrEmpty(DoneButtonImage))
+               if (string.IsNullOrEmpty(DoneButtonImage))
                   await Task.WhenAll(doneButton.FadeTo(0, 200), showNextButton);
                else
                   await Task.WhenAll(doneImage.FadeTo(0, 200), showNextButton);
 
-               if (String.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
+               if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
                else doneImage.IsVisible = false;
             }
          }

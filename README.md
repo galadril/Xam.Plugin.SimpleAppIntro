@@ -19,12 +19,19 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 You can now create new simple sliders and add them to a SimpleAppIntro page 
 
 ```
-var welcomePage = new SimpleAppIntro();
-
-// Add some simple slides
-welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png");
-welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "cup_icon.png");
-welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "cup_icon.png");
+ var welcomePage = new SimpleAppIntro(new List<Slide>() {
+            new Slide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+            null, "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+           
+            new Slide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
+            null, "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            
+            new Slide("Other", "Tell your user what they can do with your app", "send_message_done.json",
+            null, "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+      });
 
 MainPage.Navigation.PushModalAsync(welcomePage);
 ```
@@ -34,10 +41,11 @@ MainPage.Navigation.PushModalAsync(welcomePage);
 You can also specify your own Lottie animated icon for each slide. Just create an AnimatedSimpleAppIntro like:
 
 ```
-var welcomePage = new AnimatedSimpleAppIntro();
-
-// Add some simple slides
-welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "world.json");
+var welcomePage = new SimpleAppIntro(new List<Slide>() {
+            new Slide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+            null, "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+      });
 ```
 
 
@@ -74,7 +82,6 @@ And you can also specify an image instead of the default skip/done/next buttons:
 ```
 welcomePage.DoneButtonImage = "baseline_done_white_24.png";
 ```
-
 
 
 # Callback 

@@ -4,17 +4,23 @@
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
    <ContentView.Content>
-      <StackLayout Padding="20" BackgroundColor="{Binding Color}">
+      <StackLayout
+         x:Name="mainStack"
+         Padding="20"
+         BackgroundColor="{Binding Color}"
+         HorizontalOptions="FillAndExpand"
+         VerticalOptions="FillAndExpand">
          <Grid
-            x:Name="mainStack"
+            x:Name="mainGrid"
+            Margin="0"
             ColumnSpacing="0"
             HorizontalOptions="FillAndExpand"
             RowSpacing="0"
             VerticalOptions="FillAndExpand">
             <Grid.ColumnDefinitions>
-               <ColumnDefinition Width="0.5*" />
+               <ColumnDefinition Width="1*" />
                <ColumnDefinition Width="2*" />
-               <ColumnDefinition Width="7.5*" />
+               <ColumnDefinition Width="7*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                <RowDefinition Height="4*" />
@@ -88,7 +94,7 @@
                         <VisualState Name="Landscape">
                            <VisualState.Setters>
                               <Setter Property="VerticalOptions" Value="StartAndExpand" />
-                              <Setter Property="HorizontalTextAlignment" Value="Start" />
+                              <Setter Property="HorizontalTextAlignment" Value="Center" />
                               <Setter Property="Margin" Value="0,0,0,0" />
                            </VisualState.Setters>
                         </VisualState>
@@ -112,19 +118,18 @@
                         <VisualState Name="Portrait">
                            <VisualState.Setters>
                               <Setter Property="VerticalOptions" Value="StartAndExpand" />
-                              <Setter Property="HorizontalTextAlignment" Value="Start" />
+                              <Setter Property="HorizontalTextAlignment" Value="Center" />
                            </VisualState.Setters>
                         </VisualState>
                         <VisualState Name="Landscape">
                            <VisualState.Setters>
                               <Setter Property="VerticalOptions" Value="StartAndExpand" />
-                              <Setter Property="HorizontalTextAlignment" Value="Start" />
+                              <Setter Property="HorizontalTextAlignment" Value="Center" />
                            </VisualState.Setters>
                         </VisualState>
                      </VisualStateGroup>
                   </VisualStateManager.VisualStateGroups>
                </Label>
-
                <VisualStateManager.VisualStateGroups>
                   <VisualStateGroup Name="OrientationStates">
                      <VisualState Name="Portrait">
@@ -146,13 +151,31 @@
                            <Setter Property="Grid.Column" Value="2" />
                            <Setter Property="Grid.ColumnSpan" Value="1" />
                            <Setter Property="Grid.RowSpan" Value="2" />
-                           <Setter Property="Margin" Value="0,-60,0,0" />
+                           <Setter Property="Margin" Value="16,-60,0,0" />
                         </VisualState.Setters>
                      </VisualState>
                   </VisualStateGroup>
                </VisualStateManager.VisualStateGroups>
             </StackLayout>
          </Grid>
+         <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup Name="OrientationStates">
+               <VisualState Name="Portrait">
+                  <VisualState.Setters>
+                     <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                     <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                     <Setter Property="Margin" Value="0,0,0,0" />
+                  </VisualState.Setters>
+               </VisualState>
+               <VisualState Name="Landscape">
+                  <VisualState.Setters>
+                     <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                     <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                     <Setter Property="Margin" Value="0,-40,0,0" />
+                  </VisualState.Setters>
+               </VisualState>
+            </VisualStateGroup>
+         </VisualStateManager.VisualStateGroups>
       </StackLayout>
    </ContentView.Content>
 </ContentView>

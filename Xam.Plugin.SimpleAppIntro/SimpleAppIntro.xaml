@@ -3,9 +3,9 @@
    x:Class="Xam.Plugin.SimpleAppIntro.SimpleAppIntro"
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+   xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
    xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
-   xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views"
-   xmlns:vw="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView">
+   xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views">
    <ContentPage.Content>
       <Grid
          x:Name="mainGrid"
@@ -17,20 +17,22 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
          </Grid.RowDefinitions>
-         <vw:CarouselView
+         <cards:CarouselView
+            x:Name="carouselView"
             Grid.Row="0"
             Grid.Column="0"
             Margin="0,0,0,-60"
             HorizontalOptions="FillAndExpand"
-            ItemsSource="{Binding Slides, Mode=TwoWay}"
-            Position="{Binding Position, Mode=TwoWay}"
+            IsClippedToBounds="true"
+            IsCyclical="false"
+            SelectedIndex="{Binding Position, Mode=TwoWay}"
             VerticalOptions="FillAndExpand">
-            <vw:CarouselView.ItemTemplate>
+            <cards:CarouselView.ItemTemplate>
                <DataTemplate>
                   <view:SlideView />
                </DataTemplate>
-            </vw:CarouselView.ItemTemplate>
-         </vw:CarouselView>
+            </cards:CarouselView.ItemTemplate>
+         </cards:CarouselView>
          <Grid
             Grid.Row="1"
             Grid.Column="0"
@@ -39,9 +41,9 @@
             RowSpacing="0"
             VerticalOptions="FillAndExpand">
             <Grid.ColumnDefinitions>
-               <ColumnDefinition Width="75" />
+               <ColumnDefinition Width="100" />
                <ColumnDefinition Width="*" />
-               <ColumnDefinition Width="75" />
+               <ColumnDefinition Width="100" />
             </Grid.ColumnDefinitions>
             <cntrl:CarouselIndicators
                x:Name="carouselIndicators"
@@ -52,7 +54,7 @@
                IndicatorHeight="10"
                IndicatorWidth="10"
                IsVisible="{Binding ShowPositionIndicator}"
-               Position="{Binding Position}"
+               Position="{Binding Position, Mode=TwoWay}"
                SelectedIndicator="selected_circle.png"
                UnselectedIndicator="unselected_circle.png"
                VerticalOptions="CenterAndExpand" />
@@ -88,6 +90,18 @@
                Grid.Column="2"
                HorizontalOptions="FillAndExpand"
                Spacing="0">
+               <Image
+                  x:Name="doneImage"
+                  Margin="0,15,0,0"
+                  HorizontalOptions="FillAndExpand"
+                  IsVisible="False"
+                  Opacity="0"
+                  Source="{Binding DoneButtonImage}"
+                  VerticalOptions="End">
+                  <Image.GestureRecognizers>
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
+                  </Image.GestureRecognizers>
+               </Image>
                <Button
                   x:Name="doneButton"
                   BackgroundColor="{Binding DoneButtonBackgroundColor}"
@@ -98,15 +112,15 @@
                   Text="{Binding DoneText}"
                   TextColor="{Binding DoneButtonTextColor}" />
                <Image
-                  x:Name="doneImage"
-                  Margin="0,20,0,0"
+                  x:Name="nextImage"
+                  Margin="0,15,0,0"
                   HorizontalOptions="FillAndExpand"
                   IsVisible="False"
                   Opacity="0"
-                  Source="{Binding DoneButtonImage}"
+                  Source="{Binding NextButtonImage}"
                   VerticalOptions="End">
                   <Image.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
                   </Image.GestureRecognizers>
                </Image>
                <Button
@@ -118,18 +132,6 @@
                   Opacity="0"
                   Text="{Binding NextText}"
                   TextColor="{Binding NextButtonTextColor}" />
-               <Image
-                  x:Name="nextImage"
-                  Margin="0,20,0,0"
-                  HorizontalOptions="FillAndExpand"
-                  IsVisible="False"
-                  Opacity="0"
-                  Source="{Binding NextButtonImage}"
-                  VerticalOptions="End">
-                  <Image.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
-                  </Image.GestureRecognizers>
-               </Image>
             </StackLayout>
          </Grid>
       </Grid>

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -31,39 +28,40 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void Open_Static_Clicked(object sender, EventArgs e)
       {
-         var welcomePage = new SimpleAppIntro();
-
-         // Add some simple slides
-         welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
+         var welcomePage = new SimpleAppIntro(new List<Slide>() {
+            new Slide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
-         welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            new Slide("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
-         welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "cup_icon.png",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            new Slide("Other", "Tell your user what they can do with your app", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+      })
+         {
+            // Properties
+            ShowPositionIndicator = true,
+            ShowSkipButton = true,
+            ShowNextButton = true,
+            DoneText = "Finish",
+            NextText = "Next",
+            SkipText = "Skip",
 
-         // Properties
-         welcomePage.ShowPositionIndicator = true;
-         welcomePage.ShowSkipButton = true;
-         welcomePage.ShowNextButton = true;
-         welcomePage.DoneText = "Finish";
-         welcomePage.NextText = "Next";
-         welcomePage.SkipText = "Skip";
+            // Theming
+            BarColor = "#607D8B",
+            SkipButtonBackgroundColor = "#FF9700",
+            DoneButtonBackgroundColor = "#8AC149",
+            NextButtonBackgroundColor = "#8AC149",
 
-         // Theming
-         welcomePage.BarColor = "#607D8B";
-         welcomePage.SkipButtonBackgroundColor = "#FF9700";
-         welcomePage.DoneButtonBackgroundColor = "#8AC149";
-         welcomePage.NextButtonBackgroundColor = "#8AC149";
+            //// Use images instead of buttons
+            DoneButtonImage = "baseline_done_white_24.png",
+            //NextButtonImage = "baseline_done_white_24.png",
 
-         // Use images instead of buttons
-         welcomePage.DoneButtonImage = "baseline_done_white_24.png";
-
-         // Callbacks
-         welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
-         welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
+            // Callbacks
+            OnSkipButtonClicked = OnSkipButtonClicked,
+            OnDoneButtonClicked = OnDoneButtonClicked
+         };
 
          Navigation.PushModalAsync(welcomePage);
       }
@@ -73,39 +71,39 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void Open_Clicked(object sender, EventArgs e)
       {
-         var welcomePage = new AnimatedSimpleAppIntro();
-
-         // Add some simple slides
-         welcomePage.AddSlide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+         var welcomePage = new AnimatedSimpleAppIntro(new List<Slide>() {
+            new Slide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
-         welcomePage.AddSlide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            new Slide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
-         welcomePage.AddSlide("Other", "Tell your user what they can do with your app", "send_message_done.json",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            new Slide("Other", "Tell your user what they can do with your app", "send_message_done.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16);
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+      })
+         {
+            // Properties
+            ShowPositionIndicator = true,
+            ShowSkipButton = true,
+            ShowNextButton = true,
+            DoneText = "Finish",
+            NextText = "Next",
+            SkipText = "Skip",
 
-         // Properties
-         welcomePage.ShowPositionIndicator = true;
-         welcomePage.ShowSkipButton = true;
-         welcomePage.ShowNextButton = true;
-         welcomePage.DoneText = "Finish";
-         welcomePage.NextText = "Next";
-         welcomePage.SkipText = "Skip";
+            // Theming
+            BarColor = "#607D8B",
+            SkipButtonBackgroundColor = "#FF9700",
+            DoneButtonBackgroundColor = "#8AC149",
+            NextButtonBackgroundColor = "#8AC149",
 
-         // Theming
-         welcomePage.BarColor = "#607D8B";
-         welcomePage.SkipButtonBackgroundColor = "#FF9700";
-         welcomePage.DoneButtonBackgroundColor = "#8AC149";
-         welcomePage.NextButtonBackgroundColor = "#8AC149";
+            // Use images instead of buttons
+            DoneButtonImage = "baseline_done_white_24.png",
 
-         // Use images instead of buttons
-         welcomePage.DoneButtonImage = "baseline_done_white_24.png";
-
-         // Callbacks
-         welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
-         welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
+            // Callbacks
+            OnSkipButtonClicked = OnSkipButtonClicked,
+            OnDoneButtonClicked = OnDoneButtonClicked
+         };
 
          Navigation.PushModalAsync(welcomePage);
       }
