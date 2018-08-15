@@ -47,6 +47,7 @@
                x:Name="carouselIndicators"
                Grid.Row="0"
                Grid.Column="1"
+               FlowDirection="LeftToRight"
                HorizontalOptions="CenterAndExpand"
                IndicatorHeight="10"
                IndicatorWidth="10"

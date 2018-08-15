@@ -14,6 +14,8 @@ namespace Xam.Plugin.SimpleAppIntro.Views
          {
             string visualState = Width > Height ? "Landscape" : "Portrait";
             VisualStateManager.GoToState(mainStack, visualState);
+            foreach (View child in mainStack.Children)
+               VisualStateManager.GoToState(child, visualState);
          };
       }
 	}
