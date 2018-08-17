@@ -11,10 +11,12 @@
             Text="Just a nice and simple AppIntro for your Xamarin Forms project"
             VerticalOptions="CenterAndExpand" />
          <Button
+            BackgroundColor="Gray"
             Clicked="Open_Clicked"
             HorizontalOptions="FillAndExpand"
             Text="Open Animated SimpleAppIntro Sample" />
          <Button
+            BackgroundColor="Gray"
             Clicked="Open_Static_Clicked"
             HorizontalOptions="FillAndExpand"
             Text="Open Static SimpleAppIntro Sample" />
