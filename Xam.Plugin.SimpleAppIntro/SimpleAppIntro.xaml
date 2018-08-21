@@ -41,9 +41,9 @@
             RowSpacing="0"
             VerticalOptions="FillAndExpand">
             <Grid.ColumnDefinitions>
-               <ColumnDefinition Width="100" />
+               <ColumnDefinition Width="150" />
                <ColumnDefinition Width="*" />
-               <ColumnDefinition Width="100" />
+               <ColumnDefinition Width="150" />
             </Grid.ColumnDefinitions>
             <cntrl:CarouselIndicators
                x:Name="carouselIndicators"
@@ -63,15 +63,26 @@
                Grid.Column="0"
                HorizontalOptions="FillAndExpand"
                Spacing="0">
-               <Button
+               <StackLayout
                   x:Name="skipButton"
+                  Padding="15"
                   BackgroundColor="{Binding SkipButtonBackgroundColor}"
-                  Clicked="Skip_Clicked"
                   HeightRequest="60"
-                  HorizontalOptions="FillAndExpand"
+                  HorizontalOptions="StartAndExpand"
                   Opacity="0"
-                  Text="{Binding SkipText}"
-                  TextColor="{Binding SkipButtonTextColor}" />
+                  Orientation="Vertical"
+                  VerticalOptions="FillAndExpand">
+                  <Label
+                     HorizontalOptions="Center"
+                     LineBreakMode="TailTruncation"
+                     Style="{DynamicResource SubtitleStyle}"
+                     Text="{Binding SkipText}"
+                     TextColor="{Binding SkipButtonTextColor}"
+                     VerticalOptions="Center" />
+                  <StackLayout.GestureRecognizers>
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
+                  </StackLayout.GestureRecognizers>
+               </StackLayout>
                <Image
                   x:Name="skipImage"
                   Margin="0,20,0,0"
@@ -102,15 +113,26 @@
                      <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
                   </Image.GestureRecognizers>
                </Image>
-               <Button
+               <StackLayout
                   x:Name="doneButton"
+                  Padding="15"
                   BackgroundColor="{Binding DoneButtonBackgroundColor}"
-                  Clicked="Done_Clicked"
                   HeightRequest="60"
-                  HorizontalOptions="FillAndExpand"
+                  HorizontalOptions="EndAndExpand"
                   Opacity="0"
-                  Text="{Binding DoneText}"
-                  TextColor="{Binding DoneButtonTextColor}" />
+                  Orientation="Vertical"
+                  VerticalOptions="FillAndExpand">
+                  <Label
+                     HorizontalOptions="Center"
+                     LineBreakMode="TailTruncation"
+                     Style="{DynamicResource SubtitleStyle}"
+                     Text="{Binding DoneText}"
+                     TextColor="{Binding DoneButtonTextColor}"
+                     VerticalOptions="Center" />
+                  <StackLayout.GestureRecognizers>
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
+                  </StackLayout.GestureRecognizers>
+               </StackLayout>
                <Image
                   x:Name="nextImage"
                   Margin="0,15,0,0"
@@ -123,15 +145,26 @@
                      <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
                   </Image.GestureRecognizers>
                </Image>
-               <Button
+               <StackLayout
                   x:Name="nextButton"
+                  Padding="15"
                   BackgroundColor="{Binding NextButtonBackgroundColor}"
-                  Clicked="Next_Clicked"
                   HeightRequest="60"
-                  HorizontalOptions="FillAndExpand"
+                  HorizontalOptions="EndAndExpand"
                   Opacity="0"
-                  Text="{Binding NextText}"
-                  TextColor="{Binding NextButtonTextColor}" />
+                  Orientation="Vertical"
+                  VerticalOptions="FillAndExpand">
+                  <Label
+                     HorizontalOptions="Center"
+                     LineBreakMode="TailTruncation"
+                     Style="{DynamicResource SubtitleStyle}"
+                     Text="{Binding NextText}"
+                     TextColor="{Binding NextButtonTextColor}"
+                     VerticalOptions="Center" />
+                  <StackLayout.GestureRecognizers>
+                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
+                  </StackLayout.GestureRecognizers>
+               </StackLayout>
             </StackLayout>
          </Grid>
       </Grid>
