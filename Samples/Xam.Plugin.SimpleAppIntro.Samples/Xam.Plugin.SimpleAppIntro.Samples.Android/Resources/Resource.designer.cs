@@ -5209,41 +5209,44 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			// aapt resource value: 0x7f010110
 			public const int logoDescription = 2130772240;
 			
-			// aapt resource value: 0x7f010175
-			public const int lottie_autoPlay = 2130772341;
-			
-			// aapt resource value: 0x7f01017c
-			public const int lottie_cacheStrategy = 2130772348;
+			// aapt resource value: 0x7f010176
+			public const int lottie_autoPlay = 2130772342;
 			
 			// aapt resource value: 0x7f01017d
-			public const int lottie_colorFilter = 2130772349;
+			public const int lottie_cacheStrategy = 2130772349;
 			
-			// aapt resource value: 0x7f01017b
-			public const int lottie_enableMergePathsForKitKatAndAbove = 2130772347;
+			// aapt resource value: 0x7f01017e
+			public const int lottie_colorFilter = 2130772350;
+			
+			// aapt resource value: 0x7f01017c
+			public const int lottie_enableMergePathsForKitKatAndAbove = 2130772348;
 			
 			// aapt resource value: 0x7f010173
 			public const int lottie_fileName = 2130772339;
 			
-			// aapt resource value: 0x7f010179
-			public const int lottie_imageAssetsFolder = 2130772345;
-			
-			// aapt resource value: 0x7f010176
-			public const int lottie_loop = 2130772342;
-			
 			// aapt resource value: 0x7f01017a
-			public const int lottie_progress = 2130772346;
+			public const int lottie_imageAssetsFolder = 2130772346;
+			
+			// aapt resource value: 0x7f010177
+			public const int lottie_loop = 2130772343;
+			
+			// aapt resource value: 0x7f01017b
+			public const int lottie_progress = 2130772347;
 			
 			// aapt resource value: 0x7f010174
 			public const int lottie_rawRes = 2130772340;
 			
+			// aapt resource value: 0x7f010179
+			public const int lottie_repeatCount = 2130772345;
+			
 			// aapt resource value: 0x7f010178
-			public const int lottie_repeatCount = 2130772344;
+			public const int lottie_repeatMode = 2130772344;
 			
-			// aapt resource value: 0x7f010177
-			public const int lottie_repeatMode = 2130772343;
+			// aapt resource value: 0x7f01017f
+			public const int lottie_scale = 2130772351;
 			
-			// aapt resource value: 0x7f01017e
-			public const int lottie_scale = 2130772350;
+			// aapt resource value: 0x7f010175
+			public const int lottie_url = 2130772341;
 			
 			// aapt resource value: 0x7f01014b
 			public const int maxActionInlineWidth = 2130772299;
@@ -5683,32 +5686,32 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			// aapt resource value: 0x7f0100f2
 			public const int voiceIcon = 2130772210;
 			
-			// aapt resource value: 0x7f010180
-			public const int vpiCentered = 2130772352;
-			
-			// aapt resource value: 0x7f01017f
-			public const int vpiCirclePageIndicatorStyle = 2130772351;
-			
-			// aapt resource value: 0x7f010185
-			public const int vpiFillColor = 2130772357;
-			
-			// aapt resource value: 0x7f010182
-			public const int vpiOrientation = 2130772354;
-			
 			// aapt resource value: 0x7f010181
-			public const int vpiPageColor = 2130772353;
+			public const int vpiCentered = 2130772353;
 			
-			// aapt resource value: 0x7f010184
-			public const int vpiRadius = 2130772356;
-			
-			// aapt resource value: 0x7f010183
-			public const int vpiSnap = 2130772355;
+			// aapt resource value: 0x7f010180
+			public const int vpiCirclePageIndicatorStyle = 2130772352;
 			
 			// aapt resource value: 0x7f010186
-			public const int vpiStrokeColor = 2130772358;
+			public const int vpiFillColor = 2130772358;
+			
+			// aapt resource value: 0x7f010183
+			public const int vpiOrientation = 2130772355;
+			
+			// aapt resource value: 0x7f010182
+			public const int vpiPageColor = 2130772354;
+			
+			// aapt resource value: 0x7f010185
+			public const int vpiRadius = 2130772357;
+			
+			// aapt resource value: 0x7f010184
+			public const int vpiSnap = 2130772356;
 			
 			// aapt resource value: 0x7f010187
-			public const int vpiStrokeWidth = 2130772359;
+			public const int vpiStrokeColor = 2130772359;
+			
+			// aapt resource value: 0x7f010188
+			public const int vpiStrokeWidth = 2130772360;
 			
 			// aapt resource value: 0x7f010056
 			public const int windowActionBar = 2130772054;
@@ -10915,14 +10918,14 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			public const int CardView_contentPaddingTop = 11;
 			
 			public static int[] CirclePageIndicator = new int[] {
-					2130772352,
 					2130772353,
 					2130772354,
 					2130772355,
 					2130772356,
 					2130772357,
 					2130772358,
-					2130772359};
+					2130772359,
+					2130772360};
 			
 			// aapt resource value: 0
 			public const int CirclePageIndicator_vpiCentered = 0;
@@ -11324,43 +11327,47 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 					2130772347,
 					2130772348,
 					2130772349,
-					2130772350};
+					2130772350,
+					2130772351};
 			
-			// aapt resource value: 2
-			public const int LottieAnimationView_lottie_autoPlay = 2;
-			
-			// aapt resource value: 9
-			public const int LottieAnimationView_lottie_cacheStrategy = 9;
+			// aapt resource value: 3
+			public const int LottieAnimationView_lottie_autoPlay = 3;
 			
 			// aapt resource value: 10
-			public const int LottieAnimationView_lottie_colorFilter = 10;
+			public const int LottieAnimationView_lottie_cacheStrategy = 10;
 			
-			// aapt resource value: 8
-			public const int LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove = 8;
+			// aapt resource value: 11
+			public const int LottieAnimationView_lottie_colorFilter = 11;
+			
+			// aapt resource value: 9
+			public const int LottieAnimationView_lottie_enableMergePathsForKitKatAndAbove = 9;
 			
 			// aapt resource value: 0
 			public const int LottieAnimationView_lottie_fileName = 0;
 			
-			// aapt resource value: 6
-			public const int LottieAnimationView_lottie_imageAssetsFolder = 6;
-			
-			// aapt resource value: 3
-			public const int LottieAnimationView_lottie_loop = 3;
-			
 			// aapt resource value: 7
-			public const int LottieAnimationView_lottie_progress = 7;
+			public const int LottieAnimationView_lottie_imageAssetsFolder = 7;
+			
+			// aapt resource value: 4
+			public const int LottieAnimationView_lottie_loop = 4;
+			
+			// aapt resource value: 8
+			public const int LottieAnimationView_lottie_progress = 8;
 			
 			// aapt resource value: 1
 			public const int LottieAnimationView_lottie_rawRes = 1;
 			
+			// aapt resource value: 6
+			public const int LottieAnimationView_lottie_repeatCount = 6;
+			
 			// aapt resource value: 5
-			public const int LottieAnimationView_lottie_repeatCount = 5;
+			public const int LottieAnimationView_lottie_repeatMode = 5;
 			
-			// aapt resource value: 4
-			public const int LottieAnimationView_lottie_repeatMode = 4;
+			// aapt resource value: 12
+			public const int LottieAnimationView_lottie_scale = 12;
 			
-			// aapt resource value: 11
-			public const int LottieAnimationView_lottie_scale = 11;
+			// aapt resource value: 2
+			public const int LottieAnimationView_lottie_url = 2;
 			
 			public static int[] MediaRouteButton = new int[] {
 					16843071,
@@ -12187,7 +12194,7 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			public const int ViewBackgroundHelper_backgroundTintMode = 2;
 			
 			public static int[] ViewPagerIndicator = new int[] {
-					2130772351};
+					2130772352};
 			
 			// aapt resource value: 0
 			public const int ViewPagerIndicator_vpiCirclePageIndicatorStyle = 0;
