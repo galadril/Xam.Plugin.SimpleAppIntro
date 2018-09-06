@@ -1,5 +1,6 @@
 # Nuget Builds 
-[![Build Status](https://www.myget.org/BuildSource/Badge/xam-plugin-simpleappintro?identifier=ef243495-8aec-4134-af86-1d4e3d1bf1c3)](https://www.myget.org/)  [![nuget](https://img.shields.io/nuget/v/Xam.Plugin.SimpleAppIntro.svg)](https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro/) [![NuGet](https://img.shields.io/nuget/dt/Microsoft.AspNetCore.Mvc.svg)](https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro/)
+[![Build Status](https://www.myget.org/BuildSource/Badge/xam-plugin-simpleappintro?identifier=ef243495-8aec-4134-af86-1d4e3d1bf1c3)](https://www.myget.org/)  [![nuget](https://img.shields.io/nuget/v/Xam.Plugin.SimpleAppIntro.svg)](https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro/)
+
 
 # Xam.Plugin.SimpleAppIntro
 Just a nice and simple AppIntro for your Xamarin Forms project 
