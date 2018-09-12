@@ -88,7 +88,7 @@
                   x:Name="skipImage"
                   Margin="0,15,20,0"
                   AutomationId="skipImage"
-                  HorizontalOptions="EndAndExpand"
+                  HorizontalOptions="StartAndExpand"
                   IsVisible="False"
                   Opacity="0"
                   Source="{Binding SkipButtonImage}"
