@@ -14,7 +14,8 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 
 
 # Example
-![simpleappintro](https://user-images.githubusercontent.com/14561640/44038383-f419aff2-9f16-11e8-92df-e448f7829905.gif)
+![simpleappintro](https://user-images.githubusercontent.com/14561640/45887098-2c072580-bdbb-11e8-9084-3136bd911062.gif)
+
 
 
 # Usage
