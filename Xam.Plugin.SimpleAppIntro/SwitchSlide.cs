@@ -7,8 +7,18 @@ namespace Xam.Plugin.SimpleAppIntro
    /// </summary>
    public class SwitchSlide : BaseSlide
    {
+      private bool _SwitchIsChecked;
+
       public Command SwitchCommand { get; set; }
-      public bool SwitchIsChecked { get; set; }
+      public bool SwitchIsChecked
+      {
+         get { return _SwitchIsChecked; }
+         set
+         {
+            _SwitchIsChecked = value;
+            SwitchCommand.Execute(value);
+         }
+      }
 
       /// <summary>
       /// Constructor
@@ -60,7 +70,7 @@ namespace Xam.Plugin.SimpleAppIntro
       public string Description { get; set; }
       public string Icon { get; set; }
       public string BackgroundColor { get; set; }
-      public string TitleTextColor { get; set; } 
+      public string TitleTextColor { get; set; }
       public string DescriptionTextColor { get; set; }
       public FontAttributes TitleFontAttributes { get; set; }
       public FontAttributes DescriptionFontAttributes { get; set; }

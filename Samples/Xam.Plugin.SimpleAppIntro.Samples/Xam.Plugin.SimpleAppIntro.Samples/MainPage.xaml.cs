@@ -35,7 +35,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
             null, "Click here", null,"#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
-            null, true, new Command(() => OnSwitchClicked()), "#FFFFFF", "#FFFFFF",
+            null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       })
          {
@@ -78,7 +78,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
             null, "Click here", null, "#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
-            null, true, new Command(() => OnSwitchClicked()), "#FFFFFF", "#FFFFFF",
+            null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       })
          {
@@ -110,16 +110,14 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// <summary>
       /// On switch clicked
       /// </summary>
-      /// <returns></returns>
-      private void OnSwitchClicked()
+      private void OnSwitchClicked(bool isToggled)
       {
-         DisplayAlert("Switch Slide", "Switch clicked", "OK");
+         DisplayAlert("Switch Slide", $"Switch toggled {isToggled}", "OK");
       }
 
       /// <summary>
       /// On button clicked
       /// </summary>
-      /// <returns></returns>
       private void OnButtonClicked()
       {
          DisplayAlert("Button Slide", "Button clicked", "OK");
