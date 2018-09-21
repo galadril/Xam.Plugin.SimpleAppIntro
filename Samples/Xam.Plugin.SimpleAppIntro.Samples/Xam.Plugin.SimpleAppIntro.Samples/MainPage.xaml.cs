@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,16 +27,16 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void Open_Static_Clicked(object sender, EventArgs e)
       {
-         var welcomePage = new SimpleAppIntro(new List<Slide>() {
-            new Slide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
+         var welcomePage = new SimpleAppIntro(new List<object>() {
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
-            null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Other", "Tell your user what they can do with your app", "cup_icon.png",
-            null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
+            null, "Click here", null,"#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
+            null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       })
          {
             // Properties
@@ -71,16 +70,16 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void Open_Clicked(object sender, EventArgs e)
       {
-         var welcomePage = new AnimatedSimpleAppIntro(new List<Slide>() {
-            new Slide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+         var welcomePage = new AnimatedSimpleAppIntro(new List<object>() {
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
-            null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Other", "Tell your user what they can do with your app", "send_message_done.json",
-            null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+             new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
+            null, "Click here", null, "#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
+            null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       })
          {
             // Properties
@@ -109,11 +108,27 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       }
 
       /// <summary>
+      /// On switch clicked
+      /// </summary>
+      private void OnSwitchClicked(bool isToggled)
+      {
+         DisplayAlert("Switch Slide", $"Switch toggled {isToggled}", "OK");
+      }
+
+      /// <summary>
+      /// On button clicked
+      /// </summary>
+      private void OnButtonClicked()
+      {
+         DisplayAlert("Button Slide", "Button clicked", "OK");
+      }
+
+      /// <summary>
       /// On skip button clicked
       /// </summary>
       private void OnSkipButtonClicked()
       {
-         Console.Write("Skip button clicked");
+         DisplayAlert("Result", "Skip", "OK");
       }
 
       /// <summary>
@@ -121,7 +136,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void OnDoneButtonClicked()
       {
-         Console.Write("Done button clicked");
+         DisplayAlert("Result", "Done", "OK");
       }
 
       #endregion

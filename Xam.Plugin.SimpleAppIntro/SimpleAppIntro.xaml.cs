@@ -39,7 +39,7 @@ namespace Xam.Plugin.SimpleAppIntro
       private string _doneText = "Done";
       private string _nextText = "Next";
 
-      private List<Slide> _slides;
+      private List<object> _slides;
 
       #endregion
 
@@ -48,21 +48,30 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// Default Constructor
       /// </summary>
-      public SimpleAppIntro(IEnumerable<Slide> slides)
+      public SimpleAppIntro(IEnumerable<object> slides)
       {
          InitializeComponent();
 
          if (slides != null)
          {
             Slides = slides.ToList();
-            foreach (Slide s in Slides)
-               s.Color = GetColor(s.Color);
+            foreach (object s in Slides)
+            {
+               if (s is Slide slide)
+                  slide.Color = GetColor(slide.Color);
+               else if (s is ButtonSlide bslide)
+               {
+                  bslide.Color = GetColor(bslide.Color);
+                  bslide.ButtonBackgroundColor = GetColor(bslide.ButtonBackgroundColor);
+               }
+               else if (s is SwitchSlide sslide)
+                  sslide.Color = GetColor(sslide.Color);
+            }
          }
 
          BindingContext = this;
          carouselView.ItemsSource = Slides;
          carouselIndicators.ItemsSource = Slides;
-
          SizeChanged += (sender, args) =>
          {
             string visualState = Width > Height ? "Landscape" : "Portrait";
@@ -98,7 +107,7 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// List of slides
       /// </summary>
-      public List<Slide> Slides { get { return _slides; } set { _slides = value; OnPropertyChanged(); } }
+      public List<object> Slides { get { return _slides; } set { _slides = value; OnPropertyChanged(); } }
 
       /// <summary>
       /// Bottom bar color

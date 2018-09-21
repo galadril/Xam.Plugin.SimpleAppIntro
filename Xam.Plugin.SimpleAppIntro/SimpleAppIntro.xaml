@@ -5,7 +5,26 @@
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
    xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
+   xmlns:selector="clr-namespace:Xam.Plugin.SimpleAppIntro.Selector"
    xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views">
+   <ContentPage.Resources>
+      <ResourceDictionary>
+         <DataTemplate x:Key="SlideTemplate">
+            <view:SlideView />
+         </DataTemplate>
+         <DataTemplate x:Key="ButtonTemplate">
+            <view:ButtonSlideView />
+         </DataTemplate>
+         <DataTemplate x:Key="SwitchTemplate">
+            <view:SwitchSlideView />
+         </DataTemplate>
+         <selector:SlideSelector
+            x:Key="slideSelector"
+            ButtonTemplate="{StaticResource ButtonTemplate}"
+            SlideTemplate="{StaticResource SlideTemplate}"
+            SwitchTemplate="{StaticResource SwitchTemplate}" />
+      </ResourceDictionary>
+   </ContentPage.Resources>
    <ContentPage.Content>
       <Grid
          x:Name="mainGrid"
@@ -25,14 +44,9 @@
             HorizontalOptions="FillAndExpand"
             IsClippedToBounds="true"
             IsCyclical="false"
+            ItemTemplate="{StaticResource slideSelector}"
             SelectedIndex="{Binding Position, Mode=TwoWay}"
-            VerticalOptions="FillAndExpand">
-            <cards:CarouselView.ItemTemplate>
-               <DataTemplate>
-                  <view:SlideView />
-               </DataTemplate>
-            </cards:CarouselView.ItemTemplate>
-         </cards:CarouselView>
+            VerticalOptions="FillAndExpand" />
          <Grid
             Grid.Row="1"
             Grid.Column="0"
@@ -70,6 +84,7 @@
                   BackgroundColor="{Binding SkipButtonBackgroundColor}"
                   HeightRequest="60"
                   HorizontalOptions="StartAndExpand"
+                  IsVisible="False"
                   Opacity="0"
                   Orientation="Vertical"
                   VerticalOptions="FillAndExpand">
@@ -86,7 +101,7 @@
                </StackLayout>
                <Image
                   x:Name="skipImage"
-                  Margin="0,15,20,0"
+                  Margin="0,15,20,60"
                   AutomationId="skipImage"
                   HorizontalOptions="StartAndExpand"
                   IsVisible="False"
@@ -105,7 +120,7 @@
                Spacing="0">
                <Image
                   x:Name="doneImage"
-                  Margin="0,15,20,0"
+                  Margin="0,15,20,60"
                   AutomationId="doneImage"
                   HorizontalOptions="EndAndExpand"
                   IsVisible="False"
@@ -123,6 +138,7 @@
                   BackgroundColor="{Binding DoneButtonBackgroundColor}"
                   HeightRequest="60"
                   HorizontalOptions="EndAndExpand"
+                  IsVisible="False"
                   Opacity="0"
                   Orientation="Vertical"
                   VerticalOptions="FillAndExpand">
@@ -139,7 +155,7 @@
                </StackLayout>
                <Image
                   x:Name="nextImage"
-                  Margin="0,15,20,0"
+                  Margin="0,15,20,60"
                   AutomationId="nextImage"
                   HorizontalOptions="EndAndExpand"
                   IsVisible="False"
@@ -157,6 +173,7 @@
                   BackgroundColor="{Binding NextButtonBackgroundColor}"
                   HeightRequest="60"
                   HorizontalOptions="EndAndExpand"
+                  IsVisible="False"
                   Opacity="0"
                   Orientation="Vertical"
                   VerticalOptions="FillAndExpand">

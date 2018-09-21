@@ -14,25 +14,27 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 
 
 # Example
-![simpleappintro](https://user-images.githubusercontent.com/14561640/44038383-f419aff2-9f16-11e8-92df-e448f7829905.gif)
+![simpleappintro](https://user-images.githubusercontent.com/14561640/45887098-2c072580-bdbb-11e8-9084-3136bd911062.gif)
+
 
 
 # Usage
-You can now create new simple sliders and add them to a SimpleAppIntro page 
+You can now create new simple sliders and add them to a SimpleAppIntro page.
+We support 3 types of slides at this moment, Slide/ButtonSlide/SwitchSlide
 
 ```
- var welcomePage = new SimpleAppIntro(new List<Slide>() {
-            new Slide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+ var welcomePage = new SimpleAppIntro(new List<object>() {
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-           
-            new Slide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
-            null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            
-            new Slide("Other", "Tell your user what they can do with your app", "send_message_done.json",
-            null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+
+            new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
+            null, "Click here", null,"#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+
+            new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
+            null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       });
 
 MainPage.Navigation.PushModalAsync(welcomePage);
@@ -41,13 +43,13 @@ MainPage.Navigation.PushModalAsync(welcomePage);
 
 # Animated
 You can also specify your own Lottie animated icon for each slide. Just create an AnimatedSimpleAppIntro like:
+We support 3 types of slides at this moment, Slide/ButtonSlide/SwitchSlide (same usage as above)
 
 ```
-var welcomePage = new SimpleAppIntro(new List<Slide>() {
-            new Slide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+var welcomePage = new AnimatedSimpleAppIntro(new List<object>() {
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-      });
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16))
 ```
 
 
@@ -90,23 +92,24 @@ welcomePage.DoneButtonImage = "baseline_done_white_24.png";
 You can use the two callback methods to get more info on the events 
 
 ```
-welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
-welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
+      welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
+      welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
 	  
-/// <summary>
-/// On skip button clicked
-/// </summary>
-private void OnSkipButtonClicked()
-{
-	Console.Write("Skip button clicked");
-}
+      /// <summary>
+      /// On skip button clicked
+      /// </summary>
+      private void OnSkipButtonClicked()
+      {
+         DisplayAlert("Result", "Skip", "OK");
+      }
 
-/// <summary>
-/// On done button clicked
-/// </summary>
-private void OnDoneButtonClicked()
-{
-	Console.Write("Done button clicked");
-}
+      /// <summary>
+      /// On done button clicked
+      /// </summary>
+      private void OnDoneButtonClicked()
+      {
+         DisplayAlert("Result", "Done", "OK");
+      }
+
 ```
 
