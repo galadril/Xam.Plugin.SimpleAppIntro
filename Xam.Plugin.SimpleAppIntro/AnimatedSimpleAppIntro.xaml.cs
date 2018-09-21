@@ -59,11 +59,13 @@ namespace Xam.Plugin.SimpleAppIntro
             {
                if (s is Slide slide)
                   slide.Color = GetColor(slide.Color);
-               if (s is ButtonSlide bslide)
+               else if (s is ButtonSlide bslide)
                {
                   bslide.Color = GetColor(bslide.Color);
-                  bslide.ButtonBackgroundColor = GetColor(bslide.Color);
+                  bslide.ButtonBackgroundColor = GetColor(bslide.ButtonBackgroundColor);
                }
+               else if (s is SwitchSlide sslide)
+                  sslide.Color = GetColor(sslide.Color);
             }
          }
 

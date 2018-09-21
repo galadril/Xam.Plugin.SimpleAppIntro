@@ -9,6 +9,7 @@ namespace Xam.Plugin.SimpleAppIntro.Selector
    {
       public DataTemplate SlideTemplate { get; set; }
       public DataTemplate ButtonTemplate { get; set; }
+      public DataTemplate SwitchTemplate { get; set; }
 
       /// <summary>
       /// On select template
@@ -17,6 +18,8 @@ namespace Xam.Plugin.SimpleAppIntro.Selector
       {
          if (item is ButtonSlide)
             return ButtonTemplate;
+         else if (item is SwitchSlide)
+            return SwitchTemplate;
          else
             return SlideTemplate;
       }

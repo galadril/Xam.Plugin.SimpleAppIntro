@@ -15,10 +15,14 @@
          <DataTemplate x:Key="ButtonTemplate">
             <view:ButtonSlideView />
          </DataTemplate>
+         <DataTemplate x:Key="SwitchTemplate">
+            <view:SwitchSlideView />
+         </DataTemplate>
          <selector:SlideSelector
             x:Key="slideSelector"
             ButtonTemplate="{StaticResource ButtonTemplate}"
-            SlideTemplate="{StaticResource SlideTemplate}" />
+            SlideTemplate="{StaticResource SlideTemplate}"
+            SwitchTemplate="{StaticResource SwitchTemplate}" />
       </ResourceDictionary>
    </ContentPage.Resources>
    <ContentPage.Content>

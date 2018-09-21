@@ -28,11 +28,17 @@
     <Compile Update="SimpleAppIntro.xaml.cs">
       <DependentUpon>SimpleAppIntro.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AnimatedSwitchSlideView.xaml.cs">
+      <DependentUpon>AnimatedSwitchSlideView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\AnimatedButtonSlideView.xaml.cs">
       <DependentUpon>AnimatedButtonSlideView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\ButtonSlideView.xaml.cs">
       <DependentUpon>ButtonSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\SwitchSlideView.xaml.cs">
+      <DependentUpon>SwitchSlideView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
