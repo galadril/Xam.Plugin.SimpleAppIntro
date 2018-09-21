@@ -28,6 +28,12 @@
     <Compile Update="SimpleAppIntro.xaml.cs">
       <DependentUpon>SimpleAppIntro.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AnimatedButtonSlideView.xaml.cs">
+      <DependentUpon>AnimatedButtonSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ButtonSlideView.xaml.cs">
+      <DependentUpon>ButtonSlideView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

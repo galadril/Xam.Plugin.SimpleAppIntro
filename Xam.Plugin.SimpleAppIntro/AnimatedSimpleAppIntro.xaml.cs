@@ -39,7 +39,7 @@ namespace Xam.Plugin.SimpleAppIntro
       private string _doneText = "Done";
       private string _nextText = "Next";
 
-      private List<Slide> _slides;
+      private List<object> _slides;
 
       #endregion
 
@@ -48,15 +48,20 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// Default Constructor
       /// </summary>
-      public AnimatedSimpleAppIntro(IEnumerable<Slide> slides)
+      public AnimatedSimpleAppIntro(IEnumerable<object> slides)
       {
          InitializeComponent();
 
          if (slides != null)
          {
             Slides = slides.ToList();
-            foreach (Slide s in Slides)
-               s.Color = GetColor(s.Color);
+            foreach (object s in Slides)
+            {
+               if (s is Slide slide)
+                  slide.Color = GetColor(slide.Color);
+               if (s is ButtonSlide bslide)
+                  bslide.Color = GetColor(bslide.Color);
+            }
          }
 
          BindingContext = this;
@@ -98,7 +103,7 @@ namespace Xam.Plugin.SimpleAppIntro
       /// <summary>
       /// List of slides
       /// </summary>
-      public List<Slide> Slides { get { return _slides; } set { _slides = value; OnPropertyChanged(); } }
+      public List<object> Slides { get { return _slides; } set { _slides = value; OnPropertyChanged(); } }
 
       /// <summary>
       /// Bottom bar color

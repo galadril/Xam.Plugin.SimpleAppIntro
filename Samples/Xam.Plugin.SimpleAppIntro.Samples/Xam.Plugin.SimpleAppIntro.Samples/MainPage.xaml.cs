@@ -71,11 +71,11 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void Open_Clicked(object sender, EventArgs e)
       {
-         var welcomePage = new AnimatedSimpleAppIntro(new List<Slide>() {
+         var welcomePage = new AnimatedSimpleAppIntro(new List<object>() {
             new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-            new Slide(new SlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
+            new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new Slide(new SlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",

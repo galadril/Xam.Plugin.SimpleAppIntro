@@ -5,7 +5,22 @@
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
    xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
+   xmlns:selector="clr-namespace:Xam.Plugin.SimpleAppIntro.Selector"
    xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views">
+   <ContentPage.Resources>
+      <ResourceDictionary>
+         <DataTemplate x:Key="SlideTemplate">
+            <view:AnimatedSlideView />
+         </DataTemplate>
+         <DataTemplate x:Key="ButtonTemplate">
+            <view:AnimatedButtonSlideView />
+         </DataTemplate>
+         <selector:SlideSelector
+            x:Key="slideSelector"
+            ButtonTemplate="{StaticResource ButtonTemplate}"
+            SlideTemplate="{StaticResource SlideTemplate}" />
+      </ResourceDictionary>
+   </ContentPage.Resources>
    <ContentPage.Content>
       <Grid
          x:Name="mainGrid"
@@ -25,14 +40,9 @@
             HorizontalOptions="FillAndExpand"
             IsClippedToBounds="true"
             IsCyclical="false"
+            ItemTemplate="{StaticResource slideSelector}"
             SelectedIndex="{Binding Position, Mode=TwoWay}"
-            VerticalOptions="FillAndExpand">
-            <cards:CarouselView.ItemTemplate>
-               <DataTemplate>
-                  <view:AnimatedSlideView />
-               </DataTemplate>
-            </cards:CarouselView.ItemTemplate>
-         </cards:CarouselView>
+            VerticalOptions="FillAndExpand" />
          <Grid
             Grid.Row="1"
             Grid.Column="0"
