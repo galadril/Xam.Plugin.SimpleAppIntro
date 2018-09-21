@@ -70,6 +70,7 @@
                   BackgroundColor="{Binding SkipButtonBackgroundColor}"
                   HeightRequest="60"
                   HorizontalOptions="StartAndExpand"
+                  IsVisible="False"
                   Opacity="0"
                   Orientation="Vertical"
                   VerticalOptions="FillAndExpand">
@@ -86,7 +87,7 @@
                </StackLayout>
                <Image
                   x:Name="skipImage"
-                  Margin="0,15,20,0"
+                  Margin="0,15,20,60"
                   AutomationId="skipImage"
                   HorizontalOptions="StartAndExpand"
                   IsVisible="False"
@@ -105,7 +106,7 @@
                Spacing="0">
                <Image
                   x:Name="doneImage"
-                  Margin="0,15,20,0"
+                  Margin="0,15,20,60"
                   AutomationId="doneImage"
                   HorizontalOptions="EndAndExpand"
                   IsVisible="False"
@@ -123,6 +124,7 @@
                   BackgroundColor="{Binding DoneButtonBackgroundColor}"
                   HeightRequest="60"
                   HorizontalOptions="EndAndExpand"
+                  IsVisible="False"
                   Opacity="0"
                   Orientation="Vertical"
                   VerticalOptions="FillAndExpand">
@@ -139,7 +141,7 @@
                </StackLayout>
                <Image
                   x:Name="nextImage"
-                  Margin="0,15,20,0"
+                  Margin="0,15,20,60"
                   AutomationId="nextImage"
                   HorizontalOptions="EndAndExpand"
                   IsVisible="False"
@@ -157,6 +159,7 @@
                   BackgroundColor="{Binding NextButtonBackgroundColor}"
                   HeightRequest="60"
                   HorizontalOptions="EndAndExpand"
+                  IsVisible="False"
                   Opacity="0"
                   Orientation="Vertical"
                   VerticalOptions="FillAndExpand">
