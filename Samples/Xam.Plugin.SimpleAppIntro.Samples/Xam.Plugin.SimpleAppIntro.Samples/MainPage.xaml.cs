@@ -28,12 +28,12 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void Open_Static_Clicked(object sender, EventArgs e)
       {
-         var welcomePage = new SimpleAppIntro(new List<Slide>() {
+         var welcomePage = new SimpleAppIntro(new List<object>() {
             new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-            new Slide(new SlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
-            null, "#FFFFFF", "#FFFFFF",
+            new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
+            null, "Click here", null,"#FFFFFF", "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new Slide(new SlideConfig("Other", "Tell your user what they can do with your app", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
@@ -75,8 +75,8 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
             new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-            new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
-            null, "#FFFFFF", "#FFFFFF",
+             new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
+            null, "Click here", null,"#FFFFFF", "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new Slide(new SlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
             null, "#FFFFFF", "#FFFFFF",

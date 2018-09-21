@@ -138,8 +138,10 @@
                <Button
                   x:Name="actionButton"
                   Margin="0,16,0,0"
+                  BackgroundColor="{Binding ButtonBackgroundColor}"
                   HorizontalOptions="FillAndExpand"
-                  Text="Button"
+                  Text="{Binding ButtonText}"
+                  TextColor="{Binding ButtonTextColor}"
                   VerticalOptions="StartAndExpand" />
                <VisualStateManager.VisualStateGroups>
                   <VisualStateGroup Name="OrientationStates">
