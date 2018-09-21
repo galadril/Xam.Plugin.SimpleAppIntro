@@ -10,6 +10,7 @@ namespace Xam.Plugin.SimpleAppIntro
       public string ButtonText { get; set; }
       public string ButtonBackgroundColor { get; set; }
       public string ButtonTextColor { get; set; }
+      public Command ButtonCommand { get; set; }
 
       /// <summary>
       /// Constructor
@@ -26,9 +27,11 @@ namespace Xam.Plugin.SimpleAppIntro
          DescriptionFontAttributes = config.DescriptionFontAttributes;
          TitleFontSize = config.TitleFontSize;
          DescriptionFontSize = config.DescriptionFontSize;
+
          ButtonText = config.ButtonText;
          ButtonBackgroundColor = config.ButtonBackgroundColor;
          ButtonTextColor = config.ButtonTextColor;
+         ButtonCommand = config.ButtonCommand;
       }
    }
 
@@ -41,7 +44,7 @@ namespace Xam.Plugin.SimpleAppIntro
       /// Constructor
       /// </summary>
       public ButtonSlideConfig(string title, string description, string icon, string backgroundColor, 
-         string buttonText, string buttonBackgroundColor, string buttonTextColor = "#FFFFFF",
+         string buttonText, string buttonBackgroundColor, string buttonTextColor = "#FFFFFF", Command buttonCommand = null,
          string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF",
          FontAttributes titleFontAttributes = FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None,
          int titleFontSize = 24, int descriptionFontSize = 16)
@@ -59,6 +62,7 @@ namespace Xam.Plugin.SimpleAppIntro
          ButtonText = buttonText;
          ButtonBackgroundColor = buttonBackgroundColor;
          ButtonTextColor = buttonTextColor;
+         ButtonCommand = buttonCommand;
       }
 
       public string Title { get; set; }
@@ -74,5 +78,6 @@ namespace Xam.Plugin.SimpleAppIntro
       public string ButtonText { get; set; }
       public string ButtonBackgroundColor { get; set; }
       public string ButtonTextColor { get; set; }
+      public Command ButtonCommand { get; set; }
    }
 }

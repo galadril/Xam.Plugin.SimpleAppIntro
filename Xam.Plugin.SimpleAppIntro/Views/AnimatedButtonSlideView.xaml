@@ -139,6 +139,7 @@
                   x:Name="actionButton"
                   Margin="0,16,0,0"
                   BackgroundColor="{Binding ButtonBackgroundColor}"
+                  Command="{Binding ButtonCommand}"
                   HorizontalOptions="FillAndExpand"
                   Text="{Binding ButtonText}"
                   TextColor="{Binding ButtonTextColor}"

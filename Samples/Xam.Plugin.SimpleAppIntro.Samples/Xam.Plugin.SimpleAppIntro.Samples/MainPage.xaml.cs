@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -33,7 +33,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
-            null, "Click here", null,"#FFFFFF", "#FFFFFF", "#FFFFFF",
+            null, "Click here", null,"#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new Slide(new SlideConfig("Other", "Tell your user what they can do with your app", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
@@ -76,7 +76,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
              new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
-            null, "Click here", null,"#FFFFFF", "#FFFFFF", "#FFFFFF",
+            null, "Click here", null, "#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new Slide(new SlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
             null, "#FFFFFF", "#FFFFFF",
@@ -109,11 +109,20 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       }
 
       /// <summary>
+      /// On button clicked
+      /// </summary>
+      /// <returns></returns>
+      private void OnButtonClicked()
+      {
+         DisplayAlert("Button Slide","Button clicked", "OK");
+      }
+
+      /// <summary>
       /// On skip button clicked
       /// </summary>
       private void OnSkipButtonClicked()
       {
-         Console.Write("Skip button clicked");
+         DisplayAlert("Result", "Skip", "OK");
       }
 
       /// <summary>
@@ -121,7 +130,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       /// </summary>
       private void OnDoneButtonClicked()
       {
-         Console.Write("Done button clicked");
+         DisplayAlert("Result", "Done", "OK");
       }
 
       #endregion
