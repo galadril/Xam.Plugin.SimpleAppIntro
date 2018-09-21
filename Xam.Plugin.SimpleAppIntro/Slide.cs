@@ -5,20 +5,43 @@ namespace Xam.Plugin.SimpleAppIntro
    /// <summary>
    /// Data container for a Slide
    /// </summary>
-   public class Slide
+   public class Slide : BaseSlide
    {
       /// <summary>
       /// Constructor
       /// </summary>
-      public Slide(string title, string description, string icon, string backgroundColor, 
-         string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF", 
-         FontAttributes titleFontAttributes= FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None,
+      public Slide(SlideConfig config)
+      {
+         Title = config.Title;
+         Description = config.Description;
+         Icon = config.Icon;
+         Color = config.BackgroundColor;
+         TitleTextColor = config.TitleTextColor;
+         DescriptionTextColor = config.DescriptionTextColor;
+         TitleFontAttributes = config.TitleFontAttributes;
+         DescriptionFontAttributes = config.DescriptionFontAttributes;
+         TitleFontSize = config.TitleFontSize;
+         DescriptionFontSize = config.DescriptionFontSize;
+      }
+   }
+
+   /// <summary>
+   /// Slide config
+   /// </summary>
+   public class SlideConfig
+   {
+      /// <summary>
+      /// Constructor
+      /// </summary>
+      public SlideConfig(string title, string description, string icon, string backgroundColor,
+         string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF",
+         FontAttributes titleFontAttributes = FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None,
          int titleFontSize = 24, int descriptionFontSize = 16)
       {
          Title = title;
          Description = description;
          Icon = icon;
-         Color = backgroundColor;
+         BackgroundColor = backgroundColor;
          TitleTextColor = titleTextColor;
          DescriptionTextColor = descriptionTextColor;
          TitleFontAttributes = titleFontAttributes;
@@ -27,54 +50,15 @@ namespace Xam.Plugin.SimpleAppIntro
          DescriptionFontSize = descriptionFontSize;
       }
 
-      /// <summary>
-      /// Title
-      /// </summary>
       public string Title { get; set; }
-
-      /// <summary>
-      /// Description
-      /// </summary>
       public string Description { get; set; }
-
-      /// <summary>
-      /// Icon Source
-      /// </summary>
       public string Icon { get; set; }
-
-      /// <summary>
-      /// Background Color
-      /// </summary>
-      public string Color { get; set; }
-
-      /// <summary>
-      /// Title text color
-      /// </summary>
-      public string TitleTextColor { get; set; }
-
-      /// <summary>
-      /// Description text color
-      /// </summary>
-      public string DescriptionTextColor { get; set; }
-
-      /// <summary>
-      /// Description text color
-      /// </summary>
-      public FontAttributes TitleFontAttributes { get; set; }
-
-      /// <summary>
-      /// Description text color
-      /// </summary>
-      public FontAttributes DescriptionFontAttributes { get; set; }
-
-      /// <summary>
-      /// Title font size
-      /// </summary>
-      public int TitleFontSize { get; set; }
-
-      /// <summary>
-      /// Description font size
-      /// </summary>
-      public int DescriptionFontSize { get; set; }
+      public string BackgroundColor { get; set; }
+      public string TitleTextColor { get; set; } = "#FFFFFF";
+      public string DescriptionTextColor { get; set; } = "#FFFFFF";
+      public FontAttributes TitleFontAttributes { get; set; } = FontAttributes.Bold;
+      public FontAttributes DescriptionFontAttributes { get; set; } = FontAttributes.None;
+      public int TitleFontSize { get; set; } = 24;
+      public int DescriptionFontSize { get; set; } = 16;
    }
 }

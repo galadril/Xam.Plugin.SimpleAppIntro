@@ -29,15 +29,15 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       private void Open_Static_Clicked(object sender, EventArgs e)
       {
          var welcomePage = new SimpleAppIntro(new List<Slide>() {
-            new Slide("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new Slide(new SlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Other", "Tell your user what they can do with your app", "cup_icon.png",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new Slide(new SlideConfig("Other", "Tell your user what they can do with your app", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       })
          {
             // Properties
@@ -72,15 +72,15 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       private void Open_Clicked(object sender, EventArgs e)
       {
          var welcomePage = new AnimatedSimpleAppIntro(new List<Slide>() {
-            new Slide("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new Slide(new SlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
-            new Slide("Other", "Tell your user what they can do with your app", "send_message_done.json",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new Slide(new SlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
             null, "#FFFFFF", "#FFFFFF",
-            FontAttributes.Bold, FontAttributes.Italic, 24, 16),
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       })
          {
             // Properties
