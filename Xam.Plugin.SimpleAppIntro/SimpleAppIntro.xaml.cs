@@ -200,14 +200,14 @@ namespace Xam.Plugin.SimpleAppIntro
          {
             if (string.IsNullOrEmpty(SkipButtonImage))
             {
-               await skipButton.FadeTo(1, 200);
                skipImage.IsVisible = false;
+               await skipButton.FadeTo(1, 200);
                skipButton.IsVisible = true;
             }
             else
             {
-               await skipImage.FadeTo(1, 200);
                skipButton.IsVisible = false;
+               await skipImage.FadeTo(1, 200);
                skipImage.IsVisible = true;
             }
          }
@@ -221,14 +221,14 @@ namespace Xam.Plugin.SimpleAppIntro
          {
             if (string.IsNullOrEmpty(NextButtonImage))
             {
-               await nextButton.FadeTo(1, 200);
                nextImage.IsVisible = false;
+               await nextButton.FadeTo(1, 200);
                nextButton.IsVisible = true;
             }
             else
             {
-               await nextImage.FadeTo(1, 200);
                nextButton.IsVisible = false;
+               await nextImage.FadeTo(1, 200);
                nextImage.IsVisible = true;
             }
          }
