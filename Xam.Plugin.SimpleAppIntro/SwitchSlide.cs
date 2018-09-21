@@ -8,7 +8,6 @@ namespace Xam.Plugin.SimpleAppIntro
    public class SwitchSlide : BaseSlide
    {
       private bool _SwitchIsChecked;
-
       public Command SwitchCommand { get; set; }
       public bool SwitchIsChecked
       {
