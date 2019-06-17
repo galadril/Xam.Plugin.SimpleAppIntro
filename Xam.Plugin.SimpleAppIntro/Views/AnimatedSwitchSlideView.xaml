@@ -3,7 +3,8 @@
    x:Class="Xam.Plugin.SimpleAppIntro.Views.AnimatedSwitchSlideView"
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-   xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
+   xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+   Visual="Material">
    <ContentView.Content>
       <StackLayout
          x:Name="mainStack"

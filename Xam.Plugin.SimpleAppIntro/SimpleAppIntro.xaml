@@ -19,9 +19,13 @@
          <DataTemplate x:Key="SwitchTemplate">
             <view:SwitchSlideView />
          </DataTemplate>
+         <DataTemplate x:Key="CheckboxTemplate">
+            <view:CheckboxSlideView />
+         </DataTemplate>
          <selector:SlideSelector
             x:Key="slideSelector"
             ButtonTemplate="{StaticResource ButtonTemplate}"
+            CheckboxTemplate="{StaticResource CheckboxTemplate}"
             SlideTemplate="{StaticResource SlideTemplate}"
             SwitchTemplate="{StaticResource SwitchTemplate}" />
       </ResourceDictionary>

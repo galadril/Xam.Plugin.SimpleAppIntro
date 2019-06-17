@@ -10,6 +10,7 @@ namespace Xam.Plugin.SimpleAppIntro.Selector
       public DataTemplate SlideTemplate { get; set; }
       public DataTemplate ButtonTemplate { get; set; }
       public DataTemplate SwitchTemplate { get; set; }
+      public DataTemplate CheckboxTemplate { get; set; }
 
       /// <summary>
       /// On select template
@@ -20,6 +21,8 @@ namespace Xam.Plugin.SimpleAppIntro.Selector
             return ButtonTemplate;
          else if (item is SwitchSlide)
             return SwitchTemplate;
+         else if (item is CheckboxSlide)
+            return CheckboxTemplate;
          else
             return SlideTemplate;
       }

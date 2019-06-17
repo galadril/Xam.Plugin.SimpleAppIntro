@@ -5,24 +5,24 @@ namespace Xam.Plugin.SimpleAppIntro
    /// <summary>
    /// Data container for a Slide
    /// </summary>
-   public class SwitchSlide : BaseSlide
+   public class CheckboxSlide : BaseSlide
    {
-      private bool _SwitchIsChecked;
-      public Command SwitchCommand { get; set; }
-      public bool SwitchIsChecked
+      private bool _CheckboxIsChecked;
+      public Command CheckboxCommand { get; set; }
+      public bool CheckboxIsChecked
       {
-         get { return _SwitchIsChecked; }
+         get { return _CheckboxIsChecked; }
          set
          {
-            _SwitchIsChecked = value;
-            SwitchCommand?.Execute(value);
+            _CheckboxIsChecked = value;
+            CheckboxCommand?.Execute(value);
          }
       }
 
       /// <summary>
       /// Constructor
       /// </summary>
-      public SwitchSlide(SwitchSlideConfig config)
+      public CheckboxSlide(CheckboxSlideConfig config)
       {
          Title = config.Title;
          Description = config.Description;
@@ -34,19 +34,19 @@ namespace Xam.Plugin.SimpleAppIntro
          DescriptionFontAttributes = config.DescriptionFontAttributes;
          TitleFontSize = config.TitleFontSize;
          DescriptionFontSize = config.DescriptionFontSize;
-         SwitchCommand = config.SwitchCommand;
+         CheckboxCommand = config.CheckboxCommand;
       }
    }
 
    /// <summary>
    /// Slide config
    /// </summary>
-   public class SwitchSlideConfig
+   public class CheckboxSlideConfig
    {
       /// <summary>
       /// Constructor
       /// </summary>
-      public SwitchSlideConfig(string title, string description, string icon, string backgroundColor, bool switchIsChecked = false, Command switchCommand = null,
+      public CheckboxSlideConfig(string title, string description, string icon, string backgroundColor, bool checkboxIsChecked = false, Command checkboxCommand = null,
          string titleTextColor = "#FFFFFF", string descriptionTextColor = "#FFFFFF",
          FontAttributes titleFontAttributes = FontAttributes.Bold, FontAttributes descriptionFontAttributes = FontAttributes.None,
          int titleFontSize = 24, int descriptionFontSize = 16)
@@ -61,8 +61,8 @@ namespace Xam.Plugin.SimpleAppIntro
          DescriptionFontAttributes = descriptionFontAttributes;
          TitleFontSize = titleFontSize;
          DescriptionFontSize = descriptionFontSize;
-         SwitchCommand = switchCommand;
-         SwitchIsChecked = switchIsChecked;
+         CheckboxCommand = checkboxCommand;
+         CheckboxIsChecked = checkboxIsChecked;
       }
 
       public string Title { get; set; }
@@ -75,7 +75,7 @@ namespace Xam.Plugin.SimpleAppIntro
       public FontAttributes DescriptionFontAttributes { get; set; }
       public int TitleFontSize { get; set; }
       public int DescriptionFontSize { get; set; }
-      public Command SwitchCommand { get; set; }
-      public bool SwitchIsChecked { get; set; }
+      public Command CheckboxCommand { get; set; }
+      public bool CheckboxIsChecked { get; set; }
    }
 }

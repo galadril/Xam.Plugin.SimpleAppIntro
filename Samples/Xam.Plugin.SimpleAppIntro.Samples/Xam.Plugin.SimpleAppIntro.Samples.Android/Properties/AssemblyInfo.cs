@@ -9,10 +9,10 @@ using Android.App;
 [assembly: AssemblyTitle("Xam.Plugin.SimpleAppIntro.Android")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("HNO Games @ Mark Heinis")]
 [assembly: AssemblyProduct("Xam.Plugin.SimpleAppIntro.Android")]
-[assembly: AssemblyCopyright("Copyright ©  2014")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCopyright("Copyright © 2019 Mark Heinis")]
+[assembly: AssemblyTrademark("HNO Games")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 

@@ -66,6 +66,8 @@ namespace Xam.Plugin.SimpleAppIntro
                }
                else if (s is SwitchSlide sslide)
                   sslide.Color = GetColor(sslide.Color);
+               else if (s is CheckboxSlide sclide)
+                  sclide.Color = GetColor(sclide.Color);
             }
          }
 
