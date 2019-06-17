@@ -6,7 +6,8 @@
    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
    xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
    xmlns:selector="clr-namespace:Xam.Plugin.SimpleAppIntro.Selector"
-   xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views">
+   xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views"
+   Visual="Material">
    <ContentPage.Resources>
       <ResourceDictionary>
          <DataTemplate x:Key="SlideTemplate">
