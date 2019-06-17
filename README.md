@@ -20,7 +20,7 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 
 # Usage
 You can now create new simple sliders and add them to a SimpleAppIntro page.
-We support 3 types of slides at this moment, Slide/ButtonSlide/SwitchSlide
+We support 4 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide
 
 ```
  var welcomePage = new SimpleAppIntro(new List<object>() {
@@ -35,6 +35,14 @@ We support 3 types of slides at this moment, Slide/ButtonSlide/SwitchSlide
             new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
             null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+
+            new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
+            null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+	    
+	    new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  	     "cup_icon.png",
+            null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
       });
 
 MainPage.Navigation.PushModalAsync(welcomePage);
@@ -43,7 +51,7 @@ MainPage.Navigation.PushModalAsync(welcomePage);
 
 # Animated
 You can also specify your own Lottie animated icon for each slide. Just create an AnimatedSimpleAppIntro like:
-We support 3 types of slides at this moment, Slide/ButtonSlide/SwitchSlide (same usage as above)
+We support 4 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide (same usage as above)
 
 ```
 var welcomePage = new AnimatedSimpleAppIntro(new List<object>() {
