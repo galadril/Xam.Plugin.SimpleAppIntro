@@ -34,6 +34,9 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
             new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
             null, "Click here", null,"#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  "cup_icon.png",
+            null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
             null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
@@ -77,6 +80,9 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
              new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
             null, "Click here", null, "#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  "twitter_heart.json",
+            null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
+            FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
             null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
@@ -113,6 +119,14 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
       private void OnSwitchClicked(bool isToggled)
       {
          DisplayAlert("Switch Slide", $"Switch toggled {isToggled}", "OK");
+      }
+
+      /// <summary>
+      /// On checkbox clicked
+      /// </summary>
+      private void OnCheckboxClicked(bool isChecked)
+      {
+         DisplayAlert("Checkbox Slide", $"Checkbox toggled {isChecked}", "OK");
       }
 
       /// <summary>

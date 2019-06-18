@@ -18,7 +18,7 @@
   <ItemGroup>
     <PackageReference Include="CardsView" Version="2.1.4" />
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.6.3" />
-    <PackageReference Include="Xamarin.Forms" Version="4.0.0.497661" />
+    <PackageReference Include="Xamarin.Forms" Version="4.1.0.496342-pre2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,6 +28,9 @@
     <Compile Update="SimpleAppIntro.xaml.cs">
       <DependentUpon>SimpleAppIntro.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AnimatedCheckboxSlideView.xaml.cs">
+      <DependentUpon>AnimatedCheckboxSlideView.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\AnimatedSwitchSlideView.xaml.cs">
       <DependentUpon>AnimatedSwitchSlideView.xaml</DependentUpon>
     </Compile>
@@ -36,6 +39,9 @@
     </Compile>
     <Compile Update="Views\ButtonSlideView.xaml.cs">
       <DependentUpon>ButtonSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CheckboxSlideView.xaml.cs">
+      <DependentUpon>CheckboxSlideView.xaml</DependentUpon>
     </Compile>
     <Compile Update="Views\SwitchSlideView.xaml.cs">
       <DependentUpon>SwitchSlideView.xaml</DependentUpon>

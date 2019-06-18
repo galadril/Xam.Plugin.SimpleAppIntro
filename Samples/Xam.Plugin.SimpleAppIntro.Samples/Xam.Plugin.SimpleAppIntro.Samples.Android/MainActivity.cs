@@ -6,7 +6,7 @@ using Lottie.Forms.Droid;
 namespace Xam.Plugin.SimpleAppIntro.Droid
 {
    [Activity(Label = "Xam.Plugin.SimpleAppIntro", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
-   public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
+   public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
    {
       protected override void OnCreate(Bundle savedInstanceState)
       {

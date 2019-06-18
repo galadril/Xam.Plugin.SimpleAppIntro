@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
-   x:Class="Xam.Plugin.SimpleAppIntro.Views.AnimatedButtonSlideView"
+   x:Class="Xam.Plugin.SimpleAppIntro.Views.CheckboxSlideView"
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-   xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
    Visual="Material">
    <ContentView.Content>
       <StackLayout
@@ -28,17 +27,13 @@
                <RowDefinition Height="4*" />
                <RowDefinition Height="6*" />
             </Grid.RowDefinitions>
-            <lottie:AnimationView
+            <Image
                x:Name="icon"
                Grid.Row="0"
                Grid.Column="0"
                Grid.ColumnSpan="2"
-               Animation="{Binding Icon}"
-               AutoPlay="true"
-               HeightRequest="200"
-               HorizontalOptions="CenterAndExpand"
-               Loop="true"
-               VerticalOptions="EndAndExpand"
+               Aspect="AspectFit"
+               Source="{Binding Icon}"
                WidthRequest="200">
                <VisualStateManager.VisualStateGroups>
                   <VisualStateGroup Name="OrientationStates">
@@ -66,7 +61,7 @@
                      </VisualState>
                   </VisualStateGroup>
                </VisualStateManager.VisualStateGroups>
-            </lottie:AnimationView>
+            </Image>
 
             <StackLayout
                x:Name="text"
@@ -107,44 +102,44 @@
                      </VisualStateGroup>
                   </VisualStateManager.VisualStateGroups>
                </Label>
-               <Label
-                  x:Name="description"
-                  Margin="0,16,0,0"
-                  FontAttributes="{Binding DescriptionFontAttributes}"
-                  FontSize="{Binding DescriptionFontSize}"
-                  HorizontalOptions="FillAndExpand"
-                  HorizontalTextAlignment="Center"
-                  LineBreakMode="WordWrap"
-                  Style="{DynamicResource BodyStyle}"
-                  Text="{Binding Description}"
-                  TextColor="{Binding DescriptionTextColor}"
-                  VerticalOptions="CenterAndExpand">
-                  <VisualStateManager.VisualStateGroups>
-                     <VisualStateGroup Name="OrientationStates">
-                        <VisualState Name="Portrait">
-                           <VisualState.Setters>
-                              <Setter Property="VerticalOptions" Value="StartAndExpand" />
-                              <Setter Property="HorizontalTextAlignment" Value="Center" />
-                           </VisualState.Setters>
-                        </VisualState>
-                        <VisualState Name="Landscape">
-                           <VisualState.Setters>
-                              <Setter Property="VerticalOptions" Value="StartAndExpand" />
-                              <Setter Property="HorizontalTextAlignment" Value="Center" />
-                           </VisualState.Setters>
-                        </VisualState>
-                     </VisualStateGroup>
-                  </VisualStateManager.VisualStateGroups>
-               </Label>
-               <Button
-                  x:Name="actionButton"
-                  Margin="0,16,0,0"
-                  BackgroundColor="{Binding ButtonBackgroundColor}"
-                  Command="{Binding ButtonCommand}"
-                  HorizontalOptions="FillAndExpand"
-                  Text="{Binding ButtonText}"
-                  TextColor="{Binding ButtonTextColor}"
-                  VerticalOptions="StartAndExpand" />
+               <StackLayout Orientation="Horizontal">
+                  <Label
+                     x:Name="description"
+                     Margin="0,16,0,0"
+                     FontAttributes="{Binding DescriptionFontAttributes}"
+                     FontSize="{Binding DescriptionFontSize}"
+                     HorizontalOptions="FillAndExpand"
+                     HorizontalTextAlignment="Center"
+                     LineBreakMode="WordWrap"
+                     Style="{DynamicResource BodyStyle}"
+                     Text="{Binding Description}"
+                     TextColor="{Binding DescriptionTextColor}"
+                     VerticalOptions="CenterAndExpand">
+                     <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="OrientationStates">
+                           <VisualState Name="Portrait">
+                              <VisualState.Setters>
+                                 <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+                              </VisualState.Setters>
+                           </VisualState>
+                           <VisualState Name="Landscape">
+                              <VisualState.Setters>
+                                 <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+                              </VisualState.Setters>
+                           </VisualState>
+                        </VisualStateGroup>
+                     </VisualStateManager.VisualStateGroups>
+                  </Label>
+                  <CheckBox
+                     x:Name="actionCheckbox"
+                     Margin="0,16,0,0"
+                     HorizontalOptions="FillAndExpand"
+                     IsChecked="{Binding CheckboxIsChecked}"
+                     VerticalOptions="StartAndExpand"
+                     Color="Blue" />
+               </StackLayout>
                <VisualStateManager.VisualStateGroups>
                   <VisualStateGroup Name="OrientationStates">
                      <VisualState Name="Portrait">

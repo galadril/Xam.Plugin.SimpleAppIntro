@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <ContentView
-   x:Class="Xam.Plugin.SimpleAppIntro.Views.AnimatedButtonSlideView"
+   x:Class="Xam.Plugin.SimpleAppIntro.Views.AnimatedCheckboxSlideView"
    xmlns="http://xamarin.com/schemas/2014/forms"
    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
@@ -107,44 +107,43 @@
                      </VisualStateGroup>
                   </VisualStateManager.VisualStateGroups>
                </Label>
-               <Label
-                  x:Name="description"
-                  Margin="0,16,0,0"
-                  FontAttributes="{Binding DescriptionFontAttributes}"
-                  FontSize="{Binding DescriptionFontSize}"
-                  HorizontalOptions="FillAndExpand"
-                  HorizontalTextAlignment="Center"
-                  LineBreakMode="WordWrap"
-                  Style="{DynamicResource BodyStyle}"
-                  Text="{Binding Description}"
-                  TextColor="{Binding DescriptionTextColor}"
-                  VerticalOptions="CenterAndExpand">
-                  <VisualStateManager.VisualStateGroups>
-                     <VisualStateGroup Name="OrientationStates">
-                        <VisualState Name="Portrait">
-                           <VisualState.Setters>
-                              <Setter Property="VerticalOptions" Value="StartAndExpand" />
-                              <Setter Property="HorizontalTextAlignment" Value="Center" />
-                           </VisualState.Setters>
-                        </VisualState>
-                        <VisualState Name="Landscape">
-                           <VisualState.Setters>
-                              <Setter Property="VerticalOptions" Value="StartAndExpand" />
-                              <Setter Property="HorizontalTextAlignment" Value="Center" />
-                           </VisualState.Setters>
-                        </VisualState>
-                     </VisualStateGroup>
-                  </VisualStateManager.VisualStateGroups>
-               </Label>
-               <Button
-                  x:Name="actionButton"
-                  Margin="0,16,0,0"
-                  BackgroundColor="{Binding ButtonBackgroundColor}"
-                  Command="{Binding ButtonCommand}"
-                  HorizontalOptions="FillAndExpand"
-                  Text="{Binding ButtonText}"
-                  TextColor="{Binding ButtonTextColor}"
-                  VerticalOptions="StartAndExpand" />
+               <StackLayout Orientation="Horizontal">
+                  <Label
+                     x:Name="description"
+                     Margin="0,16,0,0"
+                     FontAttributes="{Binding DescriptionFontAttributes}"
+                     FontSize="{Binding DescriptionFontSize}"
+                     HorizontalOptions="FillAndExpand"
+                     HorizontalTextAlignment="Center"
+                     LineBreakMode="WordWrap"
+                     Style="{DynamicResource BodyStyle}"
+                     Text="{Binding Description}"
+                     TextColor="{Binding DescriptionTextColor}"
+                     VerticalOptions="CenterAndExpand">
+                     <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="OrientationStates">
+                           <VisualState Name="Portrait">
+                              <VisualState.Setters>
+                                 <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+                              </VisualState.Setters>
+                           </VisualState>
+                           <VisualState Name="Landscape">
+                              <VisualState.Setters>
+                                 <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                 <Setter Property="HorizontalTextAlignment" Value="Center" />
+                              </VisualState.Setters>
+                           </VisualState>
+                        </VisualStateGroup>
+                     </VisualStateManager.VisualStateGroups>
+                  </Label>
+                  <CheckBox
+                     x:Name="actionSwitch"
+                     Margin="0,16,0,0"
+                     HorizontalOptions="FillAndExpand"
+                     IsChecked="{Binding CheckboxIsChecked}"
+                     VerticalOptions="StartAndExpand" />
+               </StackLayout>
                <VisualStateManager.VisualStateGroups>
                   <VisualStateGroup Name="OrientationStates">
                      <VisualState Name="Portrait">
