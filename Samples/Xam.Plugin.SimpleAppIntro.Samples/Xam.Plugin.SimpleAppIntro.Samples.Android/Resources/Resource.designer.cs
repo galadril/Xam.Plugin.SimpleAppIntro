@@ -40,8 +40,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Animation.design_bottom_sheet_slide_out = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Animation.design_bottom_sheet_slide_out;
 			global::PanCardView.Droid.Resource.Animation.design_snackbar_in = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Animation.design_snackbar_in;
 			global::PanCardView.Droid.Resource.Animation.design_snackbar_out = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Animation.design_snackbar_out;
-			global::PanCardView.Droid.Resource.Animation.tooltip_enter = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Animation.tooltip_enter;
-			global::PanCardView.Droid.Resource.Animation.tooltip_exit = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Animation.tooltip_exit;
 			global::PanCardView.Droid.Resource.Animator.design_appbar_state_list_animator = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Animator.design_appbar_state_list_animator;
 			global::PanCardView.Droid.Resource.Attribute.actionBarDivider = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.actionBarDivider;
 			global::PanCardView.Droid.Resource.Attribute.actionBarItemBackground = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.actionBarItemBackground;
@@ -370,7 +368,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Attribute.textAppearanceSearchResultTitle = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.textAppearanceSearchResultTitle;
 			global::PanCardView.Droid.Resource.Attribute.textAppearanceSmallPopupMenu = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.textAppearanceSmallPopupMenu;
 			global::PanCardView.Droid.Resource.Attribute.textColorAlertDialogListItem = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.textColorAlertDialogListItem;
-			global::PanCardView.Droid.Resource.Attribute.textColorError = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.textColorError;
 			global::PanCardView.Droid.Resource.Attribute.textColorSearchUrl = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.textColorSearchUrl;
 			global::PanCardView.Droid.Resource.Attribute.theme = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.theme;
 			global::PanCardView.Droid.Resource.Attribute.thickness = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Attribute.thickness;
@@ -417,8 +414,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Boolean.abc_action_bar_embed_tabs = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Boolean.abc_action_bar_embed_tabs;
 			global::PanCardView.Droid.Resource.Boolean.abc_allow_stacked_button_bar = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Boolean.abc_allow_stacked_button_bar;
 			global::PanCardView.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Boolean.abc_config_actionMenuItemAllCaps;
-			global::PanCardView.Droid.Resource.Boolean.abc_config_closeDialogWhenTouchOutside = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Boolean.abc_config_closeDialogWhenTouchOutside;
-			global::PanCardView.Droid.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent;
 			global::PanCardView.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.abc_background_cache_hint_selector_material_dark;
 			global::PanCardView.Droid.Resource.Color.abc_background_cache_hint_selector_material_light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.abc_background_cache_hint_selector_material_light;
 			global::PanCardView.Droid.Resource.Color.abc_btn_colored_borderless_text_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.abc_btn_colored_borderless_text_material;
@@ -476,7 +471,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Color.dim_foreground_disabled_material_light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.dim_foreground_disabled_material_light;
 			global::PanCardView.Droid.Resource.Color.dim_foreground_material_dark = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.dim_foreground_material_dark;
 			global::PanCardView.Droid.Resource.Color.dim_foreground_material_light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.dim_foreground_material_light;
-			global::PanCardView.Droid.Resource.Color.error_color_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.error_color_material;
 			global::PanCardView.Droid.Resource.Color.foreground_material_dark = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.foreground_material_dark;
 			global::PanCardView.Droid.Resource.Color.foreground_material_light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.foreground_material_light;
 			global::PanCardView.Droid.Resource.Color.highlighted_text_material_dark = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Color.highlighted_text_material_dark;
@@ -527,7 +521,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
 			global::PanCardView.Droid.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
 			global::PanCardView.Droid.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
-			global::PanCardView.Droid.Resource.Dimension.abc_action_bar_progress_bar_size = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Dimension.abc_action_bar_progress_bar_size;
 			global::PanCardView.Droid.Resource.Dimension.abc_action_bar_stacked_max_height = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Dimension.abc_action_bar_stacked_max_height;
 			global::PanCardView.Droid.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
 			global::PanCardView.Droid.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
@@ -1272,7 +1265,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Layout.select_dialog_multichoice_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Layout.select_dialog_multichoice_material;
 			global::PanCardView.Droid.Resource.Layout.select_dialog_singlechoice_material = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Layout.select_dialog_singlechoice_material;
 			global::PanCardView.Droid.Resource.Layout.support_simple_spinner_dropdown_item = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Layout.support_simple_spinner_dropdown_item;
-			global::PanCardView.Droid.Resource.Layout.tooltip = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Layout.tooltip;
 			global::PanCardView.Droid.Resource.String.abc_action_bar_home_description = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.String.abc_action_bar_home_description;
 			global::PanCardView.Droid.Resource.String.abc_action_bar_up_description = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.String.abc_action_bar_up_description;
 			global::PanCardView.Droid.Resource.String.abc_action_menu_overflow_description = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.String.abc_action_menu_overflow_description;
@@ -1417,18 +1409,11 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
 			global::PanCardView.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
 			global::PanCardView.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
-			global::PanCardView.Droid.Resource.Style.Base_V11_Theme_AppCompat_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V11_Theme_AppCompat_Dialog;
-			global::PanCardView.Droid.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog;
-			global::PanCardView.Droid.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog;
-			global::PanCardView.Droid.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView;
-			global::PanCardView.Droid.Resource.Style.Base_V12_Widget_AppCompat_EditText = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V12_Widget_AppCompat_EditText;
-			global::PanCardView.Droid.Resource.Style.Base_V14_Widget_Design_AppBarLayout = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V14_Widget_Design_AppBarLayout;
 			global::PanCardView.Droid.Resource.Style.Base_V21_Theme_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V21_Theme_AppCompat;
 			global::PanCardView.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
 			global::PanCardView.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light;
 			global::PanCardView.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
 			global::PanCardView.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
-			global::PanCardView.Droid.Resource.Style.Base_V21_Widget_Design_AppBarLayout = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V21_Widget_Design_AppBarLayout;
 			global::PanCardView.Droid.Resource.Style.Base_V22_Theme_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V22_Theme_AppCompat;
 			global::PanCardView.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V22_Theme_AppCompat_Light;
 			global::PanCardView.Droid.Resource.Style.Base_V23_Theme_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V23_Theme_AppCompat;
@@ -1436,7 +1421,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Style.Base_V26_Theme_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V26_Theme_AppCompat;
 			global::PanCardView.Droid.Resource.Style.Base_V26_Theme_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V26_Theme_AppCompat_Light;
 			global::PanCardView.Droid.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
-			global::PanCardView.Droid.Resource.Style.Base_V26_Widget_Design_AppBarLayout = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V26_Widget_Design_AppBarLayout;
 			global::PanCardView.Droid.Resource.Style.Base_V7_Theme_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V7_Theme_AppCompat;
 			global::PanCardView.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
 			global::PanCardView.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_V7_Theme_AppCompat_Light;
@@ -1502,7 +1486,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
 			global::PanCardView.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar;
 			global::PanCardView.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
-			global::PanCardView.Droid.Resource.Style.Base_Widget_Design_AppBarLayout = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_Widget_Design_AppBarLayout;
 			global::PanCardView.Droid.Resource.Style.Base_Widget_Design_TabLayout = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Base_Widget_Design_TabLayout;
 			global::PanCardView.Droid.Resource.Style.CardView = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.CardView;
 			global::PanCardView.Droid.Resource.Style.CardView_Dark = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.CardView_Dark;
@@ -1512,10 +1495,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat;
 			global::PanCardView.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
 			global::PanCardView.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
-			global::PanCardView.Droid.Resource.Style.Platform_V11_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_V11_AppCompat;
-			global::PanCardView.Droid.Resource.Style.Platform_V11_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_V11_AppCompat_Light;
-			global::PanCardView.Droid.Resource.Style.Platform_V14_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_V14_AppCompat;
-			global::PanCardView.Droid.Resource.Style.Platform_V14_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_V14_AppCompat_Light;
 			global::PanCardView.Droid.Resource.Style.Platform_V21_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_V21_AppCompat;
 			global::PanCardView.Droid.Resource.Style.Platform_V21_AppCompat_Light = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_V21_AppCompat_Light;
 			global::PanCardView.Droid.Resource.Style.Platform_V25_AppCompat = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Platform_V25_AppCompat;
@@ -1724,7 +1703,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Style.Widget_Design_BottomNavigationView = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Widget_Design_BottomNavigationView;
 			global::PanCardView.Droid.Resource.Style.Widget_Design_BottomSheet_Modal = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Widget_Design_BottomSheet_Modal;
 			global::PanCardView.Droid.Resource.Style.Widget_Design_CollapsingToolbar = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Widget_Design_CollapsingToolbar;
-			global::PanCardView.Droid.Resource.Style.Widget_Design_CoordinatorLayout = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Widget_Design_CoordinatorLayout;
 			global::PanCardView.Droid.Resource.Style.Widget_Design_FloatingActionButton = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Widget_Design_FloatingActionButton;
 			global::PanCardView.Droid.Resource.Style.Widget_Design_NavigationView = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Widget_Design_NavigationView;
 			global::PanCardView.Droid.Resource.Style.Widget_Design_ScrimInsetsFrameLayout = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Style.Widget_Design_ScrimInsetsFrameLayout;
@@ -2013,7 +1991,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 			global::PanCardView.Droid.Resource.Styleable.DesignTheme = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Styleable.DesignTheme;
 			global::PanCardView.Droid.Resource.Styleable.DesignTheme_bottomSheetDialogTheme = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Styleable.DesignTheme_bottomSheetDialogTheme;
 			global::PanCardView.Droid.Resource.Styleable.DesignTheme_bottomSheetStyle = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Styleable.DesignTheme_bottomSheetStyle;
-			global::PanCardView.Droid.Resource.Styleable.DesignTheme_textColorError = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Styleable.DesignTheme_textColorError;
 			global::PanCardView.Droid.Resource.Styleable.DrawerArrowToggle = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Styleable.DrawerArrowToggle;
 			global::PanCardView.Droid.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
 			global::PanCardView.Droid.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::Xam.Plugin.SimpleAppIntro.Droid.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
