@@ -161,7 +161,6 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
         private void OnPositionChanged(int page)
         {
             Console.Write($"Slide changed to page {page}");
-            //DisplayAlert("Position changed", "Done", "OK");
         }
 
         #endregion

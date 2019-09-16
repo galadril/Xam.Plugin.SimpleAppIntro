@@ -96,12 +96,13 @@ welcomePage.DoneButtonImage = "baseline_done_white_24.png";
 ```
 
 
-# Callback 
-You can use the two callback methods to get more info on the events 
+# Callbacks
+You can use the next callback methods to get more info on the events 
 
 ```
       welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
       welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
+      welcomePage.OnPositionChanged = OnPositionChanged;
 	  
       /// <summary>
       /// On skip button clicked
@@ -117,6 +118,14 @@ You can use the two callback methods to get more info on the events
       private void OnDoneButtonClicked()
       {
          DisplayAlert("Result", "Done", "OK");
+      }
+
+	  /// <summary>
+      /// On slide position changed event
+      /// </summary>
+      private void OnPositionChanged(int page)
+      {
+         Console.Write($"Slide changed to page {page}");
       }
 
 ```
