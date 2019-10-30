@@ -23,6 +23,7 @@ You can now create new simple sliders and add them to a SimpleAppIntro page.
 We support 4 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide
 
 ```
+
  var welcomePage = new SimpleAppIntro(new List<object>() {
             new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
             null, "#FFFFFF", "#FFFFFF",
@@ -46,6 +47,7 @@ We support 4 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/Check
       });
 
 MainPage.Navigation.PushModalAsync(welcomePage);
+
 ```
 
 
@@ -54,10 +56,12 @@ You can also specify your own Lottie animated icon for each slide. Just create a
 We support 4 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide (same usage as above)
 
 ```
+
 var welcomePage = new AnimatedSimpleAppIntro(new List<object>() {
             new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
             null, "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16))
+	    
 ```
 
 
@@ -65,6 +69,7 @@ var welcomePage = new AnimatedSimpleAppIntro(new List<object>() {
 You can set the next properties
 
 ```
+
 welcomePage.DoneText = "Finish";
 welcomePage.SkipText = "Skip";
 welcomePage.NextText = "Next";
@@ -75,8 +80,9 @@ welcomePage.ShowNextButton = true;
 
 // Vibrate
 // NOTE: you will probably need to ask VIBRATE permission in Manifest.
-welcomePage.Vibrate = true,
-welcomePage.VibrateDuration = 0.2,
+welcomePage.Vibrate = true;
+welcomePage.VibrateDuration = 0.2;
+
 ```
 
 
@@ -84,6 +90,7 @@ welcomePage.VibrateDuration = 0.2,
 You can set the next colors
 
 ```
+
 welcomePage.BarColor = "#607D8B";
 welcomePage.SkipButtonBackgroundColor = "#FF9700";
 welcomePage.DoneButtonBackgroundColor = "#8AC149";
@@ -92,12 +99,15 @@ welcomePage.NextButtonBackgroundColor = "#8AC149";
 welcomePage.SkipButtonTextColor = "#FFFFFF";
 welcomePage.NextButtonTextColor = "#FFFFFF";
 welcomePage.DoneButtonTextColor = "#FFFFFF";
+
 ```
 
 And you can also specify an image instead of the default skip/done/next buttons:
 
 ```
+
 welcomePage.DoneButtonImage = "baseline_done_white_24.png";
+
 ```
 
 
@@ -105,6 +115,7 @@ welcomePage.DoneButtonImage = "baseline_done_white_24.png";
 You can use the next callback methods to get more info on the events 
 
 ```
+
       welcomePage.OnSkipButtonClicked = OnSkipButtonClicked;
       welcomePage.OnDoneButtonClicked = OnDoneButtonClicked;
       welcomePage.OnPositionChanged = OnPositionChanged;
