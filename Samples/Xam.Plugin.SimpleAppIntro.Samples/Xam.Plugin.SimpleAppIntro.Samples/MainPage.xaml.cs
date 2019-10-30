@@ -63,7 +63,11 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 // Callbacks
                 OnSkipButtonClicked = OnSkipButtonClicked,
                 OnDoneButtonClicked = OnDoneButtonClicked,
-                OnPositionChanged = OnPositionChanged
+                OnPositionChanged = OnPositionChanged,
+
+                // Vibrate
+                Vibrate = true,
+                VibrateDuration = 1,
             };
 
             Navigation.PushModalAsync(welcomePage);
@@ -109,7 +113,12 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 // Callbacks
                 OnSkipButtonClicked = OnSkipButtonClicked,
                 OnDoneButtonClicked = OnDoneButtonClicked,
-                OnPositionChanged = OnPositionChanged
+                OnPositionChanged = OnPositionChanged,
+
+                // Vibrate
+                // NOTE: you will probably need to ask VIBRATE permission in Manifest.
+                Vibrate = true,
+                VibrateDuration = 0.2,
             };
 
             Navigation.PushModalAsync(welcomePage);

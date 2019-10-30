@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -38,6 +39,9 @@ namespace Xam.Plugin.SimpleAppIntro
         private string _skipText = "Skip";
         private string _doneText = "Done";
         private string _nextText = "Next";
+
+        private bool _vibrate = true;
+        private double _vibrateDuration = 0;
 
         private List<object> _slides;
 
@@ -177,6 +181,16 @@ namespace Xam.Plugin.SimpleAppIntro
         public int Position { get { return _position; } set { _position = value; OnPropertyChanged(); PositionChangedAsync(); } }
 
         /// <summary>
+        /// Vibrate
+        /// </summary>
+        public bool Vibrate { get { return _vibrate; } set { _vibrate = value; OnPropertyChanged(); } }
+
+        /// <summary>
+        /// Vibrate Duration
+        /// </summary>
+        public double VibrateDuration { get { return _vibrateDuration; } set { _vibrateDuration = value; OnPropertyChanged(); } }
+
+        /// <summary>
         /// Show position indicator
         /// </summary>
         public bool ShowPositionIndicator { get { return _shipIndicator; } set { _shipIndicator = value; OnPropertyChanged(); } }
@@ -285,6 +299,7 @@ namespace Xam.Plugin.SimpleAppIntro
         /// </summary>
         private void Next_Clicked(object sender, EventArgs e)
         {
+            CheckVibrate();
             if (Position < (Slides.Count - 1))
                 this.Position++;
         }
@@ -294,6 +309,7 @@ namespace Xam.Plugin.SimpleAppIntro
         /// </summary>
         private void Skip_Clicked(object sender, EventArgs e)
         {
+            CheckVibrate();
             OnSkipButtonClicked?.Invoke();
             Navigation.PopModalAsync();
         }
@@ -303,6 +319,7 @@ namespace Xam.Plugin.SimpleAppIntro
         /// </summary>
         private void Done_Clicked(object sender, EventArgs e)
         {
+            CheckVibrate();
             OnDoneButtonClicked?.Invoke();
             Navigation.PopModalAsync();
         }
@@ -403,6 +420,31 @@ namespace Xam.Plugin.SimpleAppIntro
                     if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
                     else doneImage.IsVisible = false;
                 }
+            }
+        }
+
+        /// <summary>
+        /// Check if we need to do a vibration
+        /// </summary>
+        public void CheckVibrate()
+        {
+            try
+            {
+                if(Vibrate)
+                {
+                    if(VibrateDuration>0)
+                        Vibration.Vibrate(TimeSpan.FromSeconds(VibrateDuration));
+                    else
+                        Vibration.Vibrate();
+                }
+            }
+            catch (FeatureNotSupportedException)
+            {
+                // Feature not supported on device
+            }
+            catch (Exception)
+            {
+                // Other error has occurred.
             }
         }
 
