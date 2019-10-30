@@ -72,6 +72,11 @@ welcomePage.NextText = "Next";
 welcomePage.ShowPositionIndicator = true;
 welcomePage.ShowSkipButton = true;
 welcomePage.ShowNextButton = true;
+
+// Vibrate
+// NOTE: you will probably need to ask VIBRATE permission in Manifest.
+welcomePage.Vibrate = true,
+welcomePage.VibrateDuration = 0.2,
 ```
 
 
