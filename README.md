@@ -1,4 +1,3 @@
-# Nuget Builds 
 [![nuget](https://img.shields.io/nuget/v/Xam.Plugin.SimpleAppIntro.svg)](https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro/)
 
 
