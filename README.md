@@ -1,4 +1,4 @@
-[![nuget](https://img.shields.io/nuget/v/Xam.Plugin.SimpleAppIntro.svg)](https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro/)
+[![nuget](https://img.shields.io/nuget/v/Xam.Plugin.SimpleAppIntro.svg)](https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro/) ![Nuget](https://img.shields.io/nuget/dt/Xam.Plugin.SimpleAppIntro)
 
 
 # Xam.Plugin.SimpleAppIntro
