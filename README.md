@@ -1,5 +1,6 @@
 [![nuget](https://img.shields.io/nuget/v/Xam.Plugin.SimpleAppIntro.svg)](https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro/) ![Nuget](https://img.shields.io/nuget/dt/Xam.Plugin.SimpleAppIntro)
 
+![Icon](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/Samples/Xam.Plugin.SimpleAppIntro.Samples/Xam.Plugin.SimpleAppIntro.Samples.Android/Resources/mipmap-xxhdpi/Icon.png)
 
 # Xam.Plugin.SimpleAppIntro
 Just a nice and simple AppIntro for your Xamarin Forms project 
