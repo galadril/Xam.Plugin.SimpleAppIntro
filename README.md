@@ -2,6 +2,7 @@
 
 ![Icon](https://raw.githubusercontent.com/galadril/Xam.Plugin.SimpleAppIntro/master/Samples/Xam.Plugin.SimpleAppIntro.Samples/Xam.Plugin.SimpleAppIntro.Samples.Android/Resources/mipmap-xxhdpi/Icon.png)
 
+
 # Xam.Plugin.SimpleAppIntro
 Just a nice and simple AppIntro for your Xamarin Forms project 
 
@@ -146,3 +147,5 @@ You can use the next callback methods to get more info on the events
 
 ```
 
+Check our more detailed docs here:
+[Detailed docs](https://github.com/galadril/Xam.Plugin.SimpleAppIntro/blob/master/Xam.Plugin.SimpleAppIntro/doc.md)
