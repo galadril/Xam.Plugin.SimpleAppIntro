@@ -1,26 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-   x:Class="Xam.Plugin.SimpleAppIntro.Samples.MainPage"
-   xmlns="http://xamarin.com/schemas/2014/forms"
-   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-   Visual="Material">
-   <ContentPage.Content>
-      <StackLayout Padding="20">
-         <Label
-            HorizontalOptions="CenterAndExpand"
-            LineBreakMode="WordWrap"
-            Text="Just a nice and simple AppIntro for your Xamarin Forms project"
-            VerticalOptions="CenterAndExpand" />
-         <Button
-            BackgroundColor="Gray"
-            Clicked="Open_Clicked"
-            HorizontalOptions="FillAndExpand"
-            Text="Open Animated SimpleAppIntro Sample" />
-         <Button
-            BackgroundColor="Gray"
-            Clicked="Open_Static_Clicked"
-            HorizontalOptions="FillAndExpand"
-            Text="Open Static SimpleAppIntro Sample" />
-      </StackLayout>
-   </ContentPage.Content>
+    x:Class="Xam.Plugin.SimpleAppIntro.Samples.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Visual="Material">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label
+                HorizontalOptions="CenterAndExpand"
+                LineBreakMode="WordWrap"
+                Text="Just a nice and simple AppIntro for your Xamarin Forms project"
+                VerticalOptions="CenterAndExpand" />
+            <Button
+                BackgroundColor="Gray"
+                Clicked="Open_Clicked"
+                HorizontalOptions="FillAndExpand"
+                Text="Open Animated SimpleAppIntro Sample" />
+            <Button
+                BackgroundColor="Gray"
+                Clicked="Open_Static_Clicked"
+                HorizontalOptions="FillAndExpand"
+                Text="Open Static SimpleAppIntro Sample" />
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

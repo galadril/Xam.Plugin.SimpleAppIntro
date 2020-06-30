@@ -1,200 +1,200 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-   x:Class="Xam.Plugin.SimpleAppIntro.SimpleAppIntro"
-   xmlns="http://xamarin.com/schemas/2014/forms"
-   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-   xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
-   xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
-   xmlns:selector="clr-namespace:Xam.Plugin.SimpleAppIntro.Selector"
-   xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views"
-   Visual="Material">
-   <ContentPage.Resources>
-      <ResourceDictionary>
-         <DataTemplate x:Key="SlideTemplate">
-            <view:SlideView />
-         </DataTemplate>
-         <DataTemplate x:Key="ButtonTemplate">
-            <view:ButtonSlideView />
-         </DataTemplate>
-         <DataTemplate x:Key="SwitchTemplate">
-            <view:SwitchSlideView />
-         </DataTemplate>
-         <DataTemplate x:Key="CheckboxTemplate">
-            <view:CheckboxSlideView />
-         </DataTemplate>
-         <selector:SlideSelector
-            x:Key="slideSelector"
-            ButtonTemplate="{StaticResource ButtonTemplate}"
-            CheckboxTemplate="{StaticResource CheckboxTemplate}"
-            SlideTemplate="{StaticResource SlideTemplate}"
-            SwitchTemplate="{StaticResource SwitchTemplate}" />
-      </ResourceDictionary>
-   </ContentPage.Resources>
-   <ContentPage.Content>
-      <Grid
-         x:Name="mainGrid"
-         ColumnSpacing="0"
-         HorizontalOptions="FillAndExpand"
-         RowSpacing="0"
-         VerticalOptions="FillAndExpand">
-         <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="60" />
-         </Grid.RowDefinitions>
-         <cards:CarouselView
-            x:Name="carouselView"
-            Grid.Row="0"
-            Grid.Column="0"
-            Margin="0,0,0,-60"
-            HorizontalOptions="FillAndExpand"
-            IsClippedToBounds="true"
-            IsCyclical="false"
-            ItemTemplate="{StaticResource slideSelector}"
-            SelectedIndex="{Binding Position, Mode=TwoWay}"
-            VerticalOptions="FillAndExpand" />
-         <Grid
-            Grid.Row="1"
-            Grid.Column="0"
+    x:Class="Xam.Plugin.SimpleAppIntro.SimpleAppIntro"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cards="clr-namespace:PanCardView;assembly=PanCardView"
+    xmlns:cntrl="clr-namespace:Xam.Plugin.SimpleAppIntro.Controls"
+    xmlns:selector="clr-namespace:Xam.Plugin.SimpleAppIntro.Selector"
+    xmlns:view="clr-namespace:Xam.Plugin.SimpleAppIntro.Views"
+    Visual="Material">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="SlideTemplate">
+                <view:SlideView />
+            </DataTemplate>
+            <DataTemplate x:Key="ButtonTemplate">
+                <view:ButtonSlideView />
+            </DataTemplate>
+            <DataTemplate x:Key="SwitchTemplate">
+                <view:SwitchSlideView />
+            </DataTemplate>
+            <DataTemplate x:Key="CheckboxTemplate">
+                <view:CheckboxSlideView />
+            </DataTemplate>
+            <selector:SlideSelector
+                x:Key="slideSelector"
+                ButtonTemplate="{StaticResource ButtonTemplate}"
+                CheckboxTemplate="{StaticResource CheckboxTemplate}"
+                SlideTemplate="{StaticResource SlideTemplate}"
+                SwitchTemplate="{StaticResource SwitchTemplate}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid
+            x:Name="mainGrid"
             ColumnSpacing="0"
             HorizontalOptions="FillAndExpand"
             RowSpacing="0"
             VerticalOptions="FillAndExpand">
-            <Grid.ColumnDefinitions>
-               <ColumnDefinition Width="150" />
-               <ColumnDefinition Width="*" />
-               <ColumnDefinition Width="150" />
-            </Grid.ColumnDefinitions>
-            <cntrl:CarouselIndicators
-               x:Name="carouselIndicators"
-               Grid.Row="0"
-               Grid.Column="1"
-               FlowDirection="LeftToRight"
-               HorizontalOptions="CenterAndExpand"
-               IndicatorHeight="10"
-               IndicatorWidth="10"
-               IsVisible="{Binding ShowPositionIndicator}"
-               Position="{Binding Position, Mode=TwoWay}"
-               SelectedIndicator="selected_circle.png"
-               UnselectedIndicator="unselected_circle.png"
-               VerticalOptions="CenterAndExpand" />
-            <StackLayout
-               Grid.Row="0"
-               Grid.Column="0"
-               HorizontalOptions="FillAndExpand"
-               Spacing="0">
-               <StackLayout
-                  x:Name="skipButton"
-                  Padding="15"
-                  AutomationId="skipButton"
-                  BackgroundColor="{Binding SkipButtonBackgroundColor}"
-                  HeightRequest="60"
-                  HorizontalOptions="StartAndExpand"
-                  IsVisible="False"
-                  Opacity="0"
-                  Orientation="Vertical"
-                  VerticalOptions="FillAndExpand">
-                  <Label
-                     HorizontalOptions="Center"
-                     LineBreakMode="TailTruncation"
-                     Style="{DynamicResource SubtitleStyle}"
-                     Text="{Binding SkipText}"
-                     TextColor="{Binding SkipButtonTextColor}"
-                     VerticalOptions="Center" />
-                  <StackLayout.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
-                  </StackLayout.GestureRecognizers>
-               </StackLayout>
-               <Image
-                  x:Name="skipImage"
-                  Margin="0,15,20,60"
-                  AutomationId="skipImage"
-                  HorizontalOptions="StartAndExpand"
-                  IsVisible="False"
-                  Opacity="0"
-                  Source="{Binding SkipButtonImage}"
-                  VerticalOptions="End">
-                  <Image.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
-                  </Image.GestureRecognizers>
-               </Image>
-            </StackLayout>
-            <StackLayout
-               Grid.Row="0"
-               Grid.Column="2"
-               HorizontalOptions="FillAndExpand"
-               Spacing="0">
-               <Image
-                  x:Name="doneImage"
-                  Margin="0,15,20,60"
-                  AutomationId="doneImage"
-                  HorizontalOptions="EndAndExpand"
-                  IsVisible="False"
-                  Opacity="0"
-                  Source="{Binding DoneButtonImage}"
-                  VerticalOptions="End">
-                  <Image.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
-                  </Image.GestureRecognizers>
-               </Image>
-               <StackLayout
-                  x:Name="doneButton"
-                  Padding="15"
-                  AutomationId="doneButton"
-                  BackgroundColor="{Binding DoneButtonBackgroundColor}"
-                  HeightRequest="60"
-                  HorizontalOptions="EndAndExpand"
-                  IsVisible="False"
-                  Opacity="0"
-                  Orientation="Vertical"
-                  VerticalOptions="FillAndExpand">
-                  <Label
-                     HorizontalOptions="Center"
-                     LineBreakMode="TailTruncation"
-                     Style="{DynamicResource SubtitleStyle}"
-                     Text="{Binding DoneText}"
-                     TextColor="{Binding DoneButtonTextColor}"
-                     VerticalOptions="Center" />
-                  <StackLayout.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
-                  </StackLayout.GestureRecognizers>
-               </StackLayout>
-               <Image
-                  x:Name="nextImage"
-                  Margin="0,15,20,60"
-                  AutomationId="nextImage"
-                  HorizontalOptions="EndAndExpand"
-                  IsVisible="False"
-                  Opacity="0"
-                  Source="{Binding NextButtonImage}"
-                  VerticalOptions="End">
-                  <Image.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
-                  </Image.GestureRecognizers>
-               </Image>
-               <StackLayout
-                  x:Name="nextButton"
-                  Padding="15"
-                  AutomationId="nextButton"
-                  BackgroundColor="{Binding NextButtonBackgroundColor}"
-                  HeightRequest="60"
-                  HorizontalOptions="EndAndExpand"
-                  IsVisible="False"
-                  Opacity="0"
-                  Orientation="Vertical"
-                  VerticalOptions="FillAndExpand">
-                  <Label
-                     HorizontalOptions="Center"
-                     LineBreakMode="TailTruncation"
-                     Style="{DynamicResource SubtitleStyle}"
-                     Text="{Binding NextText}"
-                     TextColor="{Binding NextButtonTextColor}"
-                     VerticalOptions="Center" />
-                  <StackLayout.GestureRecognizers>
-                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
-                  </StackLayout.GestureRecognizers>
-               </StackLayout>
-            </StackLayout>
-         </Grid>
-      </Grid>
-   </ContentPage.Content>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <cards:CarouselView
+                x:Name="carouselView"
+                Grid.Row="0"
+                Grid.Column="0"
+                Margin="0,0,0,-60"
+                HorizontalOptions="FillAndExpand"
+                IsClippedToBounds="true"
+                IsCyclical="false"
+                ItemTemplate="{StaticResource slideSelector}"
+                SelectedIndex="{Binding Position, Mode=TwoWay}"
+                VerticalOptions="FillAndExpand" />
+            <Grid
+                Grid.Row="1"
+                Grid.Column="0"
+                ColumnSpacing="0"
+                HorizontalOptions="FillAndExpand"
+                RowSpacing="0"
+                VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <cntrl:CarouselIndicators
+                    x:Name="carouselIndicators"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FlowDirection="LeftToRight"
+                    HorizontalOptions="CenterAndExpand"
+                    IndicatorHeight="10"
+                    IndicatorWidth="10"
+                    IsVisible="{Binding ShowPositionIndicator}"
+                    Position="{Binding Position, Mode=TwoWay}"
+                    SelectedIndicator="selected_circle.png"
+                    UnselectedIndicator="unselected_circle.png"
+                    VerticalOptions="CenterAndExpand" />
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="0">
+                    <StackLayout
+                        x:Name="skipButton"
+                        Padding="15"
+                        AutomationId="skipButton"
+                        BackgroundColor="{Binding SkipButtonBackgroundColor}"
+                        HeightRequest="60"
+                        HorizontalOptions="StartAndExpand"
+                        IsVisible="False"
+                        Opacity="0"
+                        Orientation="Vertical"
+                        VerticalOptions="FillAndExpand">
+                        <Label
+                            HorizontalOptions="Center"
+                            LineBreakMode="TailTruncation"
+                            Style="{DynamicResource SubtitleStyle}"
+                            Text="{Binding SkipText}"
+                            TextColor="{Binding SkipButtonTextColor}"
+                            VerticalOptions="Center" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Image
+                        x:Name="skipImage"
+                        Margin="0,15,20,60"
+                        AutomationId="skipImage"
+                        HorizontalOptions="StartAndExpand"
+                        IsVisible="False"
+                        Opacity="0"
+                        Source="{Binding SkipButtonImage}"
+                        VerticalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+                <StackLayout
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="0">
+                    <Image
+                        x:Name="doneImage"
+                        Margin="0,15,20,60"
+                        AutomationId="doneImage"
+                        HorizontalOptions="EndAndExpand"
+                        IsVisible="False"
+                        Opacity="0"
+                        Source="{Binding DoneButtonImage}"
+                        VerticalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <StackLayout
+                        x:Name="doneButton"
+                        Padding="15"
+                        AutomationId="doneButton"
+                        BackgroundColor="{Binding DoneButtonBackgroundColor}"
+                        HeightRequest="60"
+                        HorizontalOptions="EndAndExpand"
+                        IsVisible="False"
+                        Opacity="0"
+                        Orientation="Vertical"
+                        VerticalOptions="FillAndExpand">
+                        <Label
+                            HorizontalOptions="Center"
+                            LineBreakMode="TailTruncation"
+                            Style="{DynamicResource SubtitleStyle}"
+                            Text="{Binding DoneText}"
+                            TextColor="{Binding DoneButtonTextColor}"
+                            VerticalOptions="Center" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Done_Clicked" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                    <Image
+                        x:Name="nextImage"
+                        Margin="0,15,20,60"
+                        AutomationId="nextImage"
+                        HorizontalOptions="EndAndExpand"
+                        IsVisible="False"
+                        Opacity="0"
+                        Source="{Binding NextButtonImage}"
+                        VerticalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <StackLayout
+                        x:Name="nextButton"
+                        Padding="15"
+                        AutomationId="nextButton"
+                        BackgroundColor="{Binding NextButtonBackgroundColor}"
+                        HeightRequest="60"
+                        HorizontalOptions="EndAndExpand"
+                        IsVisible="False"
+                        Opacity="0"
+                        Orientation="Vertical"
+                        VerticalOptions="FillAndExpand">
+                        <Label
+                            HorizontalOptions="Center"
+                            LineBreakMode="TailTruncation"
+                            Style="{DynamicResource SubtitleStyle}"
+                            Text="{Binding NextText}"
+                            TextColor="{Binding NextButtonTextColor}"
+                            VerticalOptions="Center" />
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Next_Clicked" />
+                        </StackLayout.GestureRecognizers>
+                    </StackLayout>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
