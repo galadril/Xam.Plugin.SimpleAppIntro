@@ -111,6 +111,23 @@ welcomePage.DoneButtonImage = "baseline_done_white_24.png";
 
 ```
 
+# Custom ContentViews
+You can now set a ContentView as a custom slide in this control!
+
+```
+
+ var welcomePage = new SimpleAppIntro(new List<object>() {
+            
+                new CustomSlide
+                {
+                    BindingContext = this
+                },
+               
+      })
+      
+```
+
+
 
 # Callbacks
 You can use the next callback methods to get more info on the events 
