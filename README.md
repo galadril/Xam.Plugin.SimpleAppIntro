@@ -21,7 +21,8 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 
 # Usage
 You can now create new simple sliders and add them to a SimpleAppIntro page.
-We support 4 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide
+We support 4 per-build types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide.
+I these doesn't work for you, you can always use a custom ContentView as a slide
 
 ```
 
