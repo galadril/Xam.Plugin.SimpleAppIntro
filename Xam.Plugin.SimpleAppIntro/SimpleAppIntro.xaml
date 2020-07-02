@@ -94,10 +94,10 @@
                         Orientation="Vertical"
                         VerticalOptions="FillAndExpand">
                         <Label
+                            x:Name="skipLabel"
                             HorizontalOptions="Center"
                             LineBreakMode="TailTruncation"
                             Style="{DynamicResource SubtitleStyle}"
-                            Text="{Binding SkipText}"
                             TextColor="{Binding SkipButtonTextColor}"
                             VerticalOptions="Center" />
                         <StackLayout.GestureRecognizers>
@@ -111,7 +111,6 @@
                         HorizontalOptions="StartAndExpand"
                         IsVisible="False"
                         Opacity="0"
-                        Source="{Binding SkipButtonImage}"
                         VerticalOptions="End">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Skip_Clicked" />
