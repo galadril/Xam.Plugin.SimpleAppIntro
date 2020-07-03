@@ -31,24 +31,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
         /// </summary>
         private void Open_Static_Clicked(object sender, EventArgs e)
         {
-            var welcomePage = new SimpleAppIntro(new List<object>() {
-            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
-                null, "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-                new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
-                null, "Click here", null,"#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-                new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  "cup_icon.png",
-                null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-                new CustomSlide
-                {
-                    BindingContext = this
-                },
-                new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
-                null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-      })
+            var welcomePage = new SimpleAppIntro(GetSlides())
             {
                 // Properties
                 ShowPositionIndicator = true,
@@ -56,17 +39,15 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 ShowNextButton = true,
                 DoneText = "Finish",
                 NextText = "Next",
+                BackText = "Back",
                 SkipText = "Skip",
 
                 // Theming
                 BarColor = "#607D8B",
+                BackButtonBackgroundColor = "#FF9700",
                 SkipButtonBackgroundColor = "#FF9700",
                 DoneButtonBackgroundColor = "#8AC149",
                 NextButtonBackgroundColor = "#8AC149",
-
-                //// Use images instead of buttons
-                DoneButtonImage = "baseline_done_white_24.png",
-                //NextButtonImage = "baseline_done_white_24.png",
 
                 // Callbacks
                 OnSkipButtonClicked = OnSkipButtonClicked,
@@ -84,26 +65,36 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
         /// <summary>
         /// Open the welcome page
         /// </summary>
+        private void Open_Default_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushModalAsync(new SimpleAppIntro(GetSlides()));
+        }
+
+        /// <summary>
+        /// Open the welcome page
+        /// </summary>
+        private void Open_Icons_Clicked(object sender, EventArgs e)
+        {
+            var welcomePage = new SimpleAppIntro(GetSlides())
+            {
+                ShowBackButton = true,
+                DoneButtonImage = "baseline_done_white_24.png",
+                NextButtonImage = "baseline_keyboard_arrow_right_white_24.png",
+                SkipButtonImage = "baseline_double_arrow_white_24.png",
+                BackButtonImage = "baseline_keyboard_arrow_left_white_24.png",
+                OnSkipButtonClicked = OnSkipButtonClicked,
+                OnDoneButtonClicked = OnDoneButtonClicked,
+                OnPositionChanged = OnPositionChanged,
+            };
+            Navigation.PushModalAsync(welcomePage);
+        }
+
+        /// <summary>
+        /// Open the welcome page
+        /// </summary>
         private void Open_Clicked(object sender, EventArgs e)
         {
-            var welcomePage = new AnimatedSimpleAppIntro(new List<object>() {
-            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
-                null, "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-                 new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
-                null, "Click here", null, "#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-                new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  "twitter_heart.json",
-                null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-                new CustomSlide
-                {
-                    BindingContext = this
-                },
-                new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
-                null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
-                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
-      })
+            var welcomePage = new AnimatedSimpleAppIntro(GetAnimatedSlides())
             {
                 // Properties
                 ShowPositionIndicator = true,
@@ -134,6 +125,53 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
             };
 
             Navigation.PushModalAsync(welcomePage);
+        }
+
+
+        /// <summary>
+        /// Get some default slides
+        /// </summary>
+        private List<object> GetSlides()
+        {
+            return new List<object>() {
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "cup_icon.png",
+                null, "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "cup_icon.png",
+                null, "Click here", null,"#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  "cup_icon.png",
+                null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
+                null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+            };
+        }
+
+        /// <summary>
+        /// Get animated slides
+        /// </summary>
+        private List<object> GetAnimatedSlides()
+        {
+            return new List<object>() {
+            new Slide(new SlideConfig("Welcome", "This is a sample app showing off the new App Intro", "world.json",
+                null, "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                 new ButtonSlide(new ButtonSlideConfig("Slides", "You can add slides and have a clean app intro", "twitter_heart.json",
+                null, "Click here", null, "#FFFFFF", new Command(() => OnButtonClicked()), "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  "twitter_heart.json",
+                null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new CustomSlide
+                {
+                    BindingContext = this
+                },
+                new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
+                null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+             };
         }
 
         /// <summary>

@@ -20,6 +20,7 @@ namespace Xam.Plugin.SimpleAppIntro
         private List<string> UsedColors = new List<string>();
         private int _position;
         private bool _showSkip = true;
+        private bool _showBack = false;
         private bool _showNext = true;
         private bool _shipIndicator = true;
         private string _barColor = "#607D8B";
@@ -27,18 +28,22 @@ namespace Xam.Plugin.SimpleAppIntro
         private string _DoneButtonBackgroundColor = "#8BC34A";
         private string _NextButtonBackgroundColor = "#8BC34A";
         private string _SkipButtonBackgroundColor = "#8BC34A";
+        private string _BackButtonBackgroundColor = "#8BC34A";
 
         private string _DoneButtonTextColor = "#FFFFFF";
         private string _NextButtonTextColor = "#FFFFFF";
         private string _SkipButtonTextColor = "#FFFFFF";
+        private string _BackButtonTextColor = "#FFFFFF";
 
         private string _NextButtonImage = "";
         private string _DoneButtonImage = "";
         private string _SkipButtonImage = "";
+        private string _BackButtonImage = "";
 
         private string _skipText = "Skip";
         private string _doneText = "Done";
         private string _nextText = "Next";
+        private string _backText = "Back";
 
         private bool _vibrate = true;
         private double _vibrateDuration = 0;
@@ -146,6 +151,11 @@ namespace Xam.Plugin.SimpleAppIntro
         public string SkipButtonBackgroundColor { get { return _SkipButtonBackgroundColor; } set { _SkipButtonBackgroundColor = value; OnPropertyChanged(); } }
 
         /// <summary>
+        /// Back Button Background Color
+        /// </summary>
+        public string BackButtonBackgroundColor { get { return _BackButtonBackgroundColor; } set { _BackButtonBackgroundColor = value; OnPropertyChanged(); } }
+
+        /// <summary>
         /// Next Button Text Color
         /// </summary>
         public string NextButtonTextColor { get { return _NextButtonTextColor; } set { _NextButtonTextColor = value; OnPropertyChanged(); } }
@@ -161,6 +171,11 @@ namespace Xam.Plugin.SimpleAppIntro
         public string SkipButtonTextColor { get { return _SkipButtonTextColor; } set { _SkipButtonTextColor = value; OnPropertyChanged(); } }
 
         /// <summary>
+        /// Back Button Text Color
+        /// </summary>
+        public string BackButtonTextColor { get { return _BackButtonTextColor; } set { _BackButtonTextColor = value; OnPropertyChanged(); } }
+
+        /// <summary>
         /// NExt button image source
         /// </summary>
         public string NextButtonImage { get { return _NextButtonImage; } set { _NextButtonImage = value; OnPropertyChanged(); } }
@@ -169,6 +184,11 @@ namespace Xam.Plugin.SimpleAppIntro
         /// Done button image source
         /// </summary>
         public string DoneButtonImage { get { return _DoneButtonImage; } set { _DoneButtonImage = value; OnPropertyChanged(); } }
+
+        /// <summary>
+        /// Back Button Image Source
+        /// </summary>
+        public string BackButtonImage { get { return _BackButtonImage; } set { _BackButtonImage = value; OnPropertyChanged(); } }
 
         /// <summary>
         /// Skip Button Image Source
@@ -201,9 +221,19 @@ namespace Xam.Plugin.SimpleAppIntro
         public bool ShowSkipButton { get { return _showSkip; } set { _showSkip = value; OnPropertyChanged(); PositionChangedAsync(); } }
 
         /// <summary>
+        /// Show back button
+        /// </summary>
+        public bool ShowBackButton { get { return _showBack; } set { _showBack = value; OnPropertyChanged(); PositionChangedAsync(); } }
+
+        /// <summary>
         /// Show next button
         /// </summary>
         public bool ShowNextButton { get { return _showNext; } set { _showNext = value; OnPropertyChanged(); PositionChangedAsync(); } }
+
+        /// <summary>
+        /// Show back text
+        /// </summary>
+        public string BackText { get { return _backText; } set { _backText = value; OnPropertyChanged(); } }
 
         /// <summary>
         /// Show skip text
@@ -230,7 +260,16 @@ namespace Xam.Plugin.SimpleAppIntro
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
+            if (ShowBackButton)
+            {
+                skipLabel.Text = Position == 0 ? SkipText : BackText;
+                skipImage.Source = Position == 0 ? SkipButtonImage : BackButtonImage;
+            }
+            else
+            {
+                skipLabel.Text = SkipText;
+                skipImage.Source = SkipButtonImage;
+            }
             if (ShowSkipButton)
             {
                 if (string.IsNullOrEmpty(SkipButtonImage))
@@ -310,8 +349,13 @@ namespace Xam.Plugin.SimpleAppIntro
         private void Skip_Clicked(object sender, EventArgs e)
         {
             CheckVibrate();
-            OnSkipButtonClicked?.Invoke();
-            Navigation.PopModalAsync();
+            if (ShowBackButton && Position > 0)
+                this.Position--;
+            else
+            {
+                OnSkipButtonClicked?.Invoke();
+                Navigation.PopModalAsync();
+            }
         }
 
         /// <summary>
@@ -332,6 +376,18 @@ namespace Xam.Plugin.SimpleAppIntro
 #pragma warning restore S3168
         {
             OnPositionChanged?.Invoke(Position);
+
+            if (ShowBackButton)
+            {
+                skipLabel.Text = Position == 0 ? SkipText : BackText;
+                skipImage.Source = Position == 0 ? SkipButtonImage : BackButtonImage;
+            }
+            else
+            {
+                skipLabel.Text = SkipText;
+                skipImage.Source = SkipButtonImage;
+            }
+
             if (Position == (Slides.Count - 1)) ///last slide
             {
                 if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = true;
@@ -351,13 +407,13 @@ namespace Xam.Plugin.SimpleAppIntro
                     }
                 }
                 if (string.IsNullOrEmpty(DoneButtonImage) && string.IsNullOrEmpty(SkipButtonImage))
-                    await Task.WhenAll(doneButton.FadeTo(1, 200), skipButton.FadeTo(0, 200), hideNextButton);
+                    await Task.WhenAll(doneButton.FadeTo(1, 200), !ShowBackButton ? skipButton.FadeTo(0, 200) : skipButton.FadeTo(1, 200), hideNextButton);
                 else if (string.IsNullOrEmpty(DoneButtonImage))
-                    await Task.WhenAll(doneButton.FadeTo(1, 200), skipImage.FadeTo(0, 200), hideNextButton);
+                    await Task.WhenAll(doneButton.FadeTo(1, 200), !ShowBackButton ? skipButton.FadeTo(0, 200) : skipButton.FadeTo(1, 200), hideNextButton);
                 else if (string.IsNullOrEmpty(SkipButtonImage))
-                    await Task.WhenAll(doneImage.FadeTo(1, 200), skipButton.FadeTo(0, 200), hideNextButton);
+                    await Task.WhenAll(doneImage.FadeTo(1, 200), !ShowBackButton ? skipButton.FadeTo(0, 200) : skipButton.FadeTo(1, 200), hideNextButton);
                 else
-                    await Task.WhenAll(doneImage.FadeTo(1, 200), skipImage.FadeTo(0, 200), hideNextButton);
+                    await Task.WhenAll(doneImage.FadeTo(1, 200), !ShowBackButton ? skipButton.FadeTo(0, 200) : skipButton.FadeTo(1, 200), hideNextButton);
 
                 if (string.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
                 else skipImage.IsVisible = true;
@@ -430,9 +486,9 @@ namespace Xam.Plugin.SimpleAppIntro
         {
             try
             {
-                if(Vibrate)
+                if (Vibrate)
                 {
-                    if(VibrateDuration>0)
+                    if (VibrateDuration > 0)
                         Vibration.Vibrate(TimeSpan.FromSeconds(VibrateDuration));
                     else
                         Vibration.Vibrate();

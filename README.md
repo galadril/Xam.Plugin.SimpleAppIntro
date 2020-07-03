@@ -75,10 +75,12 @@ You can set the next properties
 welcomePage.DoneText = "Finish";
 welcomePage.SkipText = "Skip";
 welcomePage.NextText = "Next";
+welcomePage.BackText = "Next";
 
 welcomePage.ShowPositionIndicator = true;
 welcomePage.ShowSkipButton = true;
 welcomePage.ShowNextButton = true;
+welcomePage.ShowBackButton = true;
 
 // Vibrate
 // NOTE: you will probably need to ask VIBRATE permission in Manifest.
@@ -97,9 +99,11 @@ welcomePage.BarColor = "#607D8B";
 welcomePage.SkipButtonBackgroundColor = "#FF9700";
 welcomePage.DoneButtonBackgroundColor = "#8AC149";
 welcomePage.NextButtonBackgroundColor = "#8AC149";
+welcomePage.BackButtonBackgroundColor = "#8AC149";
 
 welcomePage.SkipButtonTextColor = "#FFFFFF";
 welcomePage.NextButtonTextColor = "#FFFFFF";
+welcomePage.BackButtonTextColor = "#FFFFFF";
 welcomePage.DoneButtonTextColor = "#FFFFFF";
 
 ```
@@ -109,6 +113,9 @@ And you can also specify an image instead of the default skip/done/next buttons:
 ```
 
 welcomePage.DoneButtonImage = "baseline_done_white_24.png";
+welcomePage.BackButtonImage = "baseline_done_white_24.png";
+welcomePage.NextButtonImage = "baseline_done_white_24.png";
+welcomePage.SkipButtonImage = "baseline_done_white_24.png";
 
 ```
 

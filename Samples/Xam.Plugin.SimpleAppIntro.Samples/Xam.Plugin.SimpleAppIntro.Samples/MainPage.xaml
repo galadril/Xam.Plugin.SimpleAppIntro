@@ -13,14 +13,24 @@
                 VerticalOptions="CenterAndExpand" />
             <Button
                 BackgroundColor="Gray"
-                Clicked="Open_Clicked"
+                Clicked="Open_Default_Clicked"
                 HorizontalOptions="FillAndExpand"
-                Text="Open Animated SimpleAppIntro Sample" />
+                Text="Default SimpleAppIntro Sample" />
+            <Button
+                BackgroundColor="Gray"
+                Clicked="Open_Icons_Clicked"
+                HorizontalOptions="FillAndExpand"
+                Text="Icons SimpleAppIntro Sample" />
             <Button
                 BackgroundColor="Gray"
                 Clicked="Open_Static_Clicked"
                 HorizontalOptions="FillAndExpand"
                 Text="Open Static SimpleAppIntro Sample" />
+            <Button
+                BackgroundColor="Gray"
+                Clicked="Open_Clicked"
+                HorizontalOptions="FillAndExpand"
+                Text="Open Animated SimpleAppIntro Sample" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
