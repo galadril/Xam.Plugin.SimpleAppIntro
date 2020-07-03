@@ -106,7 +106,7 @@
                     </StackLayout>
                     <Image
                         x:Name="skipImage"
-                        Margin="0,15,20,60"
+                        Margin="20,15,0,60"
                         AutomationId="skipImage"
                         HorizontalOptions="StartAndExpand"
                         IsVisible="False"

@@ -260,7 +260,16 @@ namespace Xam.Plugin.SimpleAppIntro
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-
+            if (ShowBackButton)
+            {
+                skipLabel.Text = Position == 0 ? SkipText : BackText;
+                skipImage.Source = Position == 0 ? SkipButtonImage : BackButtonImage;
+            }
+            else
+            {
+                skipLabel.Text = SkipText;
+                skipImage.Source = SkipButtonImage;
+            }
             if (ShowSkipButton)
             {
                 if (string.IsNullOrEmpty(SkipButtonImage))
