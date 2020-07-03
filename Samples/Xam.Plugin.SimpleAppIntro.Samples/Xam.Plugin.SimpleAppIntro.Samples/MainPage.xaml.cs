@@ -143,6 +143,10 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  "cup_icon.png",
                 null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
                 FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new CustomSlide
+                {
+                    BindingContext = this
+                },
                 new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
                 null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
                 FontAttributes.Bold, FontAttributes.Italic, 24, 16)),

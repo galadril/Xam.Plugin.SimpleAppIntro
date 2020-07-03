@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Xam.Plugin.SimpleAppIntro.Interface;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -60,7 +61,6 @@ namespace Xam.Plugin.SimpleAppIntro
         public SimpleAppIntro(IEnumerable<object> slides)
         {
             InitializeComponent();
-
             if (slides != null)
             {
                 Slides = slides.ToList();
@@ -218,17 +218,17 @@ namespace Xam.Plugin.SimpleAppIntro
         /// <summary>
         /// Show skip button
         /// </summary>
-        public bool ShowSkipButton { get { return _showSkip; } set { _showSkip = value; OnPropertyChanged(); PositionChangedAsync(); } }
+        public bool ShowSkipButton { get { return _showSkip; } set { _showSkip = value; OnPropertyChanged(); } }
 
         /// <summary>
         /// Show back button
         /// </summary>
-        public bool ShowBackButton { get { return _showBack; } set { _showBack = value; OnPropertyChanged(); PositionChangedAsync(); } }
+        public bool ShowBackButton { get { return _showBack; } set { _showBack = value; OnPropertyChanged(); } }
 
         /// <summary>
         /// Show next button
         /// </summary>
-        public bool ShowNextButton { get { return _showNext; } set { _showNext = value; OnPropertyChanged(); PositionChangedAsync(); } }
+        public bool ShowNextButton { get { return _showNext; } set { _showNext = value; OnPropertyChanged(); } }
 
         /// <summary>
         /// Show back text
@@ -338,6 +338,8 @@ namespace Xam.Plugin.SimpleAppIntro
         /// </summary>
         private void Next_Clicked(object sender, EventArgs e)
         {
+            if (!isValid(Position))
+                return;
             CheckVibrate();
             if (Position < (Slides.Count - 1))
                 this.Position++;
@@ -348,6 +350,8 @@ namespace Xam.Plugin.SimpleAppIntro
         /// </summary>
         private void Skip_Clicked(object sender, EventArgs e)
         {
+            if (!isValid(Position))
+                return;
             CheckVibrate();
             if (ShowBackButton && Position > 0)
                 this.Position--;
@@ -359,10 +363,23 @@ namespace Xam.Plugin.SimpleAppIntro
         }
 
         /// <summary>
+        /// Is the slide valide?
+        /// </summary>
+        public bool isValid(int position)
+        {
+            var currentSlide = Slides[position];
+            if (currentSlide is IValidate validateSlide)
+                return validateSlide.Validate();
+            return true;
+        }
+
+        /// <summary>
         /// Done clicked
         /// </summary>
         private void Done_Clicked(object sender, EventArgs e)
         {
+            if (!isValid(Position))
+                return;
             CheckVibrate();
             OnDoneButtonClicked?.Invoke();
             Navigation.PopModalAsync();
@@ -376,7 +393,6 @@ namespace Xam.Plugin.SimpleAppIntro
 #pragma warning restore S3168
         {
             OnPositionChanged?.Invoke(Position);
-
             if (ShowBackButton)
             {
                 skipLabel.Text = Position == 0 ? SkipText : BackText;
