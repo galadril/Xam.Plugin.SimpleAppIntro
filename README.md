@@ -135,6 +135,35 @@ You can now set a ContentView as a custom slide in this control!
       
 ```
 
+You can also use 2 interfaces while using custom slide views, ISave and IValidate.
+For example you have a custom contentview slide with a profile firstname/lastname view that needs to be validated and saved on the slide.
+
+
+(See sample project for a custom view with implemented interfaces)
+```
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class CustomSlide : ContentView, IValidate, ISave
+    {
+
+
+    ...
+
+      public async void Save()
+      {
+         await viewmodel.SaveProfileName();
+      }
+
+      public bool Validate()
+      {
+         return viewmodel.ValidateName();
+      }
+
+
+      ...
+
+```
+
+
 
 
 # Callbacks
