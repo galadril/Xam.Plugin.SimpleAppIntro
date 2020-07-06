@@ -402,6 +402,7 @@ namespace Xam.Plugin.SimpleAppIntro
             if (!isValid(Position))
                 return;
             CheckVibrate();
+            isSave(_position);
             OnDoneButtonClicked?.Invoke();
             Navigation.PopModalAsync();
         }
