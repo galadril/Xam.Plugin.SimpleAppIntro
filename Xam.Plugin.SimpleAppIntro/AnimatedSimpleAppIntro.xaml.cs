@@ -202,7 +202,24 @@ namespace Xam.Plugin.SimpleAppIntro
         /// <summary>
         /// Current position
         /// </summary>
-        public int Position { get { return _position; } set { _position = value; OnPropertyChanged(); PositionChangedAsync(); } }
+        public int Position
+        {
+            get { return _position; }
+            set
+            {
+                if (_position == value)
+                    return;
+
+                var _oldposition = _position;
+                _position = value;
+                if (isValid(_oldposition))
+                {
+                    isSave(_position);
+                    OnPropertyChanged();
+                    PositionChangedAsync();
+                }
+            }
+        }
 
         /// <summary>
         /// Vibrate
@@ -387,6 +404,16 @@ namespace Xam.Plugin.SimpleAppIntro
             CheckVibrate();
             OnDoneButtonClicked?.Invoke();
             Navigation.PopModalAsync();
+        }
+
+        /// <summary>
+        /// Does the slide support saving
+        /// </summary>
+        public void isSave(int position)
+        {
+            var currentSlide = Slides[position];
+            if (currentSlide is ISave saveSlide)
+                saveSlide.Save();
         }
 
 #pragma warning disable S3168
