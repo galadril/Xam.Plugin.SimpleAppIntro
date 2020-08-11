@@ -203,3 +203,13 @@ You can use the next callback methods to get more info on the events
 
 Check our more detailed docs here:
 [Detailed docs](https://github.com/galadril/Xam.Plugin.SimpleAppIntro/blob/master/Xam.Plugin.SimpleAppIntro/doc.md)
+
+
+
+
+
+# Donation
+
+If you like to say thanks, you could always buy me a cup of coffee (/beer)!   
+(Thanks!)  
+[![PayPal donate button](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://www.paypal.me/markheinis)
