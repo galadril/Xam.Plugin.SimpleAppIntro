@@ -201,10 +201,6 @@ You can use the next callback methods to get more info on the events
 
 ```
 
-Check our more detailed docs here:
-[Detailed docs](https://github.com/galadril/Xam.Plugin.SimpleAppIntro/blob/master/Xam.Plugin.SimpleAppIntro/doc.md)
-
-
 
 
 
