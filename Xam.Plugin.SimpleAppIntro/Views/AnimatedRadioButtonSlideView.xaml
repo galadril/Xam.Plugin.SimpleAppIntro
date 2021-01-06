@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="Xam.Plugin.SimpleAppIntro.Views.AnimatedRadioButtonSlideView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    Visual="Material">
+    <ContentView.Content>
+        <StackLayout
+            x:Name="mainStack"
+            Padding="20"
+            BackgroundColor="{Binding Color}"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <Grid
+                x:Name="mainGrid"
+                Margin="0"
+                ColumnSpacing="0"
+                HorizontalOptions="FillAndExpand"
+                RowSpacing="0"
+                VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="7*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="6*" />
+                </Grid.RowDefinitions>
+                <lottie:AnimationView
+                    x:Name="icon"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Animation="{Binding Icon}"
+                    AutoPlay="true"
+                    HeightRequest="200"
+                    HorizontalOptions="CenterAndExpand"
+                    RepeatMode="Infinite"
+                    VerticalOptions="EndAndExpand"
+                    WidthRequest="200">
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="OrientationStates">
+                            <VisualState Name="Portrait">
+                                <VisualState.Setters>
+                                    <Setter Property="Grid.Row" Value="0" />
+                                    <Setter Property="Grid.Column" Value="0" />
+                                    <Setter Property="Grid.ColumnSpan" Value="3" />
+                                    <Setter Property="Grid.RowSpan" Value="1" />
+                                    <Setter Property="VerticalOptions" Value="EndAndExpand" />
+                                    <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                                    <Setter Property="Margin" Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Landscape">
+                                <VisualState.Setters>
+                                    <Setter Property="Grid.Row" Value="0" />
+                                    <Setter Property="Grid.Column" Value="1" />
+                                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                                    <Setter Property="Grid.RowSpan" Value="2" />
+                                    <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                                    <Setter Property="HorizontalOptions" Value="End" />
+                                    <Setter Property="Margin" Value="0,-30,0,0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </lottie:AnimationView>
+
+                <StackLayout
+                    x:Name="text"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    HorizontalOptions="FillAndExpand"
+                    Spacing="0"
+                    VerticalOptions="StartAndExpand">
+                    <Label
+                        x:Name="title"
+                        Margin="0,30,0,0"
+                        FontAttributes="{Binding TitleFontAttributes}"
+                        FontSize="{Binding TitleFontSize}"
+                        HorizontalOptions="FillAndExpand"
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource TitleStyle}"
+                        Text="{Binding Title}"
+                        TextColor="{Binding TitleTextColor}"
+                        VerticalOptions="StartAndExpand"
+                        VerticalTextAlignment="Start">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup Name="OrientationStates">
+                                <VisualState Name="Portrait">
+                                    <VisualState.Setters>
+                                        <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                        <Setter Property="HorizontalTextAlignment" Value="Center" />
+                                        <Setter Property="Margin" Value="0,30,0,0" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                                <VisualState Name="Landscape">
+                                    <VisualState.Setters>
+                                        <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                        <Setter Property="HorizontalTextAlignment" Value="Center" />
+                                        <Setter Property="Margin" Value="0,0,0,0" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                    </Label>
+                    <StackLayout Orientation="Vertical">
+                        <Label
+                            x:Name="description"
+                            Margin="0,16,0,0"
+                            FontAttributes="{Binding DescriptionFontAttributes}"
+                            FontSize="{Binding DescriptionFontSize}"
+                            HorizontalOptions="FillAndExpand"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="WordWrap"
+                            Style="{DynamicResource BodyStyle}"
+                            Text="{Binding Description}"
+                            TextColor="{Binding DescriptionTextColor}"
+                            VerticalOptions="CenterAndExpand">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="OrientationStates">
+                                    <VisualState Name="Portrait">
+                                        <VisualState.Setters>
+                                            <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                            <Setter Property="HorizontalTextAlignment" Value="Center" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                    <VisualState Name="Landscape">
+                                        <VisualState.Setters>
+                                            <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                            <Setter Property="HorizontalTextAlignment" Value="Center" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Label>
+                        <ListView  x:Name="listview" ItemSelected="ListView_ItemSelected" ItemsSource="{Binding Items}" HorizontalOptions="FillAndExpand" VerticalOptions="StartAndExpand" SeparatorVisibility="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <RadioButton 
+                                                        Content="{Binding Content}"
+                                                        TextColor="{Binding TextColor}"
+                                                        FontAttributes="{Binding FontAttributes}"
+                                                        FontSize="{Binding FontSize}"
+                                                        Style="{DynamicResource Style}"
+                                                        GroupName="{Binding GroupName}"
+                                                        IsChecked="{Binding IsChecked}" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup Name="OrientationStates">
+                            <VisualState Name="Portrait">
+                                <VisualState.Setters>
+                                    <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                                    <Setter Property="VerticalOptions" Value="StartAndExpand" />
+                                    <Setter Property="Grid.Row" Value="1" />
+                                    <Setter Property="Grid.RowSpan" Value="1" />
+                                    <Setter Property="Grid.Column" Value="0" />
+                                    <Setter Property="Grid.ColumnSpan" Value="3" />
+                                    <Setter Property="Margin" Value="0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState Name="Landscape">
+                                <VisualState.Setters>
+                                    <Setter Property="HorizontalOptions" Value="StartAndExpand" />
+                                    <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+                                    <Setter Property="Grid.Row" Value="0" />
+                                    <Setter Property="Grid.Column" Value="2" />
+                                    <Setter Property="Grid.ColumnSpan" Value="1" />
+                                    <Setter Property="Grid.RowSpan" Value="2" />
+                                    <Setter Property="Margin" Value="16,8,0,0" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateManager.VisualStateGroups>
+                </StackLayout>
+
+            </Grid>
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup Name="OrientationStates">
+                    <VisualState Name="Portrait">
+                        <VisualState.Setters>
+                            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                            <Setter Property="Margin" Value="0,0,0,0" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState Name="Landscape">
+                        <VisualState.Setters>
+                            <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                            <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                            <Setter Property="Margin" Value="0,-40,0,0" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

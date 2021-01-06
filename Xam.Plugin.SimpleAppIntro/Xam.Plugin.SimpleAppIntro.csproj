@@ -31,6 +31,9 @@
     <Compile Update="SimpleAppIntro.xaml.cs">
       <DependentUpon>SimpleAppIntro.xaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\AnimatedRadioButtonSlideView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
+    </Compile>
     <Compile Update="Views\AnimatedCheckboxSlideView.xaml.cs">
       <DependentUpon>AnimatedCheckboxSlideView.xaml</DependentUpon>
     </Compile>
@@ -42,6 +45,9 @@
     </Compile>
     <Compile Update="Views\ButtonSlideView.xaml.cs">
       <DependentUpon>ButtonSlideView.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\RadioButtonSlideView.xaml.cs">
+      <DependentUpon>%(Filename)</DependentUpon>
     </Compile>
     <Compile Update="Views\CheckboxSlideView.xaml.cs">
       <DependentUpon>CheckboxSlideView.xaml</DependentUpon>

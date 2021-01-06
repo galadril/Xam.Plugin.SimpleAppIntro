@@ -80,6 +80,8 @@ namespace Xam.Plugin.SimpleAppIntro
                         sslide.Color = GetColor(sslide.Color);
                     else if (s is CheckboxSlide sclide)
                         sclide.Color = GetColor(sclide.Color);
+                    else if (s is RadioButtonSlide srlide)
+                        srlide.Color = GetColor(srlide.Color);
                 }
             }
 

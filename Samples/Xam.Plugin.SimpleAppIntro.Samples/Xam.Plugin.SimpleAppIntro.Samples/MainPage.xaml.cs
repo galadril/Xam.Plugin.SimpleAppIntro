@@ -150,6 +150,15 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app",  "cup_icon.png",
                 null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
                 FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new RadioButtonSlide(new RadioButtonSlideConfig("RadioButtons", "Let users flip some radiobuttons via the app intro:",  "cup_icon.png",
+                null, new List<RadioButtonItem>()
+                {
+                    new RadioButtonItem(){Content= "option 1 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 2 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 3 - group 2", GroupName="slide2", deIsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 4 - group 2", GroupName="slide2", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) }
+                }, "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
             };
         }
 
@@ -175,6 +184,15 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 new SwitchSlide(new SwitchSlideConfig("Other", "Tell your user what they can do with your app", "send_message_done.json",
                 null, true, new Command<bool>((value) => OnSwitchClicked(value)), "#FFFFFF", "#FFFFFF",
                 FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+                new RadioButtonSlide(new RadioButtonSlideConfig("RadioButtons", "Let users flip some radiobuttons via the app intro:",  "world.json",
+                null, new List<RadioButtonItem>()
+                {
+                    new RadioButtonItem(){Content= "option 1 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 2 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 3 - group 2", GroupName="slide2", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 4 - group 2", GroupName="slide2", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) }
+                }, "#FFFFFF", "#FFFFFF",
+                FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
              };
         }
 
@@ -184,6 +202,14 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
         private void OnSwitchClicked(bool isToggled)
         {
             DisplayAlert("Switch Slide", $"Switch toggled {isToggled}", "OK");
+        }
+
+        /// <summary>
+        /// On switch clicked
+        /// </summary>
+        private void OnRadioButtonChanged(RadioButtonItem newValues)
+        {
+            DisplayAlert("RadioButton Slide", $"Radiobutton toggled: {newValues.Content}", "OK");
         }
 
         /// <summary>

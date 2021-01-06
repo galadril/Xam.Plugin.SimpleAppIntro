@@ -22,11 +22,15 @@
             <DataTemplate x:Key="CheckboxTemplate">
                 <view:CheckboxSlideView />
             </DataTemplate>
+            <DataTemplate x:Key="RadioButtonSlideView">
+                <view:RadioButtonSlideView />
+            </DataTemplate>
             <selector:SlideSelector
                 x:Key="slideSelector"
                 ButtonTemplate="{StaticResource ButtonTemplate}"
                 CheckboxTemplate="{StaticResource CheckboxTemplate}"
                 SlideTemplate="{StaticResource SlideTemplate}"
+                RadioButtonTemplate="{StaticResource RadioButtonSlideView}"
                 SwitchTemplate="{StaticResource SwitchTemplate}" />
         </ResourceDictionary>
     </ContentPage.Resources>
