@@ -21,7 +21,7 @@ https://www.nuget.org/packages/Xam.Plugin.SimpleAppIntro
 
 # Usage
 You can now create new simple sliders and add them to a SimpleAppIntro page.
-We support 4 per-build types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide.
+We support 5 per-build types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide/RadioButtonSlide(new).
 I these doesn't work for you, you can always use a custom ContentView as a slide
 
 ```
@@ -46,6 +46,17 @@ I these doesn't work for you, you can always use a custom ContentView as a slide
 	    new CheckboxSlide(new CheckboxSlideConfig("Checkbox", "Let your user set specific settings via a AppIntro screen.",  	     "cup_icon.png",
             null, true, new Command<bool>((value) => OnCheckboxClicked(value)), "#FFFFFF", "#FFFFFF",
             FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
+
+
+            new RadioButtonSlide(new RadioButtonSlideConfig("RadioButtons", "Let users flip some radiobuttons via the app intro:",  "world.json",
+                null, new List<RadioButtonItem>()
+                {
+                    new RadioButtonItem(){Content= "option 1 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 2 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 3 - group 2", GroupName="slide2", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 4 - group 2", GroupName="slide2", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) }
+                }, "#FFFFFF", "#FFFFFF",
+
       });
 
 MainPage.Navigation.PushModalAsync(welcomePage);
