@@ -1,7 +1,6 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Lottie.Forms.Droid;
 
 namespace Xam.Plugin.SimpleAppIntro.Droid
 {
@@ -14,7 +13,6 @@ namespace Xam.Plugin.SimpleAppIntro.Droid
 
          global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
-         AnimationViewRenderer.Init();
          LoadApplication(new App());
       }
    }

@@ -37,7 +37,7 @@
                     AutoPlay="true"
                     HeightRequest="200"
                     HorizontalOptions="CenterAndExpand"
-                    Loop="true"
+                    RepeatMode="Infinite"
                     VerticalOptions="EndAndExpand"
                     WidthRequest="200">
                     <VisualStateManager.VisualStateGroups>

@@ -34,10 +34,10 @@
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Animation="{Binding Icon}"
-                    AutoPlay="true"
                     HeightRequest="200"
                     HorizontalOptions="CenterAndExpand"
-                    Loop="true"
+                    AutoPlay="True"
+                    RepeatMode="Infinite"
                     VerticalOptions="EndAndExpand"
                     WidthRequest="200">
                     <VisualStateManager.VisualStateGroups>

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
-using Lottie.Forms.iOS.Renderers;
 using UIKit;
 
 namespace Xam.Plugin.SimpleAppIntro.iOS
@@ -24,7 +23,6 @@ namespace Xam.Plugin.SimpleAppIntro.iOS
       public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
       {
          global::Xamarin.Forms.Forms.Init();
-         AnimationViewRenderer.Init();
          LoadApplication(new App());
 
          return base.FinishedLaunching(uiApplication, launchOptions);
