@@ -155,7 +155,7 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 {
                     new RadioButtonItem(){Content= "option 1 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
                     new RadioButtonItem(){Content= "option 2 - group 1", GroupName="slide1", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
-                    new RadioButtonItem(){Content= "option 3 - group 2", GroupName="slide2", deIsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
+                    new RadioButtonItem(){Content= "option 3 - group 2", GroupName="slide2", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) },
                     new RadioButtonItem(){Content= "option 4 - group 2", GroupName="slide2", IsChecked = false, TextColor =  "#FFFFFF", FontAttributes = FontAttributes.None, FontSize = 16, Command =new Command<RadioButtonItem>((value) => OnRadioButtonChanged(value)) }
                 }, "#FFFFFF", "#FFFFFF",
                 FontAttributes.Bold, FontAttributes.Italic, 24, 16)),
