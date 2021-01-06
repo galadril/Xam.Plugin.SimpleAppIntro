@@ -66,7 +66,7 @@ MainPage.Navigation.PushModalAsync(welcomePage);
 
 # Animated
 You can also specify your own Lottie animated icon for each slide. Just create an AnimatedSimpleAppIntro like:
-We support 4 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide (same usage as above)
+We support 5 types of slides at this moment, Slide/ButtonSlide/SwitchSlide/CheckboxSlide/RadioButtonSlide (same usage as above)
 
 ```
 
