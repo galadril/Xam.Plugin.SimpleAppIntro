@@ -279,6 +279,7 @@ namespace Xam.Plugin.SimpleAppIntro
         protected override async void OnAppearing()
         {
             base.OnAppearing();
+
             if (ShowBackButton)
             {
                 skipLabel.Text = Position == 0 ? SkipText : BackText;
@@ -289,6 +290,7 @@ namespace Xam.Plugin.SimpleAppIntro
                 skipLabel.Text = SkipText;
                 skipImage.Source = SkipButtonImage;
             }
+
             if (ShowSkipButton)
             {
                 if (string.IsNullOrEmpty(SkipButtonImage))
@@ -401,7 +403,7 @@ namespace Xam.Plugin.SimpleAppIntro
             if (currentSlide is ISave saveSlide)
                 saveSlide.Save();
         }
-        
+
         /// <summary>
         /// Done clicked
         /// </summary>
@@ -423,10 +425,16 @@ namespace Xam.Plugin.SimpleAppIntro
 #pragma warning restore S3168
         {
             OnPositionChanged?.Invoke(Position);
+
             if (ShowBackButton)
             {
-                skipLabel.Text = Position == 0 ? SkipText : BackText;
-                skipImage.Source = Position == 0 ? SkipButtonImage : BackButtonImage;
+                skipLabel.Text = BackText;
+                skipImage.Source = BackButtonImage;
+                if (ShowSkipButton && Position == 0)
+                {
+                    skipLabel.Text = SkipText;
+                    skipImage.Source = SkipButtonImage;
+                }
             }
             else
             {
@@ -434,24 +442,35 @@ namespace Xam.Plugin.SimpleAppIntro
                 skipImage.Source = SkipButtonImage;
             }
 
+            Task hideNextButton = Task.Delay(0);
+            Task showNextButton = Task.Delay(0);
+            if (ShowNextButton)
+            {
+                if (string.IsNullOrEmpty(NextButtonImage))
+                {
+                    nextButton.IsVisible = false;
+                    hideNextButton = nextButton.FadeTo(0, 200);
+                    showNextButton = nextButton.FadeTo(1, 200);
+                }
+                else
+                {
+                    nextImage.IsVisible = false;
+                    hideNextButton = nextImage.FadeTo(0, 200);
+                    showNextButton = nextImage.FadeTo(1, 200);
+                }
+            }
+
             if (Position == (Slides.Count - 1)) ///last slide
             {
-                if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = true;
-                else doneImage.IsVisible = true;
-                Task hideNextButton = Task.Delay(0);
                 if (ShowNextButton)
                 {
-                    if (string.IsNullOrEmpty(NextButtonImage))
-                    {
-                        nextButton.IsVisible = false;
-                        hideNextButton = nextButton.FadeTo(0, 200);
-                    }
-                    else
-                    {
-                        nextImage.IsVisible = false;
-                        hideNextButton = nextImage.FadeTo(0, 200);
-                    }
+                    if (string.IsNullOrEmpty(NextButtonImage)) nextButton.IsVisible = false;
+                    else nextImage.IsVisible = false;
                 }
+
+                if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = true;
+                else doneImage.IsVisible = true;
+
                 if (string.IsNullOrEmpty(DoneButtonImage) && string.IsNullOrEmpty(SkipButtonImage))
                     await Task.WhenAll(doneButton.FadeTo(1, 200), !ShowBackButton ? skipButton.FadeTo(0, 200) : skipButton.FadeTo(1, 200), hideNextButton);
                 else if (string.IsNullOrEmpty(DoneButtonImage))
@@ -466,24 +485,16 @@ namespace Xam.Plugin.SimpleAppIntro
             }
             else
             {
+                if (ShowNextButton)
+                {
+                    if (string.IsNullOrEmpty(NextButtonImage)) nextButton.IsVisible = true;
+                    else nextImage.IsVisible = true;
+                }
+
                 if (ShowSkipButton)
                 {
                     if (string.IsNullOrEmpty(SkipButtonImage)) skipButton.IsVisible = true;
                     else skipImage.IsVisible = true;
-                    Task showNextButton = Task.Delay(0);
-                    if (ShowNextButton)
-                    {
-                        if (string.IsNullOrEmpty(NextButtonImage))
-                        {
-                            nextButton.IsVisible = true;
-                            showNextButton = nextButton.FadeTo(1, 200);
-                        }
-                        else
-                        {
-                            nextImage.IsVisible = true;
-                            showNextButton = nextImage.FadeTo(1, 200);
-                        }
-                    }
 
                     if (string.IsNullOrEmpty(DoneButtonImage) && string.IsNullOrEmpty(SkipButtonImage))
                         await Task.WhenAll(skipButton.FadeTo(1, 200), doneButton.FadeTo(0, 200), showNextButton);
@@ -499,28 +510,36 @@ namespace Xam.Plugin.SimpleAppIntro
                 }
                 else
                 {
-                    Task showNextButton = Task.Delay(0);
-                    if (ShowNextButton)
+                    if (ShowBackButton)
                     {
-                        if (string.IsNullOrEmpty(NextButtonImage))
-                        {
-                            nextButton.IsVisible = true;
-                            showNextButton = nextButton.FadeTo(1, 200);
-                        }
+                        if (string.IsNullOrEmpty(BackButtonImage)) skipButton.IsVisible = true;
+                        else skipImage.IsVisible = true;
+
+                        if (string.IsNullOrEmpty(DoneButtonImage) && string.IsNullOrEmpty(BackButtonImage))
+                            await Task.WhenAll(skipButton.FadeTo(Position <= 0 ? 0:1, 200), doneButton.FadeTo(0, 200), showNextButton);
+                        else if (string.IsNullOrEmpty(DoneButtonImage))
+                            await Task.WhenAll(skipImage.FadeTo(Position <= 0 ? 0 : 1, 200), doneButton.FadeTo(0, 200), showNextButton);
+                        else if (string.IsNullOrEmpty(BackButtonImage))
+                            await Task.WhenAll(skipButton.FadeTo(Position <= 0 ? 0 : 1, 200), doneImage.FadeTo(0, 200), showNextButton);
                         else
-                        {
-                            nextImage.IsVisible = true;
-                            showNextButton = nextImage.FadeTo(1, 200);
-                        }
+                            await Task.WhenAll(skipImage.FadeTo(Position <= 0 ? 0 : 1, 200), doneImage.FadeTo(0, 200), showNextButton);
+
+                        if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
+                        else doneImage.IsVisible = false;
+
+                        if (string.IsNullOrEmpty(BackButtonImage)) skipLabel.IsVisible = Position <= 0 ? false : true;
+                        else skipImage.IsVisible = Position <= 0 ? false : true;
                     }
-
-                    if (string.IsNullOrEmpty(DoneButtonImage))
-                        await Task.WhenAll(doneButton.FadeTo(0, 200), showNextButton);
                     else
-                        await Task.WhenAll(doneImage.FadeTo(0, 200), showNextButton);
+                    {
+                        if (string.IsNullOrEmpty(DoneButtonImage))
+                            await Task.WhenAll(doneButton.FadeTo(0, 200), showNextButton);
+                        else
+                            await Task.WhenAll(doneImage.FadeTo(0, 200), showNextButton);
 
-                    if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
-                    else doneImage.IsVisible = false;
+                        if (string.IsNullOrEmpty(DoneButtonImage)) doneButton.IsVisible = false;
+                        else doneImage.IsVisible = false;
+                    }
                 }
             }
         }

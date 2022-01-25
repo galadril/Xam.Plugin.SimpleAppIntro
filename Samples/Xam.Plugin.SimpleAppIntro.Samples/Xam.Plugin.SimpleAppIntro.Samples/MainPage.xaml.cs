@@ -99,9 +99,11 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 // Properties
                 ShowPositionIndicator = true,
                 ShowSkipButton = true,
+                ShowBackButton = true,
                 ShowNextButton = true,
                 DoneText = "Finish",
                 NextText = "Next",
+                BackText = "Back",
                 SkipText = "Skip",
 
                 // Theming
@@ -109,9 +111,6 @@ namespace Xam.Plugin.SimpleAppIntro.Samples
                 SkipButtonBackgroundColor = "#FF9700",
                 DoneButtonBackgroundColor = "#8AC149",
                 NextButtonBackgroundColor = "#8AC149",
-
-                // Use images instead of buttons
-                DoneButtonImage = "baseline_done_white_24.png",
 
                 // Callbacks
                 OnSkipButtonClicked = OnSkipButtonClicked,
